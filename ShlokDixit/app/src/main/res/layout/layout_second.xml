@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/shlok"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/shlok"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"/>
+    <TextView
+        android:id="@+id/Heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shlok"
+        android:text="Shlok Dixit"
+        android:layout_gravity="center"
+        android:textSize="25sp"
+        android:textColor="#fb8c00"
+        android:layout_margin="10sp"
+        android:layout_centerInParent="true"/>
+
+
+    <TextView
+        android:id="@+id/E_Mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Heading"
+        android:text="dixit.sh@husky.neu.edu"
+        android:layout_gravity="center"
+        android:textSize="25sp"
+        android:textColor="#fb8c00"
+        android:layout_margin="10sp"
+        android:layout_centerInParent="true"/>
+
+
+    <TextView
+        android:id="@+id/Student_Info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/E_Mail"
+        android:text="1st year Graduate Student"
+        android:layout_gravity="center"
+        android:textSize="25sp"
+        android:textColor="#fb8c00"
+        android:layout_margin="10sp"
+        android:layout_centerInParent="true"/>
+
+
+    <TextView
+        android:id="@+id/Degree_Program"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Student_Info"
+        android:text="Master's in Computer Science "
+        android:layout_gravity="center"
+        android:textSize="25sp"
+        android:textColor="#fb8c00"
+        android:layout_margin="10sp"
+        android:layout_centerInParent="true"/>
+
+
+    <TextView
+        android:id="@+id/IMEI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Degree_Program"
+        android:layout_gravity="center"
+        android:text="IMEI-355470060366666"
+        android:textSize="25sp"
+        android:textColor="#fb8c00"
+        android:layout_margin="10sp"
+        android:layout_centerInParent="true"/>
+</LinearLayout>

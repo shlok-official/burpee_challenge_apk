@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import edu.neu.madcourse.shlokdixit.TicTacToe.GameActivity;
+
 public class FirstActivity extends AppCompatActivity {
 
     @Override
@@ -31,7 +33,6 @@ public class FirstActivity extends AppCompatActivity {
 
 
     }
-
     public void ABOUT(View view) {
         String about;
         about = ((Button) view).getText().toString();
@@ -42,4 +43,13 @@ public class FirstActivity extends AppCompatActivity {
 
     }
 
+    public void uttt(View view) {
+        String ttt;
+        ttt = ((Button) view).getText().toString();
+
+        Intent intent = new Intent(this, GameActivity.class);
+        startActivity(intent);
+
+
+    }
 }

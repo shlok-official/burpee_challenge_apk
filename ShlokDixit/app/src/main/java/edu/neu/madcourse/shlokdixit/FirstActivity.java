@@ -1,14 +1,14 @@
 package edu.neu.madcourse.shlokdixit;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import edu.neu.madcourse.shlokdixit.TicTacToe.GameActivity;
+import edu.neu.madcourse.shlokdixit.TicTacToe.MainActivity;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class FirstActivity extends AppCompatActivity {
         String ttt;
         ttt = ((Button) view).getText().toString();
 
-        Intent intent = new Intent(this, GameActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
 
 

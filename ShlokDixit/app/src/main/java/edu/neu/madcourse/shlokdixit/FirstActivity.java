@@ -30,7 +30,15 @@ public class FirstActivity extends Activity {
         });
 
 
+        Button Gen_error = (Button) findViewById(R.id.Gen_Err);
+        Gen_error.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                int a= 1/0;
+                
+            }
+        });
 
     }
     public void ABOUT(View view) {

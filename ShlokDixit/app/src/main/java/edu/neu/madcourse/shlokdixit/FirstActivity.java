@@ -34,8 +34,6 @@ public class FirstActivity extends Activity {
 
     }
     public void ABOUT(View view) {
-        String about;
-        about = ((Button) view).getText().toString();
 
         Intent intent = new Intent(this, SecondActivity.class);
         startActivity(intent);
@@ -44,8 +42,6 @@ public class FirstActivity extends Activity {
     }
 
     public void uttt(View view) {
-        String ttt;
-        ttt = ((Button) view).getText().toString();
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

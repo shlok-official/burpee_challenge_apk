@@ -36,7 +36,7 @@ public class FirstActivity extends Activity {
             @Override
             public void onClick(View v) {
                 int a= 1/0;
-                
+
             }
         });
 

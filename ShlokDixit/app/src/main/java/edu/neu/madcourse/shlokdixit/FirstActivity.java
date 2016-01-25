@@ -1,24 +1,22 @@
 package edu.neu.madcourse.shlokdixit;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 import edu.neu.madcourse.shlokdixit.TicTacToe.MainActivity;
 
-public class FirstActivity extends Activity {
+public class FirstActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_first);
-
-
-
-
         setTitle("Shlok Dixit");
+
+
         Button exit_button = (Button) findViewById(R.id.exit_button);
         exit_button.setOnClickListener(new View.OnClickListener() {
 

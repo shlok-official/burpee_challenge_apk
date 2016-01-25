@@ -13,6 +13,14 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_second);
 
+
+        /*(THE CODE BELOW IS GIVING ERRr DUE to API-23 PERMISSION SETTINGS,Hence I hardcoded the IMEI)
+
+        TelephonyManager tele_Manager =(TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+        tele_Manager.getDeviceId();
+        String deviceid = tele_Manager.getDeviceId();
+        TextView IMEI_id = (TextView) findViewById(R.id.IMEI);
+        IMEI_id.setText(""+deviceid);*/
         setTitle("Shlok Dixit");
 
     }

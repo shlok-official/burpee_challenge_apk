@@ -15,9 +15,7 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_second);
-
-
-        /*(THE CODE BELOW IS GIVING ERRr DUE to API-23 PERMISSION SETTINGS,Hence I hardcoded the IMEI)*/
+        
 
         TelephonyManager tele_Manager =(TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
         tele_Manager.getDeviceId();

@@ -63,7 +63,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="IMEI-355470060366666"
         android:textSize="25sp"
         android:textColor="#fb8c00"
         android:layout_margin="10sp"

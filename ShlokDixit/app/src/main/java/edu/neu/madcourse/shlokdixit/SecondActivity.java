@@ -1,8 +1,11 @@
 package edu.neu.madcourse.shlokdixit;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.TelephonyManager;
+import android.widget.TextView;
 
 /**
  * Created by shlokdixit on 22/01/16.
@@ -14,13 +17,13 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.layout_second);
 
 
-        /*(THE CODE BELOW IS GIVING ERRr DUE to API-23 PERMISSION SETTINGS,Hence I hardcoded the IMEI)
+        /*(THE CODE BELOW IS GIVING ERRr DUE to API-23 PERMISSION SETTINGS,Hence I hardcoded the IMEI)*/
 
         TelephonyManager tele_Manager =(TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
         tele_Manager.getDeviceId();
         String deviceid = tele_Manager.getDeviceId();
         TextView IMEI_id = (TextView) findViewById(R.id.IMEI);
-        IMEI_id.setText(""+deviceid);*/
+        IMEI_id.setText(""+deviceid);
         setTitle("Shlok Dixit");
 
     }

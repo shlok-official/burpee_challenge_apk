@@ -35,10 +35,22 @@
         />
 
     <Button
-        android:id="@+id/exit_button"
+        android:id="@+id/Dictionary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/UTTT"
+        android:onClick="Dictionary"
+        android:text="Dictionary"
+        style="?android:attr/borderlessButtonStyle"
+        android:background="#fb8c00"
+        android:layout_margin="20sp"
+        />
+
+    <Button
+        android:id="@+id/exit_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Dictionary"
         android:onClick="exit"
         android:text="QUIT"
         style="?android:attr/borderlessButtonStyle"

@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/UTTT"
-        android:onClick="Dictionary"
+        android:onClick="dictionary"
         android:text="Dictionary"
         style="?android:attr/borderlessButtonStyle"
         android:background="#fb8c00"

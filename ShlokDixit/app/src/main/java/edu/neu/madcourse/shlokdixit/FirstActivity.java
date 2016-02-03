@@ -46,7 +46,13 @@ public class FirstActivity extends AppCompatActivity {
 
 
     }
+    public void dictionary(View view) {
 
+        Intent intent = new Intent(this, dictionary.class);
+        startActivity(intent);
+
+
+    }
     public void uttt(View view) {
 
         Intent intent = new Intent(this, MainActivity.class);

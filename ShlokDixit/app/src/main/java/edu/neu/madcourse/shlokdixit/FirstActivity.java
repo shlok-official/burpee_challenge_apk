@@ -46,9 +46,9 @@ public class FirstActivity extends AppCompatActivity {
 
 
     }
-    public void dictionary(View view) {
+    public void dict(View view) {
 
-        Intent intent = new Intent(this, dictionary.class);
+        Intent intent = new Intent(this, TestDictionary.class);
         startActivity(intent);
 
 

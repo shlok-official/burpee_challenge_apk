@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+
+    <Button
+        android:id="@+id/clear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="clear"
+        android:text="Clear"
+        style="?android:attr/borderlessButtonStyle"
+        android:background="#fb8c00"
+        android:layout_margin="20sp"
+        />
+
+    <Button
+        android:id="@+id/return_to_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clear"
+        android:gravity="center"
+        android:onClick="return_to_menu"
+        android:text="Return to menu"
+        style="?android:attr/borderlessButtonStyle"
+        android:background="#fb8c00"
+        android:layout_margin="20sp"
+        />
+
+    <Button
+        android:id="@+id/acknowledgements"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/return_to_menu"
+        android:onClick="acknowledgements"
+        android:text="Acknowledgements"
+        style="?android:attr/borderlessButtonStyle"
+        android:background="#fb8c00"
+        android:layout_margin="20sp"
+        />
+
+
+
+</RelativeLayout>

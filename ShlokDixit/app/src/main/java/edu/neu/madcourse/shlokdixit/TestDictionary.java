@@ -100,7 +100,8 @@ adapter.notifyDataSetChanged();
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 if (s.length() > 0) {
-                   //
+                    key = s.toString();
+                    char firstchar = s.charAt(0);
                     if (s.length() > 2) {
                         if (firstchar == 'A' || firstchar == 'a') {
 

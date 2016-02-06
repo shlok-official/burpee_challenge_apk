@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -13,7 +14,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -29,58 +29,14 @@ public class TestDictionary extends AppCompatActivity {
     ArrayAdapter<String> adapter;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-     /*   setContentView(R.layout.dictionary);
-        listview = (ListView)findViewById(R.id.listview);
-        editText=(EditText) findViewById(R.id.txtsearch);
-        initList();
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                if(s.toString().equals("")){
-                    //reset LV
-                    initList();
-                }
-                else {
+    protected void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
+     setContentView(R.layout.dictionary);
 
-
-                    searchitem(s.toString());
-                }
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-    }
-
-
-    public void searchitem(String textTosearch){
-
-for(String item:items){
-
-    if(item.contains(textTosearch)){
-
-        listitems.remove(item);
-    }
-}
-adapter.notifyDataSetChanged();
-    }
-    public void initList(){
-
-        items = new String[]{"canada","cannibal","cartoon"};
-        listitems=new ArrayList<>(Arrays.asList(items));
-        adapter=new ArrayAdapter<String>(this,R.layout.list_item,R.id.txtitem,listitems);
-        listview.setAdapter(adapter);
-    }*/
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line, COUNTRIES);
+        AutoCompleteTextView textView = (AutoCompleteTextView) findViewById(R.id.dict_list);
+        textView.setAdapter(adapter);
+  
         this.loadData();
 
 

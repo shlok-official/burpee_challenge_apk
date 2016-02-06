@@ -1,14 +1,12 @@
 package edu.neu.madcourse.shlokdixit;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,7 +23,7 @@ import java.util.Collections;
 public class TestDictionary extends AppCompatActivity {
 
     ArrayList<String> l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14;
-    ArrayList<String> listItems = new ArrayList<>();
+    ArrayList<String> word_sugg = new ArrayList<>();
     ArrayAdapter<String> adapter;
 
     @Override
@@ -33,10 +31,10 @@ public class TestDictionary extends AppCompatActivity {
         super.onCreate(icicle);
      setContentView(R.layout.dictionary);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line, COUNTRIES);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line, word_sugg);
         AutoCompleteTextView textView = (AutoCompleteTextView) findViewById(R.id.dict_list);
         textView.setAdapter(adapter);
-  
+
         this.loadData();
 
 
@@ -44,7 +42,7 @@ public class TestDictionary extends AppCompatActivity {
         listview_search.addTextChangedListener(new TextWatcher() {
 
 
-            TextView text_view = (TextView) findViewById(R.id.);
+            
             String key;
 
             @Override
@@ -62,59 +60,87 @@ public class TestDictionary extends AppCompatActivity {
                         if (firstchar == 'A' || firstchar == 'a') {
 
                             if (Collections.binarySearch(l1, key) >= 0)
-                                text_view.setText(key);
+                                //text_view.setText(key);
+                            word_sugg.add(key);
+                            adapter.notifyDataSetChanged();
                         } else if (firstchar == 'B' || firstchar == 'b' || firstchar == 'C' || firstchar == 'c') {
 
                             if (Collections.binarySearch(l2, key) >= 0)
-                                text_view.setText(key);
+                                //text_view.setText(key);
+                                word_sugg.add(key);
+                            adapter.notifyDataSetChanged();
                         } else if (firstchar == 'D' || firstchar == 'd' || firstchar == 'E' || firstchar == 'e') {
 
                             if (Collections.binarySearch(l3, key) >= 0)
-                                text_view.setText(key);
+                               // text_view.setText(key);
+                                word_sugg.add(key);
+                            adapter.notifyDataSetChanged();
                         } else if (firstchar == 'F' || firstchar == 'f' || firstchar == 'G' || firstchar == 'g') {
 
                             if (Collections.binarySearch(l4, key) >= 0)
-                                text_view.setText(key);
+                               // text_view.setText(key);
+                                word_sugg.add(key);
+                            adapter.notifyDataSetChanged();
                         } else if (firstchar == 'H' || firstchar == 'h' || firstchar == 'I' || firstchar == 'i') {
 
                             if (Collections.binarySearch(l5, key) >= 0)
-                                text_view.setText(key);
+                                //text_view.setText(key);
+                                word_sugg.add(key);
+                            adapter.notifyDataSetChanged();
                         } else if (firstchar == 'J' || firstchar == 'j' || firstchar == 'K' || firstchar == 'k') {
 
                             if (Collections.binarySearch(l6, key) >= 0)
-                                text_view.setText(key);
+                               // text_view.setText(key);
+                                word_sugg.add(key);
+                            adapter.notifyDataSetChanged();
                         } else if (firstchar == 'L' || firstchar == 'l' || firstchar == 'M' || firstchar == 'm') {
 
                             if (Collections.binarySearch(l7, key) >= 0)
-                                text_view.setText(key);
+                               // text_view.setText(key);
+                                word_sugg.add(key);
+                            adapter.notifyDataSetChanged();
                         } else if (firstchar == 'N' || firstchar == 'n' || firstchar == 'O' || firstchar == 'o') {
 
                             if (Collections.binarySearch(l8, key) >= 0)
-                                text_view.setText(key);
+                                //text_view.setText(key);
+                                word_sugg.add(key);
+                            adapter.notifyDataSetChanged();
                         } else if (firstchar == 'P' || firstchar == 'p' || firstchar == 'Q' || firstchar == 'q') {
 
                             if (Collections.binarySearch(l9, key) >= 0)
-                                text_view.setText(key);
+                                //text_view.setText(key);
+                                word_sugg.add(key);
+                            adapter.notifyDataSetChanged();
                         } else if (firstchar == 'R' || firstchar == 'r' || firstchar == 'S' || firstchar == 's') {
 
                             if (Collections.binarySearch(l10, key) >= 0)
-                                text_view.setText(key);
+                               // text_view.setText(key);
+                                word_sugg.add(key);
+                            adapter.notifyDataSetChanged();
                         } else if (firstchar == 'T' || firstchar == 't') {
 
                             if (Collections.binarySearch(l11, key) >= 0)
-                                text_view.setText(key);
+                               // text_view.setText(key);
+                                word_sugg.add(key);
+                            adapter.notifyDataSetChanged();
                         } else if (firstchar == 'U' || firstchar == 'u') {
 
                             if (Collections.binarySearch(l12, key) >= 0)
-                                text_view.setText(key);
+                                //text_view.setText(key);
+                                word_sugg.add(key);
+                            adapter.notifyDataSetChanged();
                         } else if (firstchar == 'V' || firstchar == 'v' || firstchar == 'W' || firstchar == 'w') {
 
                             if (Collections.binarySearch(l13, key) >= 0)
-                                text_view.setText(key);
+                                //text_view.setText(key);
+                                word_sugg.add(key);
+                            adapter.notifyDataSetChanged();
                         } else if (firstchar == 'X' || firstchar == 'x' || firstchar == 'Y' || firstchar == 'y' || firstchar == 'Z' || firstchar == 'z') {
 
                             if (Collections.binarySearch(l14, key) >= 0)
-                                text_view.setText(key);
+                                //text_view.setText(key);
+                                word_sugg.add(key);
+                            adapter.notifyDataSetChanged();
                         }
 
                     }

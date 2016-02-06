@@ -41,6 +41,17 @@ public class TestDictionary extends ListActivity {
                 et.setText("");
             }
         });
+
+
+        Button rtm = (Button) findViewById(R.id.return_to_menu);
+        rtm.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line, word_sugg);
         setListAdapter(adapter);
 

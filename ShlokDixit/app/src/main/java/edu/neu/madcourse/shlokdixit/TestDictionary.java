@@ -265,7 +265,7 @@ public class TestDictionary extends ListActivity {
 }
     public void acknowledgements(View view) {
 
-        Intent intent = new Intent(this, SecondActivity.class);
+        Intent intent = new Intent(this, dictionary_credits.class);
         startActivity(intent);
 
 

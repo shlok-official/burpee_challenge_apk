@@ -2,6 +2,8 @@ package edu.neu.madcourse.shlokdixit;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -41,7 +43,8 @@ public class TestDictionary extends ListActivity {
                 et.setText("");
             }
         });
-
+        final ToneGenerator tg = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
+        tg.startTone(ToneGenerator.TONE_PROP_BEEP);
 
         Button rtm = (Button) findViewById(R.id.return_to_menu);
         rtm.setOnClickListener(new View.OnClickListener() {
@@ -81,87 +84,98 @@ public class TestDictionary extends ListActivity {
                         if (firstchar == 'A' || firstchar == 'a') {
 
                             if (Collections.binarySearch(l1, key) >= 0){
-                                //text_view.setText(key);
                             word_sugg.add(key);
-                            adapter.notifyDataSetChanged();}
+                            adapter.notifyDataSetChanged();
+                                final ToneGenerator beep = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
+                                beep.startTone(ToneGenerator.TONE_PROP_BEEP);}
                         } else if (firstchar == 'B' || firstchar == 'b' || firstchar == 'C' || firstchar == 'c') {
 
                             if (Collections.binarySearch(l2, key) >= 0){
-                                //text_view.setText(key);
                                 word_sugg.add(key);
-                            adapter.notifyDataSetChanged();}
+                            adapter.notifyDataSetChanged();
+                                final ToneGenerator beep = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
+                                beep.startTone(ToneGenerator.TONE_PROP_BEEP);}
                         } else if (firstchar == 'D' || firstchar == 'd' || firstchar == 'E' || firstchar == 'e') {
 
                             if (Collections.binarySearch(l3, key) >= 0){
-                               // text_view.setText(key);
                                 word_sugg.add(key);
-                            adapter.notifyDataSetChanged();}
+                            adapter.notifyDataSetChanged();
+                                final ToneGenerator beep = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
+                                beep.startTone(ToneGenerator.TONE_PROP_BEEP);}
                         } else if (firstchar == 'F' || firstchar == 'f' || firstchar == 'G' || firstchar == 'g') {
 
                             if (Collections.binarySearch(l4, key) >= 0){
-                               // text_view.setText(key);
                                 word_sugg.add(key);
-                            adapter.notifyDataSetChanged();}
+                            adapter.notifyDataSetChanged();
+                                final ToneGenerator beep = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
+                                beep.startTone(ToneGenerator.TONE_PROP_BEEP);}
                         } else if (firstchar == 'H' || firstchar == 'h' || firstchar == 'I' || firstchar == 'i') {
 
                             if (Collections.binarySearch(l5, key) >= 0){
-                                //text_view.setText(key);
                                 word_sugg.add(key);
-                            adapter.notifyDataSetChanged();}
+                            adapter.notifyDataSetChanged();
+                                final ToneGenerator beep = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
+                                beep.startTone(ToneGenerator.TONE_PROP_BEEP);}
                         } else if (firstchar == 'J' || firstchar == 'j' || firstchar == 'K' || firstchar == 'k') {
 
                             if (Collections.binarySearch(l6, key) >= 0){
-                               // text_view.setText(key);
                                 word_sugg.add(key);
                             adapter.notifyDataSetChanged();}
                         } else if (firstchar == 'L' || firstchar == 'l' || firstchar == 'M' || firstchar == 'm') {
 
                             if (Collections.binarySearch(l7, key) >= 0){
-                               // text_view.setText(key);
                                 word_sugg.add(key);
-                            adapter.notifyDataSetChanged();}
+                            adapter.notifyDataSetChanged();
+                                final ToneGenerator beep = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
+                                beep.startTone(ToneGenerator.TONE_PROP_BEEP);}
                         } else if (firstchar == 'N' || firstchar == 'n' || firstchar == 'O' || firstchar == 'o') {
 
                             if (Collections.binarySearch(l8, key) >= 0){
-                                //text_view.setText(key);
                                 word_sugg.add(key);
-                            adapter.notifyDataSetChanged();}
+                            adapter.notifyDataSetChanged();final ToneGenerator beep = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
+                                beep.startTone(ToneGenerator.TONE_PROP_BEEP);}
                         } else if (firstchar == 'P' || firstchar == 'p' || firstchar == 'Q' || firstchar == 'q') {
 
                             if (Collections.binarySearch(l9, key) >= 0){
-                                //text_view.setText(key);
                                 word_sugg.add(key);
-                            adapter.notifyDataSetChanged();}
+                            adapter.notifyDataSetChanged();
+                                final ToneGenerator beep = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
+                                beep.startTone(ToneGenerator.TONE_PROP_BEEP);}
                         } else if (firstchar == 'R' || firstchar == 'r' || firstchar == 'S' || firstchar == 's') {
 
                             if (Collections.binarySearch(l10, key) >= 0){
-                               // text_view.setText(key);
                                 word_sugg.add(key);
-                            adapter.notifyDataSetChanged();}
+                            adapter.notifyDataSetChanged();
+                                final ToneGenerator beep = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
+                                beep.startTone(ToneGenerator.TONE_PROP_BEEP);}
                         } else if (firstchar == 'T' || firstchar == 't') {
 
                             if (Collections.binarySearch(l11, key) >= 0){
-                               // text_view.setText(key);
                                 word_sugg.add(key);
-                            adapter.notifyDataSetChanged();}
+                            adapter.notifyDataSetChanged();
+                                final ToneGenerator beep = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
+                                beep.startTone(ToneGenerator.TONE_PROP_BEEP);}
                         } else if (firstchar == 'U' || firstchar == 'u') {
 
                             if (Collections.binarySearch(l12, key) >= 0){
-                                //text_view.setText(key);
                                 word_sugg.add(key);
-                            adapter.notifyDataSetChanged();}
+                            adapter.notifyDataSetChanged();
+                                final ToneGenerator beep = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
+                                beep.startTone(ToneGenerator.TONE_PROP_BEEP);}
                         } else if (firstchar == 'V' || firstchar == 'v' || firstchar == 'W' || firstchar == 'w') {
 
                             if (Collections.binarySearch(l13, key) >= 0){
-                                //text_view.setText(key);
                                 word_sugg.add(key);
-                            adapter.notifyDataSetChanged();}
+                            adapter.notifyDataSetChanged();
+                                final ToneGenerator beep = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
+                                beep.startTone(ToneGenerator.TONE_PROP_BEEP);}
                         } else if (firstchar == 'X' || firstchar == 'x' || firstchar == 'Y' || firstchar == 'y' || firstchar == 'Z' || firstchar == 'z') {
 
                             if (Collections.binarySearch(l14, key) >= 0){
-                                //text_view.setText(key);
                                 word_sugg.add(key);
-                            adapter.notifyDataSetChanged();}
+                            adapter.notifyDataSetChanged();
+                                final ToneGenerator beep = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
+                                beep.startTone(ToneGenerator.TONE_PROP_BEEP);}
                         }
 
                     }
@@ -202,6 +216,8 @@ public class TestDictionary extends ListActivity {
             reader = new BufferedReader(new InputStreamReader(ins));
             while ((data = reader.readLine()) != null) {
                 l1.add(data);
+
+
             }
             ins = getResources().openRawResource(R.raw.b_c_list);
             reader = new BufferedReader(new InputStreamReader(ins));
@@ -285,10 +301,19 @@ public class TestDictionary extends ListActivity {
 
         Intent intent = new Intent(this, dictionary_credits.class);
         startActivity(intent);
+    }
+
+    /*MediaPlayer mMediaPlayer;
+    protected void onResume() {
+        super.onResume();
+        mMediaPlayer = MediaPlayer.create(this, R.raw.classic);
+        mMediaPlayer.setVolume(0.5f, 0.5f);
+        mMediaPlayer.setLooping(true);
+        mMediaPlayer.start();
+    }*/
 
 
 
-
-}}
+}
 
 

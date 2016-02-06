@@ -3,6 +3,15 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
+    <TextView
+        android:id="@+id/credits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The following websites were highly useful :\n\n http://developer.android.com/\n\nhttp://www.tutorialspoint.com/android/\n\nhttp://stackoverflow.com/"
+        android:layout_gravity="center"
+        android:textSize="25sp"
+        android:textColor="#fb8c00"
+        android:layout_margin="10sp"
+        />
 
 </LinearLayout>

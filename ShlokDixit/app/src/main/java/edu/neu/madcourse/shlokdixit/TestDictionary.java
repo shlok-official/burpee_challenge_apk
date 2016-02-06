@@ -7,6 +7,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 
 import java.io.BufferedReader;
@@ -33,7 +34,13 @@ public class TestDictionary extends ListActivity {
      setContentView(R.layout.dictionary);
         Intent intent = getIntent();
 
-
+        Button btn=(Button) findViewById(R.id.clear);
+        btn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                EditText et=(EditText) findViewById(R.id.search_content);
+                et.setText("");
+            }
+        });
         adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line, word_sugg);
         setListAdapter(adapter);
 

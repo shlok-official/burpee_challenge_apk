@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import edu.neu.madcourse.shlokdixit.Dictionary.TestDictionary;
 import edu.neu.madcourse.shlokdixit.TicTacToe.MainActivity;
 
 public class FirstActivity extends AppCompatActivity {

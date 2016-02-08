@@ -1,4 +1,4 @@
-package edu.neu.madcourse.shlokdixit;
+package edu.neu.madcourse.shlokdixit.Dictionary;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -19,12 +19,14 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import edu.neu.madcourse.shlokdixit.R;
 
 
 /**
  * Created by shlokdixit on 03/02/16.
  */
-public class TestDictionary extends ListActivity {
+public class TestDictionary extends ListActivity{
+
 
     ArrayList<String> l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14;
     ArrayList<String> word_sugg = new ArrayList<>();
@@ -187,6 +189,7 @@ public class TestDictionary extends ListActivity {
             public void afterTextChanged(Editable s) {
 
             }
+
         });
     }
 

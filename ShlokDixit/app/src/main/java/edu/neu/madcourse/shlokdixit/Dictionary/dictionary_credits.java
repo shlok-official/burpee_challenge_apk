@@ -1,7 +1,9 @@
-package edu.neu.madcourse.shlokdixit;
+package edu.neu.madcourse.shlokdixit.Dictionary;
 
 import android.os.Bundle;
 import android.app.Activity;
+
+import edu.neu.madcourse.shlokdixit.R;
 
 public class dictionary_credits extends Activity {
 

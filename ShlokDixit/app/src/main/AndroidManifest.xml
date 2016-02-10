@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.neu.madcourse.shlokdixit">
+    package="edu.neu.madcourse.shlokdixit1">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".FirstActivity"
+            android:name="edu.neu.madcourse.shlokdixit1.FirstActivity"
             android:label="NUMAD16S-ShlokDixit">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,14 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity" />
+        <activity android:name="edu.neu.madcourse.shlokdixit1.SecondActivity" />
         <activity
-            android:name=".TicTacToe.MainActivity"
+            android:name="edu.neu.madcourse.shlokdixit1.TicTacToe.MainActivity"
             android:label="@string/app_name"></activity>
-        <activity android:name=".TicTacToe.GameActivity"></activity>
-        <activity android:name=".Dictionary.TestDictionary"></activity>
+        <activity android:name="edu.neu.madcourse.shlokdixit1.TicTacToe.GameActivity"></activity>
+        <activity android:name="edu.neu.madcourse.shlokdixit1.Dictionary.TestDictionary"></activity>
         <activity
-            android:name=".Dictionary.dictionary_credits"
+            android:name="edu.neu.madcourse.shlokdixit1.Dictionary.dictionary_credits"
             android:label="@string/title_activity_dictionary_credits"></activity>
     </application>
 

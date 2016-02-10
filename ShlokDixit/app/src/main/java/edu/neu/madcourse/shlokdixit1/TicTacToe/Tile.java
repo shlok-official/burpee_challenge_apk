@@ -6,7 +6,7 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/eband4 for more book information.
 ***/
-package edu.neu.madcourse.shlokdixit.TicTacToe;
+package edu.neu.madcourse.shlokdixit1.TicTacToe;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
@@ -14,7 +14,7 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageButton;
 
-import edu.neu.madcourse.shlokdixit.R;
+import edu.neu.madcourse.shlokdixit1.R;
 
 public class Tile {
 

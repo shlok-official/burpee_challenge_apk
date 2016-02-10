@@ -6,7 +6,7 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/eband4 for more book information.
 ***/
-package edu.neu.madcourse.shlokdixit.TicTacToe;
+package edu.neu.madcourse.shlokdixit1.TicTacToe;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -17,7 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import edu.neu.madcourse.shlokdixit.R;
+import edu.neu.madcourse.shlokdixit1.R;
 
 public class MainFragment extends Fragment {
 

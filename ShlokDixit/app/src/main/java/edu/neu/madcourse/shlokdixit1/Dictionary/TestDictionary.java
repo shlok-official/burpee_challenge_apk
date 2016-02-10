@@ -1,4 +1,4 @@
-package edu.neu.madcourse.shlokdixit.Dictionary;
+package edu.neu.madcourse.shlokdixit1.Dictionary;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -19,7 +19,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import edu.neu.madcourse.shlokdixit.R;
+import edu.neu.madcourse.shlokdixit1.R;
 
 
 /**

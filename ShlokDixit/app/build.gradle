@@ -5,11 +5,11 @@ android {
     buildToolsVersion "23.0.0"
 
     defaultConfig {
-        applicationId "edu.neu.madcourse.shlokdixit"
+        applicationId "edu.neu.madcourse.shlokdixit1"
         minSdkVersion 15
         targetSdkVersion 21
-        versionCode 9
-        versionName "9"
+        versionCode 12
+        versionName "11.0.1"
     }
     buildTypes {
         release {
@@ -23,5 +23,5 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'org.apache.directory.studio:org.apache.commons.io:2.4'
+
 }

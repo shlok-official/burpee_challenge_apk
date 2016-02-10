@@ -1,4 +1,4 @@
-package edu.neu.madcourse.shlokdixit;
+package edu.neu.madcourse.shlokdixit1;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import edu.neu.madcourse.shlokdixit.Dictionary.TestDictionary;
-import edu.neu.madcourse.shlokdixit.TicTacToe.MainActivity;
+import edu.neu.madcourse.shlokdixit1.Dictionary.TestDictionary;
+import edu.neu.madcourse.shlokdixit1.TicTacToe.MainActivity;
 
 public class FirstActivity extends AppCompatActivity {
 

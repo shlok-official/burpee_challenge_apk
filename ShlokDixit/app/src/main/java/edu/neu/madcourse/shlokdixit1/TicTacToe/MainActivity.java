@@ -6,13 +6,13 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/eband4 for more book information.
 ***/
-package edu.neu.madcourse.shlokdixit.TicTacToe;
+package edu.neu.madcourse.shlokdixit1.TicTacToe;
 
 import android.app.Activity;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
-import edu.neu.madcourse.shlokdixit.R;
+import edu.neu.madcourse.shlokdixit1.R;
 
 public class MainActivity extends Activity {
    MediaPlayer mMediaPlayer;

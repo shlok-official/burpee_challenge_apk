@@ -6,7 +6,7 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/eband4 for more book information.
 ***/
-package edu.neu.madcourse.shlokdixit.TicTacToe;
+package edu.neu.madcourse.shlokdixit1.TicTacToe;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -15,7 +15,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import edu.neu.madcourse.shlokdixit.R;
+import edu.neu.madcourse.shlokdixit1.R;
 
 /**
  * This custom view draws a background image that scrolls indefinitely.

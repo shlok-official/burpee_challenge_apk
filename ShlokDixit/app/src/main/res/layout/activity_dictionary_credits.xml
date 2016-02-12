@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none" >
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+
+
     tools:context="edu.neu.madcourse.shlokdixit1.Dictionary.dictionary_credits">
 
 
     <TextView
         android:id="@+id/credits"
+        android:layout_below="@+id/Title_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="The following websites were highly useful :\n\n http://developer.android.com/\n\nhttp://www.tutorialspoint.com/android/\n\nhttp://stackoverflow.com/"
@@ -20,4 +28,15 @@
         android:textColor="#fb8c00"
         android:layout_margin="10sp"
         />
+    <TextView
+        android:id="@+id/Title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48sp"
+        android:text="Shlok Dixit"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:background="#000000"
+
+        />
 </RelativeLayout>
+</ScrollView>

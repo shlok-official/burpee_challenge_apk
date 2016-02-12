@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none" >
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
@@ -6,7 +16,8 @@
     <EditText
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/search_content"/>
+    android:id="@+id/search_content"
+        android:layout_below="@+id/Title_bar" />
 
 
     <Button
@@ -54,7 +65,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
+    <TextView
+        android:id="@+id/Title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48sp"
+        android:text="Shlok Dixit"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:background="#000000"
 
-
-
+        />
 </RelativeLayout>
+
+</ScrollView>

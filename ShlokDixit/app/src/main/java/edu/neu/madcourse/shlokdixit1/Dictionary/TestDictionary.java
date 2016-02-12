@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -28,7 +27,7 @@ import edu.neu.madcourse.shlokdixit1.R;
 public class TestDictionary extends ListActivity {
 
 
-    ArrayList<String> l1, l2, l3, l4, l5, l6, l7, l8, l9, l10, l11, l12, l13, l14;
+    ArrayList<String> l1, l2,l02, l3, l4, l5, l6, l7, l8, l9, l10,l101, l11, l12, l13, l14;
     ArrayList<String> word_sugg = new ArrayList<>();
     ArrayAdapter<String> adapter;
     ToneGenerator tg;
@@ -91,13 +90,21 @@ public class TestDictionary extends ListActivity {
 
                                 tg.startTone(ToneGenerator.TONE_PROP_BEEP);
                             }
-                        } else if (firstchar == 'B' || firstchar == 'b' || firstchar == 'C' || firstchar == 'c') {
+                        } else if (firstchar == 'B' || firstchar == 'b' ) {
 
                             if (Collections.binarySearch(l2, key) >= 0) {
                                 word_sugg.add(key);
                                 adapter.notifyDataSetChanged();
                                 tg.startTone(ToneGenerator.TONE_PROP_BEEP);
                             }
+                        } else if (firstchar == 'C' || firstchar == 'c') {
+
+                            if (Collections.binarySearch(l02, key) >= 0) {
+                                word_sugg.add(key);
+                                adapter.notifyDataSetChanged();
+                                tg.startTone(ToneGenerator.TONE_PROP_BEEP);
+                            }
+
                         } else if (firstchar == 'D' || firstchar == 'd' || firstchar == 'E' || firstchar == 'e') {
 
                             if (Collections.binarySearch(l3, key) >= 0) {
@@ -148,9 +155,16 @@ public class TestDictionary extends ListActivity {
                                 adapter.notifyDataSetChanged();
                                 tg.startTone(ToneGenerator.TONE_PROP_BEEP);
                             }
-                        } else if (firstchar == 'R' || firstchar == 'r' || firstchar == 'S' || firstchar == 's') {
+                        } else if (firstchar == 'R' || firstchar == 'r' ) {
 
                             if (Collections.binarySearch(l10, key) >= 0) {
+                                word_sugg.add(key);
+                                adapter.notifyDataSetChanged();
+                                tg.startTone(ToneGenerator.TONE_PROP_BEEP);
+                            }
+                        } else if (firstchar == 'S' || firstchar == 's') {
+
+                            if (Collections.binarySearch(l101, key) >= 0) {
                                 word_sugg.add(key);
                                 adapter.notifyDataSetChanged();
                                 tg.startTone(ToneGenerator.TONE_PROP_BEEP);
@@ -207,6 +221,7 @@ public class TestDictionary extends ListActivity {
             BufferedReader reader;
             this.l1 = new ArrayList<String>();
             this.l2 = new ArrayList<String>();
+            this.l02 = new ArrayList<String>();
             this.l3 = new ArrayList<String>();
             this.l4 = new ArrayList<String>();
             this.l5 = new ArrayList<String>();
@@ -215,6 +230,7 @@ public class TestDictionary extends ListActivity {
             this.l8 = new ArrayList<String>();
             this.l9 = new ArrayList<String>();
             this.l10 = new ArrayList<String>();
+            this.l101 = new ArrayList<String>();
             this.l11 = new ArrayList<String>();
             this.l12 = new ArrayList<String>();
             this.l13 = new ArrayList<String>();
@@ -227,10 +243,15 @@ public class TestDictionary extends ListActivity {
 
 
             }
-            ins = getResources().openRawResource(R.raw.b_c_list);
+            ins = getResources().openRawResource(R.raw.b_list);
             reader = new BufferedReader(new InputStreamReader(ins));
             while ((data = reader.readLine()) != null) {
                 l2.add(data);
+            }
+            ins = getResources().openRawResource(R.raw.c_list);
+            reader = new BufferedReader(new InputStreamReader(ins));
+            while ((data = reader.readLine()) != null) {
+                l02.add(data);
             }
             ins = getResources().openRawResource(R.raw.d_e_list);
             reader = new BufferedReader(new InputStreamReader(ins));
@@ -267,10 +288,15 @@ public class TestDictionary extends ListActivity {
             while ((data = reader.readLine()) != null) {
                 l9.add(data);
             }
-            ins = getResources().openRawResource(R.raw.r_s_list);
+            ins = getResources().openRawResource(R.raw.r_list);
             reader = new BufferedReader(new InputStreamReader(ins));
             while ((data = reader.readLine()) != null) {
                 l10.add(data);
+            }
+            ins = getResources().openRawResource(R.raw.s_list);
+            reader = new BufferedReader(new InputStreamReader(ins));
+            while ((data = reader.readLine()) != null) {
+                l101.add(data);
             }
             ins = getResources().openRawResource(R.raw.t_list);
             reader = new BufferedReader(new InputStreamReader(ins));
@@ -300,7 +326,7 @@ public class TestDictionary extends ListActivity {
             }
 
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

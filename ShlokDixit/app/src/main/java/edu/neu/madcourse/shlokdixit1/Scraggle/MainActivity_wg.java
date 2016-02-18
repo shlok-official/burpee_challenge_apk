@@ -11,6 +11,7 @@ package edu.neu.madcourse.shlokdixit1.Scraggle;
 import android.app.Activity;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import edu.neu.madcourse.shlokdixit1.R;
 
 public class MainActivity_wg extends Activity {
    MediaPlayer mMediaPlayer;

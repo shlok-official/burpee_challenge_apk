@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import edu.neu.madcourse.shlokdixit1.R;
 
 public class MainFragment_wg extends Fragment {
 

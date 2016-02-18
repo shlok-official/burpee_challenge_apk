@@ -22,6 +22,7 @@ import android.widget.ImageButton;
 import java.util.HashSet;
 import java.util.Set;
 
+import edu.neu.madcourse.shlokdixit1.R;
 public class GameFragment_wg extends Fragment {
    static private int mLargeIds[] = {R.id.large1, R.id.large2, R.id.large3,
          R.id.large4, R.id.large5, R.id.large6, R.id.large7, R.id.large8,

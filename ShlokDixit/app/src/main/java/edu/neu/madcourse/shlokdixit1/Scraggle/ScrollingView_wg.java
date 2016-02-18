@@ -14,6 +14,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
+import edu.neu.madcourse.shlokdixit1.R;
 
 /**
  * This custom view draws a background image that scrolls indefinitely.
@@ -40,12 +41,12 @@ public class ScrollingView_wg extends View {
    private void init(AttributeSet attrs, int defStyle) {
       // Load custom view attributes
       final TypedArray a = getContext().obtainStyledAttributes(
-            attrs, R.styleable.ScrollingView_wg, defStyle, 0);
+            attrs, R.styleable.ScrollingView, defStyle, 0);
 
       // Get background
-      if (a.hasValue(R.styleable.ScrollingView_wg_scrollingDrawable)) {
+      if (a.hasValue(R.styleable.ScrollingView_scrollingDrawable)) {
          mBackground = a.getDrawable(
-               R.styleable.ScrollingView_wg_scrollingDrawable);
+               R.styleable.ScrollingView_scrollingDrawable);
          mBackground.setCallback(this);
       }
 

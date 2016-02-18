@@ -17,16 +17,16 @@
 
    <Button
       android:id="@+id/button_restart"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
+      android:layout_width="146dp"
+      android:layout_height="143dp"
       android:elevation="@dimen/elevation_low"
       android:drawableTop="@drawable/restart"
       android:text="@string/restart_label"/>
 
    <Button
       android:id="@+id/button_main"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
+      android:layout_width="148dp"
+      android:layout_height="143dp"
       android:elevation="@dimen/elevation_low"
       android:drawableTop="@drawable/home"
       android:text="@string/main_menu_label"/>

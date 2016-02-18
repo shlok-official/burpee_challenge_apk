@@ -9,5 +9,8 @@
 <resources>
    <declare-styleable name="ScrollingView">
       <attr name="scrollingDrawable" format="color|reference" />
+
    </declare-styleable>
+
+
 </resources>

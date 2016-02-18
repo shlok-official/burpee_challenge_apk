@@ -14,6 +14,9 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageButton;
 
+import edu.neu.madcourse.shlokdixit1.R;
+
+
 public class Tile_wg {
 
    public enum Owner {

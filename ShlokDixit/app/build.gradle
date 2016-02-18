@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "edu.neu.madcourse.shlokdixit1"
-        minSdkVersion 21
+        minSdkVersion 15
         targetSdkVersion 22
         versionCode 14
         versionName "11.0.4"

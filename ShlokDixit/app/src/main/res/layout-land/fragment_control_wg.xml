@@ -19,7 +19,7 @@
       android:id="@+id/button_restart"
       android:layout_width="match_parent"
       android:layout_height="136dp"
-      android:drawableTop="@drawable/restart"
+      android:drawableTop="@drawable/restart_wd"
       android:elevation="@dimen/elevation_low"
       android:text="@string/restart_label"/>
 
@@ -27,7 +27,7 @@
       android:id="@+id/button_main"
       android:layout_width="152dp"
       android:layout_height="137dp"
-      android:drawableTop="@drawable/home"
+      android:drawableTop="@drawable/home_wd"
       android:elevation="@dimen/elevation_low"
       android:text="@string/main_menu_label" />
 </LinearLayout>

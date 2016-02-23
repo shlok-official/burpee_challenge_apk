@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import edu.neu.madcourse.shlokdixit1.Dictionary.TestDictionary;
+import edu.neu.madcourse.shlokdixit1.WordGame.MainActivity_wg;
 import edu.neu.madcourse.shlokdixit1.TicTacToe.MainActivity;
 
 public class FirstActivity extends AppCompatActivity {
@@ -63,7 +64,7 @@ public class FirstActivity extends AppCompatActivity {
     }
     public void wordgame(View view) {
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MainActivity_wg.class);
         startActivity(intent);
 
 

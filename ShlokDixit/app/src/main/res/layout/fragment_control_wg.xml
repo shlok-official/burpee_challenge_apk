@@ -17,10 +17,10 @@
 
    <Button
       android:id="@+id/button_restart"
-      android:layout_width="146dp"
+      android:layout_width="133dp"
       android:layout_height="143dp"
       android:elevation="@dimen/elevation_low"
-      android:drawableTop="@drawable/restart"
+      android:drawableTop="@drawable/restart_wd"
       android:text="@string/restart_label"/>
 
    <Button
@@ -28,6 +28,7 @@
       android:layout_width="148dp"
       android:layout_height="143dp"
       android:elevation="@dimen/elevation_low"
-      android:drawableTop="@drawable/home"
+      android:drawableTop="@drawable/home_wd"
       android:text="@string/main_menu_label"/>
+
 </LinearLayout>

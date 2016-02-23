@@ -27,7 +27,7 @@
 
       <fragment
          android:id="@+id/fragment_game"
-         class="org.example.tictactoe.GameFragment_wg"
+         class="edu.neu.madcourse.shlokdixit1.WordGame.GameFragment_wg"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          tools:layout="@layout/fragment_game_wg"/>
@@ -35,7 +35,7 @@
 
       <fragment
          android:id="@+id/fragment_game_controls"
-         class="org.example.tictactoe.ControlFragment_wg"
+         class="edu.neu.madcourse.shlokdixit1.WordGame.ControlFragment_wg"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          tools:layout="@layout/fragment_control_wg"/>

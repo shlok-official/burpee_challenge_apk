@@ -6,7 +6,7 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/eband4 for more book information.
 ***/
-package edu.neu.madcourse.shlokdixit1.Scraggle;
+package edu.neu.madcourse.shlokdixit1.WordGame;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
@@ -101,9 +101,9 @@ public class Tile_wg {
          case BOTH:
             level = LEVEL_TIE;
             break;
-         case NEITHER:
-            level = mGame.isAvailable(this) ? LEVEL_AVAILABLE : LEVEL_BLANK;
-            break;
+         //case NEITHER:
+           // level = mGame.isAvailable(this) ? LEVEL_AVAILABLE : LEVEL_BLANK;
+          //  break;
       }
       return level;
    }

@@ -6,11 +6,13 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/eband4 for more book information.
 ***/
-package edu.neu.madcourse.shlokdixit1.Scraggle;
+package edu.neu.madcourse.shlokdixit1.WordGame;
 
 import android.app.Activity;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.widget.TextView;
+
 import edu.neu.madcourse.shlokdixit1.R;
 
 public class MainActivity_wg extends Activity {
@@ -21,6 +23,8 @@ public class MainActivity_wg extends Activity {
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.ativity_main_wg);
+      TextView title = (TextView) findViewById(R.id.title1);
+      title.setText(" Word Game ");
    }
 
    @Override

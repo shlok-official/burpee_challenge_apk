@@ -69,7 +69,7 @@
         android:id="@+id/Title_bar"
         android:layout_width="match_parent"
         android:layout_height="48sp"
-        android:text="Shlok Dixit"
+        android:text="Test Dictionary"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:background="#000000"

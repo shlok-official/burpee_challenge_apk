@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">ShlokDixit</string>
-    <string name="long_app_name">Ultimate Tic Tac Toe</string>
+    <string name="long_app_name">Ultimate Tic Tac </string>
     <string name="action_settings">Settings</string>
     <string name="restart_label">Restart</string>
     <string name="main_menu_label">Main Menu</string>
@@ -18,6 +18,14 @@ you have to win a smaller game of Tic Tac Toe inside that tile.\n\
 A tie happens when there are no further moves.
 In the case of a tie in a small board, that will count as a win for
 both sides in the larger game.
+</string>
+    <string name="about_text_wg">\
+        This Word Game Consists of 9X9 Grids in which player has to
+        enter words greater than 3 letters.The Main Target is to find
+        the longest word in each grid.\n\
+        \n\
+        The time stamp is 3 minutes.In the Phase-I the time is limited
+        to 2 minutes and in Phase-II the Time is 1 minute.
 </string>
     <string name="title_activity_dictionary_credits">dictionary_credits</string>
 </resources>

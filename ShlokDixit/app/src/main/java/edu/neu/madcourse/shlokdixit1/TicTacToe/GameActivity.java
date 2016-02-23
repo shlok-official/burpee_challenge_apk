@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import edu.neu.madcourse.shlokdixit1.R;
 
@@ -42,6 +43,17 @@ public class GameActivity extends Activity {
          }
       }
       Log.d("UT3", "restore = " + restore);
+      final int interval = 10000; // 1 Second
+      Handler handler = new Handler();
+      Runnable runnable = new Runnable(){
+         public void run() {
+            Toast.makeText(GameActivity.this, "C'Mom no hands!", Toast.LENGTH_SHORT).show();
+            finish();
+         }
+      };
+
+      handler.postAtTime(runnable, System.currentTimeMillis()+interval);
+      handler.postDelayed(runnable, interval);
    }
 
    public void restartGame() {

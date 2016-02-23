@@ -25,8 +25,10 @@
         android:onClick="ABOUT"
         android:text="ABOUT ME"
         style="?android:attr/borderlessButtonStyle"
-        android:background="#fb8c00"
+        android:background="@drawable/mybutton"
         android:layout_margin="20sp"
+
+
         />
 
     <Button
@@ -38,8 +40,10 @@
         android:onClick="uttt"
         android:text="ULTIMATE TIC TAC TOE"
         style="?android:attr/borderlessButtonStyle"
-        android:background="#fb8c00"
+        android:background="@drawable/mybutton"
         android:layout_margin="20sp"
+
+
         />
 
     <Button
@@ -50,7 +54,7 @@
         android:onClick="dict"
         android:text="Dictionary"
         style="?android:attr/borderlessButtonStyle"
-        android:background="#fb8c00"
+        android:background="@drawable/mybutton"
         android:layout_margin="20sp"
         />
     <Button
@@ -61,7 +65,7 @@
         android:onClick="wordgame"
         android:text="WORD GAME"
         style="?android:attr/borderlessButtonStyle"
-        android:background="#fb8c00"
+        android:background="@drawable/mybutton"
         android:layout_margin="20sp"
         />
 
@@ -73,7 +77,7 @@
         android:onClick="exit"
         android:text="QUIT"
         style="?android:attr/borderlessButtonStyle"
-        android:background="#fb8c00"
+        android:background="@drawable/mybutton"
         android:layout_margin="20sp"
         />
 
@@ -85,7 +89,7 @@
         android:onClick="Gen_Err"
         android:text="Generate Error"
         style="?android:attr/borderlessButtonStyle"
-        android:background="#fb8c00"
+        android:background="@drawable/mybutton"
         android:layout_margin="20sp"
         />
 </RelativeLayout>

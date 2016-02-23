@@ -6,7 +6,8 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/eband4 for more book information.
 ***/
-package edu.neu.madcourse.shlokdixit1.Scraggle;
+package edu.neu.madcourse.shlokdixit1.WordGame;
+
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -17,9 +18,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import edu.neu.madcourse.shlokdixit1.R;
-
 public class GameActivity_wg extends Activity {
    public static final String KEY_RESTORE = "key_restore";
    public static final String PREF_RESTORE = "pref_restore";
@@ -38,10 +39,24 @@ public class GameActivity_wg extends Activity {
          String gameData = getPreferences(MODE_PRIVATE)
                .getString(PREF_RESTORE, null);
          if (gameData != null) {
-            mGameFragment.putState(gameData);
+           // mGameFragment.putState(gameData);
          }
       }
       Log.d("UT3", "restore = " + restore);
+/////////////////////////////////////////////////////////////
+       final int interval = 10000; // 1 Second
+       Handler handler = new Handler();
+       Runnable runnable = new Runnable(){
+         public void run() {
+            Toast.makeText(GameActivity_wg.this, "C'Mom no hands!", Toast.LENGTH_SHORT).show();
+
+         }
+      };
+
+      handler.postAtTime(runnable, System.currentTimeMillis()+interval);
+      handler.postDelayed(runnable, interval);
+      //////////////////////////////////////////////////////////
+
    }
 
    public void restartGame() {

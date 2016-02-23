@@ -6,7 +6,7 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/eband4 for more book information.
 ***/
-package edu.neu.madcourse.shlokdixit1.Scraggle;
+package edu.neu.madcourse.shlokdixit1.WordGame;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import edu.neu.madcourse.shlokdixit1.R;
 
 public class MainFragment_wg extends Fragment {
@@ -28,9 +29,10 @@ public class MainFragment_wg extends Fragment {
       View rootView =
             inflater.inflate(R.layout.fragment_main_wg, container, false);
       // Handle buttons here...
-      View newButton = rootView.findViewById(R.id.new_button);
-      View continueButton = rootView.findViewById(R.id.continue_button);
-      View aboutButton = rootView.findViewById(R.id.about_button);
+      View newButton = rootView.findViewById(R.id.new_button_wg);
+      View continueButton = rootView.findViewById(R.id.continue_button_wg);
+      View aboutButton = rootView.findViewById(R.id.about_button_wg);
+      View quitButton = rootView.findViewById(R.id.quit_button_wg);
       newButton.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {
@@ -46,11 +48,17 @@ public class MainFragment_wg extends Fragment {
             getActivity().startActivity(intent);
          }
       });
+      quitButton.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+            getActivity().finish();
+         }
+      });
       aboutButton.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setMessage(R.string.about_text);
+            builder.setMessage(R.string.about_text_wg);
             builder.setCancelable(false);
             builder.setPositiveButton(R.string.ok_label,
                   new DialogInterface.OnClickListener() {
@@ -62,6 +70,7 @@ public class MainFragment_wg extends Fragment {
             mDialog = builder.show();
          }
       });
+
       return rootView;
    }
 

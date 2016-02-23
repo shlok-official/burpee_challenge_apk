@@ -20,16 +20,15 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:elevation="@dimen/elevation_low"
-      android:drawableTop="@drawable/restart_wd"
       android:text="@string/restart_label"
-       android:gravity="right"/>
+       android:gravity="right" />
 
    <Button
       android:id="@+id/button_main"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:elevation="@dimen/elevation_low"
-      android:drawableTop="@drawable/home_wd"
+
       android:text="@string/main_menu_label"
        android:gravity="fill_horizontal"/>
 </LinearLayout>

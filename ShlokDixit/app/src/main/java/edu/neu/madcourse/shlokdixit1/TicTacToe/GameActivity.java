@@ -14,10 +14,11 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import edu.neu.madcourse.shlokdixit1.R;
 
@@ -27,6 +28,7 @@ public class GameActivity extends Activity {
    private MediaPlayer mMediaPlayer;
    private Handler mHandler = new Handler();
    private GameFragment mGameFragment;
+
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,23 @@ public class GameActivity extends Activity {
          }
       }
       Log.d("UT3", "restore = " + restore);
+
+final TextView timer;
+      ///////////////
+      timer=(TextView) findViewById(R.id.timer);
+      new CountDownTimer(90000, 1000) {
+
+         public void onTick(long millisUntilFinished) {
+            timer.setText("Time Left:" + millisUntilFinished / 1000);
+         }
+
+         public void onFinish() {
+            timer.setText("done!");
+         }
+      }.start();
+
+      //////////////////////////////////////
+      /*
       final int interval = 10000; // 1 Second
       Handler handler = new Handler();
       Runnable runnable = new Runnable(){
@@ -54,6 +73,7 @@ public class GameActivity extends Activity {
 
       handler.postAtTime(runnable, System.currentTimeMillis()+interval);
       handler.postDelayed(runnable, interval);
+      //////////////////////////////////////////////////////*/
    }
 
    public void restartGame() {

@@ -34,6 +34,7 @@
         <activity
             android:name=".Dictionary.dictionary_credits"
             android:label="@string/title_activity_dictionary_credits"></activity>
+        <activity android:name=".WordGame.WordGameCredits"></activity>
     </application>
 
 </manifest>

@@ -33,6 +33,7 @@ public class MainFragment_wg extends Fragment {
       View continueButton = rootView.findViewById(R.id.continue_button_wg);
       View aboutButton = rootView.findViewById(R.id.about_button_wg);
       View quitButton = rootView.findViewById(R.id.quit_button_wg);
+      View ack_Button = rootView.findViewById(R.id.ack_button_wg);
       newButton.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {
@@ -54,6 +55,7 @@ public class MainFragment_wg extends Fragment {
             getActivity().finish();
          }
       });
+
       aboutButton.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {
@@ -70,10 +72,16 @@ public class MainFragment_wg extends Fragment {
             mDialog = builder.show();
          }
       });
+      ack_Button.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+            Intent intent = new Intent(getActivity(), WordGameCredits.class);
+            getActivity().startActivity(intent);
+         }
+      });
 
       return rootView;
    }
-
    @Override
    public void onPause() {
       super.onPause();

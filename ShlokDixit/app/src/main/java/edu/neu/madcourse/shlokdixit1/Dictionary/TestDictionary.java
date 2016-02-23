@@ -37,19 +37,19 @@ public class TestDictionary extends ListActivity {
     ArrayList<String> l2;
     ArrayList<String> l02;
     ArrayList<String> l3;
-    ArrayList<String>l4;
-    ArrayList<String>l5;
-    ArrayList<String>l6;
-    ArrayList<String>l7;
-    ArrayList<String>l8;
-    ArrayList<String>l9;
-    ArrayList<String>l10;
-    ArrayList<String>l101;
-    ArrayList<String>l11;
-    ArrayList<String>l12;
-    ArrayList<String>l13;
-    ArrayList<String>l14;
-    ArrayList<String> word_sugg ;
+    ArrayList<String> l4;
+    ArrayList<String> l5;
+    ArrayList<String> l6;
+    ArrayList<String> l7;
+    ArrayList<String> l8;
+    ArrayList<String> l9;
+    ArrayList<String> l10;
+    ArrayList<String> l101;
+    ArrayList<String> l11;
+    ArrayList<String> l12;
+    ArrayList<String> l13;
+    ArrayList<String> l14;
+    ArrayList<String> word_sugg;
     ArrayAdapter<String> adapter;
     ToneGenerator tg;
 
@@ -72,7 +72,6 @@ public class TestDictionary extends ListActivity {
         });
 
 
-
         this.l1 = new ArrayList<String>();
         this.l2 = new ArrayList<String>();
         this.l02 = new ArrayList<String>();
@@ -91,7 +90,6 @@ public class TestDictionary extends ListActivity {
         this.l14 = new ArrayList<String>();
 
 
-
         Button rtm = (Button) findViewById(R.id.return_to_menu);
         rtm.setOnClickListener(new View.OnClickListener() {
 
@@ -106,7 +104,6 @@ public class TestDictionary extends ListActivity {
 
         //this.loadData();
         tg = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
-
 
 
         final EditText listview_search = (EditText) findViewById(R.id.search_content);
@@ -134,31 +131,27 @@ public class TestDictionary extends ListActivity {
                             try {
                                 while ((data = reader.readLine()) != null) {
                                     l1.add(data);
-
-
                                 }
-                            }catch (IOException e)
-                            {e.printStackTrace();}
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
 
                             if (Collections.binarySearch(l1, key) >= 0) {
                                 word_sugg.add(key);
                                 adapter.notifyDataSetChanged();
-
                                 tg.startTone(ToneGenerator.TONE_PROP_BEEP);
                             }
 
-
-                        } else if (firstchar == 'B' || firstchar == 'b' ) {
+                        } else if (firstchar == 'B' || firstchar == 'b') {
                             ins = getResources().openRawResource(R.raw.b_list);
                             reader = new BufferedReader(new InputStreamReader(ins));
                             try {
                                 while ((data = reader.readLine()) != null) {
                                     l2.add(data);
-
-
                                 }
-                            }catch (IOException e)
-                            {e.printStackTrace();}
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             if (Collections.binarySearch(l2, key) >= 0) {
                                 word_sugg.add(key);
                                 adapter.notifyDataSetChanged();
@@ -170,11 +163,10 @@ public class TestDictionary extends ListActivity {
                             try {
                                 while ((data = reader.readLine()) != null) {
                                     l02.add(data);
-
-
                                 }
-                            }catch (IOException e)
-                            {e.printStackTrace();}
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             if (Collections.binarySearch(l02, key) >= 0) {
                                 word_sugg.add(key);
                                 adapter.notifyDataSetChanged();
@@ -187,11 +179,10 @@ public class TestDictionary extends ListActivity {
                             try {
                                 while ((data = reader.readLine()) != null) {
                                     l3.add(data);
-
-
                                 }
-                            }catch (IOException e)
-                            {e.printStackTrace();}
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             if (Collections.binarySearch(l3, key) >= 0) {
                                 word_sugg.add(key);
                                 adapter.notifyDataSetChanged();
@@ -203,11 +194,10 @@ public class TestDictionary extends ListActivity {
                             try {
                                 while ((data = reader.readLine()) != null) {
                                     l4.add(data);
-
-
                                 }
-                            }catch (IOException e)
-                            {e.printStackTrace();}
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             if (Collections.binarySearch(l4, key) >= 0) {
                                 word_sugg.add(key);
                                 adapter.notifyDataSetChanged();
@@ -222,8 +212,9 @@ public class TestDictionary extends ListActivity {
 
 
                                 }
-                            }catch (IOException e)
-                            {e.printStackTrace();}
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             if (Collections.binarySearch(l5, key) >= 0) {
                                 word_sugg.add(key);
                                 adapter.notifyDataSetChanged();
@@ -238,8 +229,9 @@ public class TestDictionary extends ListActivity {
 
 
                                 }
-                            }catch (IOException e)
-                            {e.printStackTrace();}
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             if (Collections.binarySearch(l6, key) >= 0) {
                                 word_sugg.add(key);
                                 adapter.notifyDataSetChanged();
@@ -254,8 +246,9 @@ public class TestDictionary extends ListActivity {
 
 
                                 }
-                            }catch (IOException e)
-                            {e.printStackTrace();}
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             if (Collections.binarySearch(l7, key) >= 0) {
                                 word_sugg.add(key);
                                 adapter.notifyDataSetChanged();
@@ -270,8 +263,9 @@ public class TestDictionary extends ListActivity {
 
 
                                 }
-                            }catch (IOException e)
-                            {e.printStackTrace();}
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             if (Collections.binarySearch(l8, key) >= 0) {
                                 word_sugg.add(key);
                                 adapter.notifyDataSetChanged();
@@ -287,14 +281,15 @@ public class TestDictionary extends ListActivity {
 
 
                                 }
-                            }catch (IOException e)
-                            {e.printStackTrace();}
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             if (Collections.binarySearch(l9, key) >= 0) {
                                 word_sugg.add(key);
                                 adapter.notifyDataSetChanged();
                                 tg.startTone(ToneGenerator.TONE_PROP_BEEP);
                             }
-                        } else if (firstchar == 'R' || firstchar == 'r' ) {
+                        } else if (firstchar == 'R' || firstchar == 'r') {
                             ins = getResources().openRawResource(R.raw.r_list);
                             reader = new BufferedReader(new InputStreamReader(ins));
                             try {
@@ -303,8 +298,9 @@ public class TestDictionary extends ListActivity {
 
 
                                 }
-                            }catch (IOException e)
-                            {e.printStackTrace();}
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             if (Collections.binarySearch(l10, key) >= 0) {
                                 word_sugg.add(key);
                                 adapter.notifyDataSetChanged();
@@ -319,8 +315,9 @@ public class TestDictionary extends ListActivity {
 
 
                                 }
-                            }catch (IOException e)
-                            {e.printStackTrace();}
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             if (Collections.binarySearch(l101, key) >= 0) {
                                 word_sugg.add(key);
                                 adapter.notifyDataSetChanged();
@@ -335,8 +332,9 @@ public class TestDictionary extends ListActivity {
 
 
                                 }
-                            }catch (IOException e)
-                            {e.printStackTrace();}
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             if (Collections.binarySearch(l11, key) >= 0) {
                                 word_sugg.add(key);
                                 adapter.notifyDataSetChanged();
@@ -351,8 +349,9 @@ public class TestDictionary extends ListActivity {
 
 
                                 }
-                            }catch (IOException e)
-                            {e.printStackTrace();}
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             if (Collections.binarySearch(l12, key) >= 0) {
                                 word_sugg.add(key);
                                 adapter.notifyDataSetChanged();
@@ -367,8 +366,9 @@ public class TestDictionary extends ListActivity {
 
 
                                 }
-                            }catch (IOException e)
-                            {e.printStackTrace();}
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             if (Collections.binarySearch(l13, key) >= 0) {
                                 word_sugg.add(key);
                                 adapter.notifyDataSetChanged();
@@ -380,28 +380,24 @@ public class TestDictionary extends ListActivity {
                             try {
                                 while ((data = reader.readLine()) != null) {
                                     l14.add(data);
-
-
                                 }
-                            }catch (IOException e)
-                            {e.printStackTrace();}
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             if (Collections.binarySearch(l14, key) >= 0) {
                                 word_sugg.add(key);
                                 adapter.notifyDataSetChanged();
                                 tg.startTone(ToneGenerator.TONE_PROP_BEEP);
                             }
                         }
-
                     }
                 }
-
             }
 
             @Override
             public void afterTextChanged(Editable s) {
 
             }
-
         });
     }
 

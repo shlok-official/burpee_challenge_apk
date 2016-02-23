@@ -48,7 +48,7 @@ public class GameActivity_wg extends Activity {
        Handler handler = new Handler();
        Runnable runnable = new Runnable(){
          public void run() {
-            Toast.makeText(GameActivity_wg.this, "C'Mom no hands!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(GameActivity_wg.this, "Times's Up", Toast.LENGTH_SHORT).show();
 
          }
       };
@@ -84,9 +84,9 @@ public class GameActivity_wg extends Activity {
          @Override
          public void run() {
             mMediaPlayer = MediaPlayer.create(GameActivity_wg.this,
-                    winner == Tile_wg.Owner.X ? R.raw.oldedgar_winner
+                    winner == Tile_wg.Owner.X ? R.raw.cartoon
                             : winner == Tile_wg.Owner.O ? R.raw.notr_loser
-                            : R.raw.department64_draw
+                            : R.raw.cartoon
             );
             mMediaPlayer.start();
             dialog.show();
@@ -110,7 +110,7 @@ public class GameActivity_wg extends Activity {
    @Override
    protected void onResume() {
       super.onResume();
-      mMediaPlayer = MediaPlayer.create(this, R.raw.frankum_loop001e);
+      mMediaPlayer = MediaPlayer.create(this, R.raw.cartoon);
       mMediaPlayer.setLooping(true);
       mMediaPlayer.start();
    }

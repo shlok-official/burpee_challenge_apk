@@ -36,6 +36,6 @@
         android:elevation="@dimen/elevation_low"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/pause"
-        android:textOff="Sound On"
-        android:textOn="Sound Off " />
+        android:textOff="Sound Off"
+        android:textOn="Sound On " />
 </LinearLayout>

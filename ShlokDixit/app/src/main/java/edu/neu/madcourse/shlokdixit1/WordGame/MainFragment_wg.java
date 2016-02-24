@@ -44,9 +44,9 @@ public class MainFragment_wg extends Fragment {
       continueButton.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {
-            Intent intent = new Intent(getActivity(), GameActivity_wg.class);
+           /* Intent intent = new Intent(getActivity(), GameActivity_wg.class);
             intent.putExtra(GameActivity_wg.KEY_RESTORE, true);
-            getActivity().startActivity(intent);
+            getActivity().startActivity(intent);*/
          }
       });
       quitButton.setOnClickListener(new View.OnClickListener() {

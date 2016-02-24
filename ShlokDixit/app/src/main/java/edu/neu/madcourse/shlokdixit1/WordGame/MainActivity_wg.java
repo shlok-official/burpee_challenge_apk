@@ -29,6 +29,8 @@ public class MainActivity_wg extends Activity implements CompoundButton.OnChecke
         setContentView(R.layout.ativity_main_wg);
         TextView title = (TextView) findViewById(R.id.title1);
         title.setText(" Word Game ");
+        mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.cartoon);
+        mMediaPlayer.start();
         t = (ToggleButton) findViewById(R.id.togglebutton);
         t.setOnCheckedChangeListener(this);
     }
@@ -57,14 +59,18 @@ public class MainActivity_wg extends Activity implements CompoundButton.OnChecke
 
         if (isChecked) {
             // The toggle is enabled
+            mMediaPlayer.stop();
+
+        } else {
+            // The toggle is disabled
+
             mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.cartoon);
             mMediaPlayer.setLooping(true);
             mMediaPlayer.start();
-        } else {
-            // The toggle is disabled
-            mMediaPlayer.stop();
 
         }
     }
+
+
 
 }

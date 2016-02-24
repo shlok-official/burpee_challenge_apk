@@ -17,14 +17,46 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:scaleType="centerCrop"
-      android:src="@drawable/sandy_beach"/>
+       android:src="@drawable/wordlist_background">
+
+   </ImageView>
 
    <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:gravity="center"
-      android:baselineAligned="false"
-      android:orientation="horizontal">
+      android:orientation="vertical">
+       <RelativeLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+
+
+           <TextView
+               android:id="@+id/phase"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_gravity="left"
+               android:gravity="left"
+               android:textSize="25sp"
+               android:textColor="#FFA500"
+               android:layout_margin="10sp"
+               android:text="PHASE-I"
+
+                />
+           <TextView
+               android:id="@+id/timer"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="25sp"
+               android:textColor="#FFA500"
+               android:layout_margin="10sp"
+               android:layout_gravity="right"
+               android:gravity="right"
+               android:layout_alignRight="@+id/phase"
+               />
+
+
+       </RelativeLayout>
 
       <fragment
          android:id="@+id/fragment_game"
@@ -32,6 +64,7 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          tools:layout="@layout/fragment_game_wg"/>
+      <!-- Control fragment goes here... -->
 
       <fragment
          android:id="@+id/fragment_game_controls"
@@ -39,6 +72,7 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          tools:layout="@layout/fragment_control_wg"/>
+
    </LinearLayout>
 
    <include layout="@layout/thinking_wg"/>

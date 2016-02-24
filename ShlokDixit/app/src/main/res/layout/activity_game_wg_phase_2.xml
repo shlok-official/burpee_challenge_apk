@@ -17,8 +17,9 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:scaleType="centerCrop"
-       android:background="@color/red_color"/>
+       android:src="@drawable/wordlist_background">
 
+   </ImageView>
 
    <LinearLayout
       android:layout_width="match_parent"
@@ -29,57 +30,50 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content">
 
+
            <TextView
-               android:id="@+id/timer"
+               android:id="@+id/phaseII"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:layout_gravity="center"
+               android:layout_gravity="left"
+               android:gravity="left"
                android:textSize="25sp"
-               android:textColor="#000000"
+               android:textColor="#FFA500"
                android:layout_margin="10sp"
-               android:layout_alignRight="@+id/phase"
+               android:text="PHASE-II"
+
                />
            <TextView
-               android:id="@+id/phase"
-               android:layout_width="match_parent"
+               android:id="@+id/timer3"
+               android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:gravity="left"
-               android:layout_gravity="center"
                android:textSize="25sp"
-               android:textColor="#000000"
+               android:textColor="#FFA500"
                android:layout_margin="10sp"
-               android:text="PHASE-I"
+               android:layout_gravity="right"
+               android:gravity="right"
+               android:layout_alignRight="@+id/phaseII"
                />
 
 
        </RelativeLayout>
       <fragment
          android:id="@+id/fragment_game"
-         class="edu.neu.madcourse.shlokdixit1.TicTacToe.GameFragment"
+         class="edu.neu.madcourse.shlokdixit1.WordGame.GameFragment_wg"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         tools:layout="@layout/fragment_game"/>
+         tools:layout="@layout/fragment_game_wg"/>
       <!-- Control fragment goes here... -->
-      <TextView
-          android:id="@+id/timer2"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:gravity="right"
-          android:layout_gravity="center"
-          android:textSize="25sp"
-          android:textColor="#000000"
-          android:layout_margin="10sp"
-          />
 
       <fragment
          android:id="@+id/fragment_game_controls"
-         class="edu.neu.madcourse.shlokdixit1.TicTacToe.ControlFragment"
+         class="edu.neu.madcourse.shlokdixit1.WordGame.ControlFragment_wg"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         tools:layout="@layout/fragment_control"/>
+         tools:layout="@layout/fragment_control_wg"/>
 
    </LinearLayout>
 
-   <include layout="@layout/thinking"/>
+   <include layout="@layout/thinking_wg"/>
 
 </FrameLayout>

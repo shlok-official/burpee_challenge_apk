@@ -12,6 +12,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -48,16 +49,23 @@ public class GameActivity extends Activity {
 
 final TextView timer;
       ///////////////
-      timer=(TextView) findViewById(R.id.timer);
-      new CountDownTimer(90000, 1000) {
+      timer=(TextView) findViewById(R.id.timer2);
+      new CountDownTimer(10000, 1000) {
 
          public void onTick(long millisUntilFinished) {
             timer.setText("Time Left:" + millisUntilFinished / 1000);
          }
 
          public void onFinish() {
-            timer.setText("done!");
+
+
+            Intent intent = new Intent(GameActivity.this, Phase_II_UTTT.class);
+            startActivity(intent);
+           // timer.setText("Phase-II Started");
+
+
          }
+
       }.start();
 
       //////////////////////////////////////

@@ -1,11 +1,4 @@
-<!--
- ! Excerpted from "Hello, Android",
- ! published by The Pragmatic Bookshelf.
- ! Copyrights apply to this code. It may not be used to create training material, 
- ! courses, books, articles, and the like. Contact us if you are in doubt.
- ! We make no guarantees that this code is fit for any purpose. 
- ! Visit http://www.pragmaticprogrammer.com/titles/eband4 for more book information.
--->
+
 <LinearLayout
    xmlns:android="http://schemas.android.com/apk/res/android"
    xmlns:tools="http://schemas.android.com/tools"
@@ -45,15 +38,7 @@
        android:text="@string/new_game_label"
        android:background="@drawable/mybutton"/>
 
-   <Button
-       android:id="@+id/about_button_wg"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:layout_gravity="center"
-       android:layout_margin="@dimen/menu_button_margin"
-       android:padding="@dimen/menu_button_padding"
-       android:text="@string/about_label"
-       android:background="@drawable/mybutton"/>
+
     <Button
         android:id="@+id/quit_button_wg"
         android:layout_width="match_parent"
@@ -64,6 +49,16 @@
         android:text="QUIT"
         android:background="@drawable/mybutton"/>
     <Button
+        android:id="@+id/about_button_wg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/togglebutton"
+        android:elevation="@dimen/elevation_low"
+        android:layout_margin="@dimen/menu_button_margin"
+        android:padding="@dimen/menu_button_padding"
+        android:text="@string/about_label"
+        android:background="@drawable/mybutton"/>
+    <Button
         android:id="@+id/ack_button_wg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -72,4 +67,16 @@
         android:padding="@dimen/menu_button_padding"
         android:text="ACKNOWLEDGEMENTS"
         android:background="@drawable/mybutton"/>
+
+    <ToggleButton
+        android:id="@+id/togglebutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/elevation_low"
+        android:layout_below="@+id/pause"
+        android:textOff="Sound On"
+        android:textOn="Sound Off "
+        android:background="@drawable/mybutton"
+        />
+
 </LinearLayout>

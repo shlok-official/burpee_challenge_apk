@@ -20,6 +20,7 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:elevation="@dimen/elevation_low"
+       android:textAlignment="center"
       android:text="@string/restart_label"/>
 
    <Button
@@ -34,4 +35,15 @@
         android:layout_height="match_parent"
         android:elevation="@dimen/elevation_low"
         android:text="PAUSE" />
+    <ToggleButton
+        android:id="@+id/togglebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/elevation_low"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/pause"
+        android:textOff="Sound On"
+        android:textOn="Sound Off "
+
+        />
 </LinearLayout>

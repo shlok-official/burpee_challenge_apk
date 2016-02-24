@@ -11,12 +11,16 @@ package edu.neu.madcourse.shlokdixit1.WordGame;
 import android.app.Activity;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import edu.neu.madcourse.shlokdixit1.R;
 
-public class MainActivity_wg extends Activity {
+public class MainActivity_wg extends Activity implements CompoundButton.OnCheckedChangeListener  {
+
    MediaPlayer mMediaPlayer;
+   ToggleButton t;
    // ...
 
    @Override
@@ -25,8 +29,10 @@ public class MainActivity_wg extends Activity {
       setContentView(R.layout.ativity_main_wg);
       TextView title = (TextView) findViewById(R.id.title1);
       title.setText(" Word Game ");
+       t= (ToggleButton)findViewById(R.id.togglebutton);
+       t.setOnCheckedChangeListener(this);
    }
-
+/*
    @Override
    protected void onResume() {
       super.onResume();
@@ -43,4 +49,21 @@ public class MainActivity_wg extends Activity {
       mMediaPlayer.reset();
       mMediaPlayer.release();
    }
-}
+
+*/
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if (isChecked) {
+                    // The toggle is enabled
+                    mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.cartoon);
+                    mMediaPlayer.setLooping(true);
+                    mMediaPlayer.start();
+                } else {
+                    // The toggle is disabled
+                    mMediaPlayer.stop();
+
+                }
+            }
+
+    }

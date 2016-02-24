@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import edu.neu.madcourse.shlokdixit1.R;
 
 /**
@@ -13,14 +16,16 @@ import edu.neu.madcourse.shlokdixit1.R;
  */
 public class Phase_II_wd extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_game_wg_phase_2);
-        setTitle("Word Game- Phase-II");
+
 
         final TextView timer;
 
-        timer=(TextView) findViewById(R.id.timer3);
-        new CountDownTimer(90000, 1000) {
+        timer = (TextView) findViewById(R.id.timer3);
+        new CountDownTimer(10000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 timer.setText("Time Left:" + millisUntilFinished / 1000);
@@ -28,11 +33,9 @@ public class Phase_II_wd extends AppCompatActivity {
 
             public void onFinish() {
 
-
-                Intent intent = new Intent(Phase_II_wd.this, WordGameCredits.class);
+                Toast.makeText(getApplicationContext(), "GAME OVER", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(Phase_II_wd.this, Final_score_wd.class);
                 startActivity(intent);
-                // timer.setText("Phase-II Started");
-
 
             }
 

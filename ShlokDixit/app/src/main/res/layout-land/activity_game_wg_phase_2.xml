@@ -1,17 +1,18 @@
-<!--
- ! Excerpted from "Hello, Android",
- ! published by The Pragmatic Bookshelf.
- ! Copyrights apply to this code. It may not be used to create training material, 
- ! courses, books, articles, and the like. Contact us if you are in doubt.
- ! We make no guarantees that this code is fit for any purpose. 
- ! Visit http://www.pragmaticprogrammer.com/titles/eband4 for more book information.
--->
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none"
+    android:background="@drawable/wordlist_background">
 <FrameLayout
    xmlns:android="http://schemas.android.com/apk/res/android"
    xmlns:tools="http://schemas.android.com/tools"
    android:layout_width="match_parent"
    android:layout_height="match_parent"
-   tools:context=".TicTacToeActivity">
+   tools:context=".WordGame.GameActivity_wg">
 
    <ImageView
       android:layout_width="match_parent"
@@ -53,3 +54,4 @@
    <include layout="@layout/thinking_wg"/>
 
 </FrameLayout>
+</ScrollView>

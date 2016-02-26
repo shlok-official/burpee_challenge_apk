@@ -63,6 +63,7 @@ public class Phase_II_wd extends AppCompatActivity implements CompoundButton.OnC
                 Toast.makeText(getApplicationContext(), "GAME OVER", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Phase_II_wd.this, Final_score_wd.class);
                 startActivity(intent);
+                finish();
 
             }
 

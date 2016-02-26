@@ -34,16 +34,19 @@
         <activity
             android:name=".WordGame.GameActivity_wg"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"></activity>
         <activity android:name=".TicTacToe.GameActivity"
             android:screenOrientation="portrait"></activity>
         <activity android:name=".Dictionary.TestDictionary"
             android:screenOrientation="portrait"></activity>
         <activity android:name=".WordGame.Phase_II_wd"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"></activity>
 
         <activity android:name=".WordGame.Final_score_wd"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"></activity>
         <activity
             android:name=".Dictionary.dictionary_credits"
             android:label="@string/title_activity_dictionary_credits"

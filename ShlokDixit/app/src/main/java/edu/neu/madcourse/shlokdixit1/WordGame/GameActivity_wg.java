@@ -29,7 +29,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import edu.neu.madcourse.shlokdixit1.R;
-
+import android.widget.ToggleButton;
 public class GameActivity_wg extends Activity implements CompoundButton.OnCheckedChangeListener {
     public static final String KEY_RESTORE = "key_restore";
     public static final String PREF_RESTORE = "pref_restore";
@@ -39,6 +39,8 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
 
     MediaPlayer mMediaPlayer;
     ToggleButton t;
+    ToggleButton p;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,8 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
                 .findFragmentById(R.id.fragment_game);
         t = (ToggleButton) findViewById(R.id.togglebutton1);
         t.setOnCheckedChangeListener(this);
+
+
 
         mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.cartoon);
         ///////
@@ -80,12 +84,7 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
 
             public void onTick(long millisUntilFinished) {
                 timer.setText("Time Left:00:" + millisUntilFinished / 1000);
-               // Animation anim = new AlphaAnimation(0.0f, 1.0f);
-               // anim.setDuration(5000); //You can manage the time of the blink with this parameter
-                //anim.setStartOffset(20);
-               //anim.setRepeatMode(Animation.REVERSE);
-              //  anim.setRepeatCount(Animation.INFINITE);
-               // timer.startAnimation(anim);
+
             }
 
 
@@ -94,11 +93,14 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
                 Toast.makeText(getApplicationContext(), "PHASE-II STARTED", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(GameActivity_wg.this, Phase_II_wd.class);
                 startActivity(intent);
+                finish();
             }
         }.start();
         //////////////////////////////////////////////////////////
 
     }
+
+
 
     public void restartGame() {
         mGameFragment.restartGame();
@@ -152,38 +154,21 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
             // The toggle is enabled
+//onPause();
             mMediaPlayer.stop();
+            Toast.makeText(getApplicationContext(), "SOUND OFF", Toast.LENGTH_SHORT).show();
 
         } else {
             // The toggle is disabled
-
+//onResume();
             mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.cartoon);
             mMediaPlayer.setLooping(true);
             mMediaPlayer.start();
+            Toast.makeText(getApplicationContext(), "SOUND ON", Toast.LENGTH_SHORT).show();
         }
     }
-/*
-   @Override
-   protected void onResume() {
-      super.onResume();
-      mMediaPlayer = MediaPlayer.create(this, R.raw.cartoon);
-      mMediaPlayer.setLooping(true);
-      mMediaPlayer.start();
-   }
 
-   @Override
-   protected void onPause() {
-      super.onPause();
-      mHandler.removeCallbacks(null);
-      mMediaPlayer.stop();
-      mMediaPlayer.reset();
-      mMediaPlayer.release();
-      String gameData = mGameFragment.getState();
-      getPreferences(MODE_PRIVATE).edit()
-            .putString(PREF_RESTORE, gameData)
-            .commit();
-      Log.d("UT3", "state = " + gameData);
-   }
-   */
+
+
 
 }

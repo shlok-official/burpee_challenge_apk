@@ -26,13 +26,15 @@
       android:text="@string/main_menu_label"
        android:layout_below="@+id/button_restart"
        android:gravity="right"/>
-    <Button
+    <ToggleButton
         android:id="@+id/pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="@dimen/elevation_low"
         android:layout_alignParentRight="true"
-        android:text="PAUSE" />
+        android:textOff="PAUSE"
+        android:textOn="RESTART"
+        />
     <Button
         android:id="@+id/check_wg"
         android:layout_width="wrap_content"
@@ -50,6 +52,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/pause"
         android:textOff="Sound Off"
-        android:textOn="Sound On" />
+        android:textOn="Sound On"
+       />
 
 </RelativeLayout>

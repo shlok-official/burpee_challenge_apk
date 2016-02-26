@@ -13,6 +13,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Color;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.Ringtone;
 import android.media.SoundPool;
 import android.media.ToneGenerator;
@@ -23,7 +24,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -38,7 +41,7 @@ import edu.neu.madcourse.shlokdixit1.R;
 import edu.neu.madcourse.shlokdixit1.TicTacToe.GameActivity;
 import edu.neu.madcourse.shlokdixit1.TicTacToe.Tile;
 
-public class GameFragment_wg extends Fragment {
+public class GameFragment_wg extends Fragment  {
     static private int mLargeIds[] = {R.id.large1, R.id.large2, R.id.large3,
             R.id.large4, R.id.large5, R.id.large6, R.id.large7, R.id.large8,
             R.id.large9,};
@@ -109,6 +112,7 @@ public class GameFragment_wg extends Fragment {
         mSoundRewind = mSoundPool.load(getActivity(), R.raw.joanne_rewind, 1);
 
         mContext = getActivity().getApplicationContext();
+
     }
 
     private void clearAvailable() {
@@ -130,7 +134,9 @@ public class GameFragment_wg extends Fragment {
         initViews(rootView);
         //updateAllTiles();
         return rootView;
+
     }
+
 
 
     private void initViews(View rootView) {
@@ -158,8 +164,12 @@ public class GameFragment_wg extends Fragment {
 
                         if(isAdjacent(lrOld, smOld, large, small)) {
 
+
+                           inner1.setTextColor(Color.RED);
                             //inner1.setBackgroundColor(Color.RED);
-                            inner1.setTextColor(Color.RED);
+
+                           // inner1.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.DARKEN);
+                            //inner1.setVisibility (View.VISIBLE);
                             selectedWord.add(inner1.getText().toString());
                             smallPos.add(small);
                             largePos.add(large);
@@ -172,13 +182,15 @@ public class GameFragment_wg extends Fragment {
                             selectedWord.remove(selectedWord.size() - 1);
                             smallPos.remove(smallPos.size() - 1);
                             largePos.remove(largePos.size() - 1);
-                            inner1.setTextColor(Color.BLACK);
+                            inner1.setTextColor(Color.WHITE);
+                            //inner1.setBackgroundColor(Color.parseColor("#fb8c00"));
 
                         }
                         else
                         {
                             Toast.makeText(mContext, "Not an adjacent letter", Toast.LENGTH_SHORT).show();
                         }
+
 
                     }
                 });
@@ -323,19 +335,7 @@ public class GameFragment_wg extends Fragment {
             words[i] = nine.get(ran).toString().toCharArray();
         }
         words = this.swapChars(words);
-/*      Random r = new Random();
-      int ran = r.nextInt(20);*/
 
-       /* char [][] nineWords = {{'B', 'L', 'I', 'Z', 'Z', 'A', 'R', 'D', 'S'},
-        {'B', 'L', 'I', 'Z', 'Z', 'A', 'R', 'D', 'S'},
-        {'B', 'L', 'I', 'Z', 'Z', 'A', 'R', 'D', 'S'},
-        {'B', 'L', 'I', 'Z', 'Z', 'A', 'R', 'D', 'S'},
-        {'B', 'L', 'I', 'Z', 'Z', 'A', 'R', 'D', 'S'},
-        {'B', 'L', 'I', 'Z', 'Z', 'A', 'R', 'D', 'S'},
-        {'B', 'L', 'I', 'Z', 'Z', 'A', 'R', 'D', 'S'},
-        {'B', 'L', 'I', 'Z', 'Z', 'A', 'R', 'D', 'S'},
-        {'B', 'L', 'I', 'Z', 'Z', 'A', 'R', 'D', 'S'}};
-*/
         for (int large = 0; large < 9; large++) {
             View outer = rootView.findViewById(mLargeIds[large]);
 
@@ -425,6 +425,15 @@ public class GameFragment_wg extends Fragment {
             setAllAvailable();
         }
     }
+
+   // public void vanish(View view) {
+        //ToggleButton p= (ToggleButton)findViewById(R.id.pause);
+        //p.setVisibility(View.GONE);
+
+
+        // Kabloey
+   // }
+
 
     private void setAllAvailable() {
         for (int large = 0; large < 9; large++) {
@@ -616,6 +625,15 @@ public class GameFragment_wg extends Fragment {
         }
         return chr;
     }
+    /*
+    public void vanish(View view) {
+        Button b= (Button)findViewById(R.id.follow);
+        b.setVisibility(View.GONE);
+
+
+        // Kabloey
+    }
+*/
 
     /** Restore the state of the game from the given string. */
    /*public void putState(String gameData) {

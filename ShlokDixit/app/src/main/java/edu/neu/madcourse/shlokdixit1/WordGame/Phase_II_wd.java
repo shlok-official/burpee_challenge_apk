@@ -52,7 +52,7 @@ public class Phase_II_wd extends AppCompatActivity implements CompoundButton.OnC
         final TextView timer;
 
         timer = (TextView) findViewById(R.id.timer3);
-        new CountDownTimer(10000, 1000) {
+        new CountDownTimer(90000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 timer.setText("Time Left:00:" + millisUntilFinished / 1000);

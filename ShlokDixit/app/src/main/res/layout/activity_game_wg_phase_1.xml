@@ -55,6 +55,8 @@
                android:layout_gravity="right"
                android:gravity="right"
                android:layout_alignRight="@+id/phase"
+
+
                />
 
 

@@ -39,7 +39,7 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
 
     MediaPlayer mMediaPlayer;
     ToggleButton t;
-    ToggleButton p;
+
 
 
     @Override
@@ -50,7 +50,7 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
 
         mGameFragment = (GameFragment_wg) getFragmentManager()
                 .findFragmentById(R.id.fragment_game);
-        t = (ToggleButton) findViewById(R.id.togglebutton1);
+       t = (ToggleButton) findViewById(R.id.togglebutton1);
         t.setOnCheckedChangeListener(this);
 
 
@@ -168,6 +168,10 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
         }
     }
 
+    public void pause(View view) {
+        //finish();
+
+    }
 
 
 

@@ -107,7 +107,8 @@ public class ControlFragment_wg extends Fragment {
                 for (String s : inputWord) {
                     word += s;
                 }
-                if (wordSearch(word)) {
+                    if(word.length()>0){
+                if (word_finder(word)) {
                     Toast.makeText(getActivity().getApplicationContext(), "Correct Word !", Toast.LENGTH_SHORT).show();
                     points = points + word.length();
                     gameFrg.initTileData();
@@ -115,7 +116,9 @@ public class ControlFragment_wg extends Fragment {
                 } else
                     Toast.makeText(getActivity().getApplicationContext(), "InCorrect Word !", Toast.LENGTH_SHORT).show();
 
-            }
+            }}
+
+
             else
                     Toast.makeText(getActivity().getApplicationContext(), " No Word Selected ", Toast.LENGTH_SHORT).show();}
         });
@@ -127,9 +130,9 @@ public class ControlFragment_wg extends Fragment {
 
 
 
-    public boolean wordSearch(String key) {
+    public boolean word_finder(String key) {
 
-        
+
         this.l1 = new ArrayList<String>();
         this.l2 = new ArrayList<String>();
         this.l02 = new ArrayList<String>();

@@ -38,7 +38,7 @@ import edu.neu.madcourse.shlokdixit1.R;
 import edu.neu.madcourse.shlokdixit1.TicTacToe.GameActivity;
 import edu.neu.madcourse.shlokdixit1.TicTacToe.Tile;
 
-public class GameFragment_wg extends Fragment  {
+public class GameFragment_wg extends Fragment {
     static private int mLargeIds[] = {R.id.large1, R.id.large2, R.id.large3,
             R.id.large4, R.id.large5, R.id.large6, R.id.large7, R.id.large8,
             R.id.large9,};
@@ -46,7 +46,7 @@ public class GameFragment_wg extends Fragment  {
             R.id.small4, R.id.small5, R.id.small6, R.id.small7, R.id.small8,
             R.id.small9,};
     private Handler mHandler = new Handler();
-   // private Tile mEntireBoard = new Tile(this);
+    // private Tile mEntireBoard = new Tile(this);
     private Tile mLargeTiles[] = new Tile[9];
     private Tile mSmallTiles[][] = new Tile[9][9];
     private Tile.Owner mPlayer = Tile.Owner.X;
@@ -84,7 +84,7 @@ public class GameFragment_wg extends Fragment  {
     int large, small;
     int[] selectedLarge;
     int[] selectedSmall;
-    int counter=0;
+    int counter = 0;
     int largeOld = 99, smallOld = 99;
     ArrayList<Integer> smallPos;
     ArrayList<Integer> largePos;
@@ -100,7 +100,7 @@ public class GameFragment_wg extends Fragment  {
         super.onCreate(savedInstanceState);
         // Retain this fragment across configuration changes.
         setRetainInstance(true);
-      //  this.loadData();
+        //  this.loadData();
         Accumulator.getInstance().setControlObj(this);
         tone = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
         // initGame();
@@ -162,13 +162,13 @@ public class GameFragment_wg extends Fragment  {
                         int lrOld = largePos.get(largePos.size() - 1);
                         //if(isButtonAvailable(large, small)) {
 
-                        if(isAdjacent(lrOld, smOld, large, small)) {
+                        if (isAdjacent(lrOld, smOld, large, small)) {
 
 
-                           inner1.setTextColor(Color.RED);
+                            inner1.setTextColor(Color.RED);
                             //inner1.setBackgroundColor(Color.RED);
 
-                           // inner1.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.DARKEN);
+                            // inner1.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.DARKEN);
                             //inner1.setVisibility (View.VISIBLE);
                             selectedWord.add(inner1.getText().toString());
                             smallPos.add(small);
@@ -176,18 +176,14 @@ public class GameFragment_wg extends Fragment  {
                             tone.startTone(ToneGenerator.TONE_PROP_BEEP);
                             Accumulator.getInstance().setArl(selectedWord);
 
-                        }
-                        else if (smOld == small && lrOld == large)
-                        {
+                        } else if (smOld == small && lrOld == large) {
                             selectedWord.remove(selectedWord.size() - 1);
                             smallPos.remove(smallPos.size() - 1);
                             largePos.remove(largePos.size() - 1);
                             inner1.setTextColor(Color.WHITE);
                             //inner1.setBackgroundColor(Color.parseColor("#fb8c00"));
 
-                        }
-                        else
-                        {
+                        } else {
                             Toast.makeText(mContext, "Not an adjacent letter", Toast.LENGTH_SHORT).show();
                         }
 
@@ -198,11 +194,10 @@ public class GameFragment_wg extends Fragment  {
         }
     }
 
-    public void initTileData()
-    {
-        selectedWord=null;
-        smallPos= null;
-        largePos=null;
+    public void initTileData() {
+        selectedWord = null;
+        smallPos = null;
+        largePos = null;
         selectedWord = new ArrayList<String>();
         smallPos = new ArrayList<Integer>();
         largePos = new ArrayList<Integer>();
@@ -210,9 +205,8 @@ public class GameFragment_wg extends Fragment  {
         largePos.add(99);
     }
 
-    public boolean isAdjacent(int largeOld, int smallOld, int largeNew, int smallNew)
-    {
-        if((largeNew == largeOld) || (largeOld == 99)) {
+    public boolean isAdjacent(int largeOld, int smallOld, int largeNew, int smallNew) {
+        if ((largeNew == largeOld) || (largeOld == 99)) {
             switch (smallOld) {
 
                 case 0:
@@ -262,22 +256,20 @@ public class GameFragment_wg extends Fragment  {
                 case 99:
                     return true;
 
-                default: return false;
+                default:
+                    return false;
             }
-        }
-        else return false;
+        } else return false;
 
     }
 
-    public boolean isButtonAvailable(int l, int s)
-    {
+    public boolean isButtonAvailable(int l, int s) {
         if (buttonState[l][s] == false)
             return false;
         else return true;
     }
 
-    public void setButtonState(int large, int small, boolean state)
-    {
+    public void setButtonState(int large, int small, boolean state) {
         buttonState[large][small] = state;
     }
 
@@ -320,7 +312,7 @@ public class GameFragment_wg extends Fragment  {
       }
    }*/
 
-    private void fillTiles(View rootView){
+    private void fillTiles(View rootView) {
 
         ins = getResources().openRawResource(R.raw.a_list);
         reader = new BufferedReader(new InputStreamReader(ins));
@@ -331,15 +323,14 @@ public class GameFragment_wg extends Fragment  {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        char[][]words=new char[9][9];
+        char[][] words = new char[9][9];
         ArrayList<String> nine = this.getNineLengthWords(l1);
-        int min=0;
-        int max=30;
+        int min = 0;
+        int max = 30;
         int ran = 0;
         Random rn = new Random();
 
-        for (int i=0; i<9; i++)
-        {
+        for (int i = 0; i < 9; i++) {
             ran = rn.nextInt(max - min + 1) + min;
             words[i] = nine.get(ran).toString().toCharArray();
         }
@@ -353,7 +344,8 @@ public class GameFragment_wg extends Fragment  {
                 final Button inner1 = (Button) outer.findViewById(mSmallIds[small]);
                 inner1.setText(Character.toString(words[large][small]));
                 buttonState[large][small] = true;
-            }}
+            }
+        }
 
 
     }
@@ -378,10 +370,10 @@ public class GameFragment_wg extends Fragment  {
             largeTile.setOwner(winner);
         }
         //winner = mEntireBoard.findWinner();
-      //  mEntireBoard.setOwner(winner);
+        //  mEntireBoard.setOwner(winner);
         updateAllTiles();
         if (winner != Tile.Owner.NEITHER) {
-            ((GameActivity)getActivity()).reportWinner(winner);
+            ((GameActivity) getActivity()).reportWinner(winner);
         }
     }
 
@@ -399,24 +391,6 @@ public class GameFragment_wg extends Fragment  {
 
     public void initGame() {
 
-
-
-/*      Log.d("UT3", "init game");
-      mEntireBoard = new Tile(this);
-      // Create all the tiles
-      for (int large = 0; large < 9; large++) {
-         mLargeTiles[large] = new Tile(this);
-         for (int small = 0; small < 9; small++) {
-            mSmallTiles[large][small] = new Tile(this);
-         }
-         mLargeTiles[large].setSubTiles(mSmallTiles[large]);
-      }
-      mEntireBoard.setSubTiles(mLargeTiles);
-
-      // If the player moves first, set which spots are available
-      mLastSmall = -1;
-      mLastLarge = -1;
-      setAvailableFromLastMove(mLastSmall);*/
     }
 
     private void setAvailableFromLastMove(int small) {
@@ -435,13 +409,11 @@ public class GameFragment_wg extends Fragment  {
         }
     }
 
-   // public void vanish(View view) {
-        //ToggleButton p= (ToggleButton)findViewById(R.id.pause);
-        //p.setVisibility(View.GONE);
+    // public void vanish(View view) {
+    //ToggleButton p= (ToggleButton)findViewById(R.id.pause);
+    //p.setVisibility(View.GONE);
 
-
-        // Kabloey
-   // }
+    // }
 
 
     private void setAllAvailable() {
@@ -455,7 +427,7 @@ public class GameFragment_wg extends Fragment  {
     }
 
     private void updateAllTiles() {
-       // mEntireBoard.updateDrawableState();
+        // mEntireBoard.updateDrawableState();
         for (int large = 0; large < 9; large++) {
             mLargeTiles[large].updateDrawableState();
             for (int small = 0; small < 9; small++) {
@@ -464,25 +436,13 @@ public class GameFragment_wg extends Fragment  {
         }
     }
 
-    /** Create a string containing the state of the game. */
+
     public String getState() {
-/*      StringBuilder builder = new StringBuilder();
-      builder.append(mLastLarge);
-      builder.append(',');
-      builder.append(mLastSmall);
-      builder.append(',');
-      for (int large = 0; large < 9; large++) {
-         for (int small = 0; small < 9; small++) {
-            builder.append(mSmallTiles[large][small].getOwner().name());
-            builder.append(',');
-         }
-      }
-      return builder.toString();*/
+
         return "dummy val";
     }
 
-    public void loadData()
-    {
+    public void loadData() {
         try {
             String data;
             InputStream ins;
@@ -607,27 +567,23 @@ public class GameFragment_wg extends Fragment  {
         }
     }
 
-    public ArrayList getNineLengthWords(ArrayList ar)
-    {
-        int i=0, j=0;
+    public ArrayList getNineLengthWords(ArrayList ar) {
+        int i = 0, j = 0;
         // this.nineLenghtWords=ar;
 
         ArrayList<String> nine = new ArrayList<String>();
-        for (j=0; j<ar.size(); j++)
-        {
-            if (ar.get(j).toString().length()==9)
+        for (j = 0; j < ar.size(); j++) {
+            if (ar.get(j).toString().length() == 9)
                 nine.add(ar.get(j).toString());
         }
         return nine;
 
     }
 
-    public char[][] swapChars(char[][] chr)
-    {
+    public char[][] swapChars(char[][] chr) {
         char temp;
         ArrayList<String> nine = new ArrayList<String>();
-        for (int j=0; j<chr.length; j++)
-        {
+        for (int j = 0; j < chr.length; j++) {
             temp = chr[j][3];
             chr[j][3] = chr[j][5];
             chr[j][5] = temp;

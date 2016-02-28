@@ -21,9 +21,10 @@ import edu.neu.madcourse.shlokdixit1.R;
 /**
  * Created by shlokdixit on 23/02/16.
  */
-public class Phase_II_wd extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener{
+public class Phase_II_wd extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
     MediaPlayer mMediaPlayer;
     ToggleButton t;
+
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -31,13 +32,11 @@ public class Phase_II_wd extends AppCompatActivity implements CompoundButton.OnC
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_game_wg_phase_2);
-        t = (ToggleButton) findViewById(R.id.togglebutton1  );
+        t = (ToggleButton) findViewById(R.id.togglebutton1);
         t.setOnCheckedChangeListener(this);
 
-
-
-        ///////
-        TextView myText = (TextView) findViewById(R.id.phaseII );
+        ////////////////////////////////////////////////////////
+        TextView myText = (TextView) findViewById(R.id.phaseII);
 
         Animation anim = new AlphaAnimation(0.0f, 1.0f);
         anim.setDuration(50); //You can manage the blinking time with this parameter
@@ -45,30 +44,23 @@ public class Phase_II_wd extends AppCompatActivity implements CompoundButton.OnC
         anim.setRepeatMode(Animation.REVERSE);
         anim.setRepeatCount(Animation.INFINITE);
         myText.startAnimation(anim);
-        ///////////////
-
-
-
+        ////////////////////////////////////////////////////////
+        
         final TextView timer;
 
         timer = (TextView) findViewById(R.id.timer3);
         new CountDownTimer(90000, 1000) {
-
             public void onTick(long millisUntilFinished) {
                 timer.setText("Time Left:00:" + millisUntilFinished / 1000);
             }
 
             public void onFinish() {
-
                 Toast.makeText(getApplicationContext(), "GAME OVER", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Phase_II_wd.this, Final_score_wd.class);
                 startActivity(intent);
                 //finish();
-
             }
-
         }.start();
-
     }
 
     @Override
@@ -79,7 +71,6 @@ public class Phase_II_wd extends AppCompatActivity implements CompoundButton.OnC
 
         } else {
             // The toggle is disabled
-
             mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.cartoon);
             mMediaPlayer.setLooping(true);
             mMediaPlayer.start();

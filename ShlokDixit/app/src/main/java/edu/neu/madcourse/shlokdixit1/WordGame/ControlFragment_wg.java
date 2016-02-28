@@ -384,5 +384,5 @@ public class ControlFragment_wg extends Fragment {
         } else return false;
 
     }
-    
+
 }

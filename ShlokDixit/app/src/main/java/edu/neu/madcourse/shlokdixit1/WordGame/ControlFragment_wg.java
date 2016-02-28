@@ -128,6 +128,8 @@ public class ControlFragment_wg extends Fragment {
 
 
     public boolean wordSearch(String key) {
+
+        
         this.l1 = new ArrayList<String>();
         this.l2 = new ArrayList<String>();
         this.l02 = new ArrayList<String>();
@@ -145,6 +147,7 @@ public class ControlFragment_wg extends Fragment {
         this.l13 = new ArrayList<String>();
         this.l14 = new ArrayList<String>();
         char firstChar = key.charAt(0);
+
         if (firstChar == 'a' || firstChar == 'A') {
             ins = getResources().openRawResource(R.raw.a_list);
             reader = new BufferedReader(new InputStreamReader(ins));

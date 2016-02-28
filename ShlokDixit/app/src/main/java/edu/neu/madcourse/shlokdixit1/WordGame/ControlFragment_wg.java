@@ -94,10 +94,15 @@ public class ControlFragment_wg extends Fragment {
             }
         });
 
+
         check.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 inputWord = Accumulator.getInstance().getArl();
+
+                if (inputWord != null) {
+
                 String word = "";
                 for (String s : inputWord) {
                     word += s;
@@ -111,10 +116,16 @@ public class ControlFragment_wg extends Fragment {
                     Toast.makeText(getActivity().getApplicationContext(), "InCorrect Word !", Toast.LENGTH_SHORT).show();
 
             }
+            else
+                    Toast.makeText(getActivity().getApplicationContext(), " No Word Selected ", Toast.LENGTH_SHORT).show();}
         });
 
         return rootView;
     }
+
+
+
+
 
     public boolean wordSearch(String key) {
         this.l1 = new ArrayList<String>();

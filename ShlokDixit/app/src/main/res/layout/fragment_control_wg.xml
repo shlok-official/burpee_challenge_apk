@@ -17,7 +17,8 @@
         android:background="@drawable/power_restart"
         android:foregroundGravity="center"
         android:gravity="right"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:onClick="restart_game"/>
 
     <Button
         android:id="@+id/button_main"

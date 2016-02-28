@@ -45,7 +45,7 @@ public class Phase_II_wd extends AppCompatActivity implements CompoundButton.OnC
         anim.setRepeatCount(Animation.INFINITE);
         myText.startAnimation(anim);
         ////////////////////////////////////////////////////////
-        
+
         final TextView timer;
 
         timer = (TextView) findViewById(R.id.timer3);

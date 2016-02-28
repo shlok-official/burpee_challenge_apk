@@ -50,6 +50,8 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
 
         mGameFragment = (GameFragment_wg) getFragmentManager()
                 .findFragmentById(R.id.fragment_game);
+
+        /////////////////////////////////////////////////////////////
        t = (ToggleButton) findViewById(R.id.togglebutton1);
         t.setOnCheckedChangeListener(this);
 
@@ -86,9 +88,6 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
                 timer.setText("Time Left:00:" + millisUntilFinished / 1000);
 
             }
-
-
-
             public void onFinish() {
                 Toast.makeText(getApplicationContext(), "PHASE-II STARTED", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(GameActivity_wg.this, Phase_II_wd.class);
@@ -139,7 +138,7 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
         // Reset the board to the initial position
         mGameFragment.initGame();
     }
-
+/*
     public void startThinking() {
         View thinkView = findViewById(R.id.thinking);
         thinkView.setVisibility(View.VISIBLE);
@@ -149,7 +148,7 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
         View thinkView = findViewById(R.id.thinking);
         thinkView.setVisibility(View.GONE);
     }
-
+*/
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {

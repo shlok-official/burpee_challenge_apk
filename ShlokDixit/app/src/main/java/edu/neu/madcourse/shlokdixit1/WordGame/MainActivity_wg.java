@@ -11,6 +11,7 @@ package edu.neu.madcourse.shlokdixit1.WordGame;
 import android.app.Activity;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -21,6 +22,7 @@ public class MainActivity_wg extends Activity implements CompoundButton.OnChecke
 
     MediaPlayer mMediaPlayer;
     ToggleButton t;
+    //Button p;
     // ...
 
     @Override
@@ -35,25 +37,9 @@ public class MainActivity_wg extends Activity implements CompoundButton.OnChecke
         t.setOnCheckedChangeListener(this);
     }
 
-    /*
-       @Override
-       protected void onResume() {
-          super.onResume();
-          mMediaPlayer = MediaPlayer.create(this, R.raw.cartoon);
-          mMediaPlayer.setVolume(0.5f, 0.5f);
-          mMediaPlayer.setLooping(true);
-          mMediaPlayer.start();
-       }
 
-       @Override
-       protected void onPause() {
-          super.onPause();
-          mMediaPlayer.stop();
-          mMediaPlayer.reset();
-          mMediaPlayer.release();
-       }
 
-    */
+
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
@@ -67,6 +53,7 @@ public class MainActivity_wg extends Activity implements CompoundButton.OnChecke
             mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.cartoon);
             mMediaPlayer.setLooping(true);
             mMediaPlayer.start();
+           // finish();
 
         }
     }

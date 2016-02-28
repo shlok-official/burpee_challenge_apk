@@ -1,69 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/control_padding"
+    tools:context=".GameActivity_wg">
 
-<RelativeLayout
-   xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:tools="http://schemas.android.com/tools"
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   android:orientation="horizontal"
-   android:padding="@dimen/control_padding"
-   tools:context=".GameActivity_wg">
+    <Button
+        android:id="@+id/restart_wg"
+        android:layout_width="50sp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button_main"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/button_main"
+        android:layout_toRightOf="@+id/button_main"
+        android:background="@drawable/power_restart"
+        android:foregroundGravity="center"
+        android:gravity="right"
+        android:textAlignment="center" />
 
-   <Button
-      android:id="@+id/button_restart"
-      android:layout_width="105sp"
-      android:layout_height="wrap_content"
-       android:gravity="right"
-      android:elevation="@dimen/elevation_low"
-      android:textAlignment="center"
-       android:foregroundGravity="center"
-      android:text="@string/restart_label"/>
+    <Button
+        android:id="@+id/button_main"
+        android:layout_width="50sp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/check_wg"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/home1"
+        android:gravity="right" />
 
-   <Button
-      android:id="@+id/button_main"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:elevation="@dimen/elevation_low"
-      android:text="@string/main_menu_label"
-       android:layout_below="@+id/button_restart"
-       android:gravity="right"/>
     <ToggleButton
         android:id="@+id/pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="@dimen/elevation_low"
-        android:layout_alignParentRight="true"
         android:textOff="PAUSE"
         android:textOn="RESTART"
-        />
-    <Button
-        android:id="@+id/check_wg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="@dimen/elevation_low"
-        android:text="MATCH WORDS"
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/togglebutton1"
         android:layout_toStartOf="@+id/togglebutton1" />
+
+    <Button
+        android:id="@+id/check_wg"
+        android:layout_width="50sp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/success"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/restart_wg"
+        android:layout_toEndOf="@+id/restart_wg"
+        android:layout_alignBottom="@+id/pause" />
+
     <ToggleButton
         android:id="@+id/togglebutton1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:elevation="@dimen/elevation_low"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/pause"
         android:textOff="Sound Off"
         android:textOn="Sound On"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
-       />
-    <Button
-        android:id="@+id/pauseact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="@dimen/elevation_low"
-        android:text="PAUSE"
-        android:layout_below="@+id/check_wg"
-        android:layout_toRightOf="@+id/button_main"
-        android:onClick="pause"
-         />
 
 </RelativeLayout>

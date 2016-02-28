@@ -80,7 +80,7 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
         final TextView timer;
         ///////////////
         timer = (TextView) findViewById(R.id.timer);
-        new CountDownTimer(10000, 1000) {
+        new CountDownTimer(90000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 timer.setText("Time Left:00:" + millisUntilFinished / 1000);
@@ -165,14 +165,38 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
             mMediaPlayer.setLooping(true);
             mMediaPlayer.start();
             Toast.makeText(getApplicationContext(), "SOUND ON", Toast.LENGTH_SHORT).show();
+            //finish();
         }
     }
 
-    public void pause(View view) {
-        //finish();
+    /*
+    boolean isPaused = true;
+    CountDownTimer countDownTimer = null;
 
+   public void pause(View view) {
+        //finish();
+       onPause();
+
+   }
+    @Override
+    protected void onPause() {
+        // TODO Auto-generated method stub
+        if(isPaused==false){
+            countDownTimer.cancel();
+        } else{
+            throw new IllegalStateException("CountDownTimerPausable is already in pause state, start counter before pausing it.");
+        }
+        isPaused = true;
+    }
+    public boolean isPaused() {
+        return isPaused;
     }
 
 
 
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);  // "Hide" your current Activity
+    }
+*/
 }

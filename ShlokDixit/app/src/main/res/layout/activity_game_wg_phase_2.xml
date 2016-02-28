@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:scrollbars="none"
-    android:background="@drawable/wordlist_background"
+    android:background="#FFFFFF"
     >
 <FrameLayout
    xmlns:android="http://schemas.android.com/apk/res/android"
@@ -20,7 +20,7 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:scaleType="centerCrop"
-       android:src="@drawable/wordlist_background">
+       android:background="#FFFFFF">
 
    </ImageView>
 
@@ -47,6 +47,16 @@
                android:text="PHASE-II"
 
                />
+           <TextView
+               android:id="@+id/timer3"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="25sp"
+               android:textColor="#FF0000"
+               android:layout_gravity="right"
+               android:gravity="right"
+               android:layout_margin="10sp"
+               android:layout_alignRight="@+id/phaseII"/>
 
 
        </RelativeLayout>

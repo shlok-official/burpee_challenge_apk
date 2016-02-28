@@ -4,82 +4,79 @@
     android:id="@+id/ScrollView01"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:fillViewport="true"
-    android:scrollbars="none"
-    android:background="@drawable/wordlist_background">
-<FrameLayout
-   xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:tools="http://schemas.android.com/tools"
-   android:layout_width="match_parent"
-   android:layout_height="match_parent"
-   tools:context=".WordGame.GameActivity_wg">
+    android:scrollbars="none">
 
-   <ImageView
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:scaleType="centerCrop"
-       android:src="@drawable/wordlist_background">
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".WordGame.GameActivity_wg">
 
-   </ImageView>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:scaleType="centerCrop">
 
-   <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:gravity="center"
-      android:orientation="vertical">
-       <RelativeLayout
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content">
+        </ImageView>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
-           <TextView
-               android:id="@+id/phase"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_gravity="left"
-               android:gravity="left"
-               android:textSize="25sp"
-               android:textStyle="bold"
-               android:textColor="#FF0000"
-               android:layout_margin="10sp"
-               android:text="PHASE-I"
-
-                />
-           <TextView
-               android:id="@+id/timer"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textSize="25sp"
-               android:textColor="#FF0000"
-               android:layout_margin="10sp"
-               android:layout_gravity="right"
-               android:gravity="right"
-               android:layout_alignRight="@+id/phase"
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
 
-               />
+                <TextView
+                    android:id="@+id/phase"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_margin="10sp"
+                    android:gravity="left"
+                    android:text="PHASE-I"
+                    android:textColor="#FF0000"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/phase"
+                    android:layout_gravity="right"
+                    android:layout_margin="10sp"
+                    android:gravity="right"
+                    android:textColor="#FF0000"
+                    android:textSize="25sp" />
 
 
-       </RelativeLayout>
+            </RelativeLayout>
 
-      <fragment
-         android:id="@+id/fragment_game"
-         class="edu.neu.madcourse.shlokdixit1.WordGame.GameFragment_wg"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         tools:layout="@layout/fragment_game_wg"/>
-      <!-- Control fragment goes here... -->
+            <fragment
+                android:id="@+id/fragment_game"
+                class="edu.neu.madcourse.shlokdixit1.WordGame.GameFragment_wg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:layout="@layout/fragment_game_wg" />
+            <!-- Control fragment goes here... -->
 
-      <fragment
-         android:id="@+id/fragment_game_controls"
-         class="edu.neu.madcourse.shlokdixit1.WordGame.ControlFragment_wg"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         tools:layout="@layout/fragment_control_wg"/>
+            <fragment
+                android:id="@+id/fragment_game_controls"
+                class="edu.neu.madcourse.shlokdixit1.WordGame.ControlFragment_wg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:layout="@layout/fragment_control_wg" />
 
-   </LinearLayout>
+        </LinearLayout>
 
-   <include layout="@layout/thinking_wg"/>
+        <include layout="@layout/thinking_wg" />
 
-</FrameLayout>
+    </FrameLayout>
 </ScrollView>

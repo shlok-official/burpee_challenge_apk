@@ -59,6 +59,8 @@ public class GameFragment_wg extends Fragment  {
     private float mVolume = 1f;
     private int mLastLarge;
     private int mLastSmall;
+    InputStream ins;
+    BufferedReader reader;
 
     ArrayList<String> l1;
     ArrayList<String> l2;
@@ -81,7 +83,7 @@ public class GameFragment_wg extends Fragment  {
     ArrayList<ArrayList> masterData;
     ArrayList<String> nineLenghtWords;
     ArrayList<String> selectedWord;
-
+    String data;
     int large, small;
     int[] selectedLarge;
     int[] selectedSmall;
@@ -101,7 +103,7 @@ public class GameFragment_wg extends Fragment  {
         super.onCreate(savedInstanceState);
         // Retain this fragment across configuration changes.
         setRetainInstance(true);
-        this.loadData();
+      //  this.loadData();
         DataHolder.getInstance().setControlObj(this);
         tone = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
         // initGame();
@@ -112,8 +114,11 @@ public class GameFragment_wg extends Fragment  {
         mSoundRewind = mSoundPool.load(getActivity(), R.raw.joanne_rewind, 1);
 
         mContext = getActivity().getApplicationContext();
+        ArrayList<String> l1;
+        this.l1 = new ArrayList<String>();
 
     }
+
 
     private void clearAvailable() {
         mAvailable.clear();
@@ -136,8 +141,6 @@ public class GameFragment_wg extends Fragment  {
         return rootView;
 
     }
-
-
 
     private void initViews(View rootView) {
 
@@ -322,6 +325,15 @@ public class GameFragment_wg extends Fragment  {
 
     private void fillTiles(View rootView){
 
+        ins = getResources().openRawResource(R.raw.a_list);
+        reader = new BufferedReader(new InputStreamReader(ins));
+        try {
+            while ((data = reader.readLine()) != null) {
+                l1.add(data);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         char[][]words=new char[9][9];
         ArrayList<String> nine = this.getNineLengthWords(l1);
         int min=0;

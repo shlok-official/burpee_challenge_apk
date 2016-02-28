@@ -13,7 +13,6 @@ import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Color;
 import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.media.Ringtone;
 import android.media.SoundPool;
 import android.media.ToneGenerator;
@@ -24,9 +23,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -104,7 +101,7 @@ public class GameFragment_wg extends Fragment  {
         // Retain this fragment across configuration changes.
         setRetainInstance(true);
       //  this.loadData();
-        DataHolder.getInstance().setControlObj(this);
+        Accumulator.getInstance().setControlObj(this);
         tone = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
         // initGame();
         mSoundPool = new SoundPool(3, AudioManager.STREAM_MUSIC, 0);
@@ -177,7 +174,7 @@ public class GameFragment_wg extends Fragment  {
                             smallPos.add(small);
                             largePos.add(large);
                             tone.startTone(ToneGenerator.TONE_PROP_BEEP);
-                            DataHolder.getInstance().setArl(selectedWord);
+                            Accumulator.getInstance().setArl(selectedWord);
 
                         }
                         else if (smOld == small && lrOld == large)

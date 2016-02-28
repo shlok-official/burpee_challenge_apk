@@ -7,16 +7,16 @@ package edu.neu.madcourse.shlokdixit1.WordGame;
 import java.util.ArrayList;
 
 
-public class DataHolder{
-    private static DataHolder dataObject = null;
+public class Accumulator {
+    private static Accumulator dataObject = null;
 
-    private DataHolder() {
+    private Accumulator() {
         // left blank intentionally
     }
 
-    public static DataHolder getInstance() {
+    public static Accumulator getInstance() {
         if (dataObject == null)
-            dataObject = new DataHolder();
+            dataObject = new Accumulator();
         return dataObject;
     }
 

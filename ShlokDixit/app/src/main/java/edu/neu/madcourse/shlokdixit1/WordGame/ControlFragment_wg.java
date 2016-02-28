@@ -1,19 +1,10 @@
-/***
- * Excerpted from "Hello, Android",
- * published by The Pragmatic Bookshelf.
- * Copyrights apply to this code. It may not be used to create training material,
- * courses, books, articles, and the like. Contact us if you are in doubt.
- * We make no guarantees that this code is fit for any purpose.
- * Visit http://www.pragmaticprogrammer.com/titles/eband4 for more book information.
- ***/
+
 package edu.neu.madcourse.shlokdixit1.WordGame;
 
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.AudioManager;
-import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,7 +43,7 @@ public class ControlFragment_wg extends Fragment {
     String data;
     InputStream ins;
     BufferedReader reader;
-    GameFragment_wg gameFrg = DataHolder.getInstance().getControlObj();
+    GameFragment_wg gameFrg = Accumulator.getInstance().getControlObj();
     int points;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -81,8 +72,7 @@ public class ControlFragment_wg extends Fragment {
         restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //mSoundPool.play(mSoundRewind, mVolume, mVolume, 1, 0, 1f);
-                // ...
+
                 gameFrg.l1= null;
                 gameFrg.l2 = null;
                 gameFrg.l02= null;
@@ -107,7 +97,7 @@ public class ControlFragment_wg extends Fragment {
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                inputWord = DataHolder.getInstance().getArl();
+                inputWord = Accumulator.getInstance().getArl();
                 String word = "";
                 for (String s : inputWord)
                 {

@@ -10,7 +10,6 @@
         android:id="@+id/restart_wg"
         android:layout_width="50sp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button_main"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/button_main"
         android:layout_toRightOf="@+id/button_main"
@@ -18,7 +17,8 @@
         android:foregroundGravity="center"
         android:gravity="right"
         android:textAlignment="center"
-        android:onClick="restart_game"/>
+        android:onClick="restart_game"
+        android:layout_alignBottom="@+id/pause_wg"/>
 
     <Button
         android:id="@+id/button_main"
@@ -29,14 +29,13 @@
         android:background="@drawable/home1"
         android:gravity="right" />
 
-    <ToggleButton
-        android:id="@+id/pause"
+    <Button
+        android:id="@+id/pause_wg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:elevation="@dimen/elevation_low"
-        android:textOff="PAUSE"
-        android:textOn="RESTART"
+        android:text="PAUSE"
         android:layout_alignParentTop="true"
+        android:onClick="pausegame"
         android:layout_toLeftOf="@+id/togglebutton1"
         android:layout_toStartOf="@+id/togglebutton1" />
 
@@ -48,7 +47,7 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/restart_wg"
         android:layout_toEndOf="@+id/restart_wg"
-        android:layout_alignBottom="@+id/pause" />
+        android:layout_alignBottom="@+id/restart_wg"/>
 
     <ToggleButton
         android:id="@+id/togglebutton1"

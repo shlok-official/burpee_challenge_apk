@@ -149,18 +149,16 @@ public class GameFragment_wg extends Fragment {
             for (small = 0; small < 9; small++) {
 
                 final Button inner1 = (Button) outer.findViewById(mSmallIds[small]);
-                //  inner1.setText(Character.toString(nineWords[large][small]));}}
                 inner1.setTag(large + ":" + small);
                 inner1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 
-                        //***********my code
+
                         int large = Integer.parseInt(view.getTag().toString().split(":")[0]);
                         int small = Integer.parseInt(view.getTag().toString().split(":")[1]);
                         int smOld = smallPos.get(smallPos.size() - 1);
                         int lrOld = largePos.get(largePos.size() - 1);
-                        //if(isButtonAvailable(large, small)) {
 
                         if (isAdjacent(lrOld, smOld, large, small)) {
 

@@ -200,25 +200,32 @@ long remaining = 0;
     public void pausegame(View view){
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
             builder.setMessage("GAME PAUSED")
                     .setPositiveButton("UNPAUSE", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             resumeCountDownTimer();
+
+
 
                         }
                     })
                     .setNegativeButton("EXIT GAME", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             // User cancelled the dialog
+
                             finish();
+
                         }
-                    });
+                    })
+            .setCancelable(false);
 
             // Create the AlertDialog object and return it
 
         AlertDialog alertDialog = builder.create();
 
         alertDialog.show();
+
         countDownTimer.cancel();
         //onPause();
         }

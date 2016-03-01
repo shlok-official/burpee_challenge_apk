@@ -165,7 +165,6 @@ public class GameFragment_wg extends Fragment {
 
                             inner1.setTextColor(Color.RED);
                             //inner1.setBackgroundColor(Color.RED);
-
                             // inner1.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.DARKEN);
                             //inner1.setVisibility (View.VISIBLE);
                             selectedWord.add(inner1.getText().toString());

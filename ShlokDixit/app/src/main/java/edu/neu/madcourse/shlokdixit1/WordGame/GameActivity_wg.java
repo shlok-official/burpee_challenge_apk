@@ -25,9 +25,6 @@ import android.widget.ToggleButton;
 import edu.neu.madcourse.shlokdixit1.R;
 
 public class GameActivity_wg extends Activity implements CompoundButton.OnCheckedChangeListener {
-    //public static final String KEY_RESTORE = "key_restore";
-    //public static final String PREF_RESTORE = "pref_restore";
-    //private MediaPlayer mMediaPlayer;
     private Handler mHandler = new Handler();
     private GameFragment_wg mGameFragment;
 
@@ -47,8 +44,6 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
         mGameFragment = (GameFragment_wg) getFragmentManager()
                 .findFragmentById(R.id.fragment_game);
 
-
-        /////////////////////////////////////////////////////////////
         t = (ToggleButton) findViewById(R.id.togglebutton1);
         t.setOnCheckedChangeListener(this);
         mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.cartoon);
@@ -59,8 +54,6 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
 
     long remaining = 0;
     long total = 90000;
-
-    ///////////////
     public void startCountDownTimer() {
         timer_wg = (TextView) findViewById(R.id.timer);
         countDownTimer = new CountDownTimer(total, 1000) {
@@ -100,58 +93,6 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
 
     }
 
-//////////////////////////////////////////////////////////
-
-
-    /*
-        public void restartGame() {
-            mGameFragment.restartGame();
-        }
-
-        public void reportWinner(final Tile_wg.Owner winner) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            if (mMediaPlayer != null && mMediaPlayer.isPlaying()) {
-                mMediaPlayer.stop();
-                mMediaPlayer.reset();
-                mMediaPlayer.release();
-            }
-            builder.setMessage(getString(R.string.declare_winner, winner));
-            builder.setCancelable(false);
-            builder.setPositiveButton(R.string.ok_label,
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            finish();
-                        }
-                    });
-            final Dialog dialog = builder.create();
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    mMediaPlayer = MediaPlayer.create(GameActivity_wg.this,
-                            winner == Tile_wg.Owner.X ? R.raw.cartoon
-                                    : winner == Tile_wg.Owner.O ? R.raw.notr_loser
-                                    : R.raw.cartoon
-                    );
-                    mMediaPlayer.start();
-                    dialog.show();
-                }
-            }, 500);
-
-            // Reset the board to the initial position
-            mGameFragment.initGame();
-        }*/
-/*
-    public void startThinking() {
-        View thinkView = findViewById(R.id.thinking);
-        thinkView.setVisibility(View.VISIBLE);
-    }
-
-    public void stopThinking() {
-        View thinkView = findViewById(R.id.thinking);
-        thinkView.setVisibility(View.GONE);
-    }
-*/
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
@@ -191,9 +132,6 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
         countDownTimer.cancel();
         //onPause();
     }
-
-
-    /////////////////////////////
 
     @Override
     public void onPause() {

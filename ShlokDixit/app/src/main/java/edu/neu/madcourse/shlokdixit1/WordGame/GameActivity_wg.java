@@ -57,19 +57,13 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
         mGameFragment = (GameFragment_wg) getFragmentManager()
                 .findFragmentById(R.id.fragment_game);
 
+
         /////////////////////////////////////////////////////////////
         t = (ToggleButton) findViewById(R.id.togglebutton1);
         t.setOnCheckedChangeListener(this);
-
-
         mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.cartoon);
-        ///////
         TextView myText = (TextView) findViewById(R.id.phase);
-
-
-        ///////////////
-
-
+    }
         ///////////////////
         /*
 
@@ -91,7 +85,7 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
         }}*/
         //Log.d("UT3", "restore = " + restore);
 /////////////////////////////////////////////////////////////
-    }
+
 
 long remaining = 0;
     long total=90000;
@@ -100,8 +94,6 @@ long remaining = 0;
         timer_wg = (TextView) findViewById(R.id.timer);
         countDownTimer = new CountDownTimer(total, 1000) {
             public void onTick(long millisUntilFinished) {
-
-
                 timer_wg.setText("Time Left:00:" + millisUntilFinished / 1000);
                 remaining = millisUntilFinished;
             }
@@ -134,8 +126,6 @@ long remaining = 0;
                 }.start();
 
     }
-
-
 
 //////////////////////////////////////////////////////////
 
@@ -205,11 +195,6 @@ long remaining = 0;
         }
     }
 
-//public void pausegame(View view){
-   // onPause();
-
-//}
-
 
 
     public void pausegame(View view){
@@ -267,18 +252,5 @@ long remaining = 0;
        // b.setVisibility(View.VISIBLE);
         //startCountDownTimer();
 
-
-
-
     }
-
-    /////////////////////////////
-
-
-/*
-    @Override
-    public void onBackPressed() {
-        moveTaskToBack(true);  // "Hide" your current Activity
-    }
-*/
 }

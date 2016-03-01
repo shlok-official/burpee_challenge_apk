@@ -50,22 +50,16 @@ public class ControlFragment_wg extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView =
-                inflater.inflate(R.layout.fragment_control_wg, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_control_wg, container, false);
         View main = rootView.findViewById(R.id.button_main);
         View restart_wg = rootView.findViewById(R.id.restart_wg);
         View check = rootView.findViewById(R.id.check_wg);
+        //View pause = rootView.findViewById(R.id.pause_wg);
 
 
-        //View pause = rootView.findViewById(R.id.button_pause);
         main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences myPrefs = getActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
-                SharedPreferences.Editor prefsEditor;
-                prefsEditor = myPrefs.edit();
-                prefsEditor.putString("REFKEY", "some data");
-                prefsEditor.commit();
                 getActivity().finish();
             }
         });
@@ -94,6 +88,7 @@ public class ControlFragment_wg extends Fragment {
                //startCountDownTimer();
             }
         });
+/////////////
 
 
         check.setOnClickListener(new View.OnClickListener() {
@@ -126,10 +121,6 @@ public class ControlFragment_wg extends Fragment {
 
         return rootView;
     }
-
-
-
-
 
     public boolean word_finder(String key) {
 

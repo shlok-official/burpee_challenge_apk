@@ -8,8 +8,8 @@ android {
         applicationId "edu.neu.madcourse.shlokdixit1"
         minSdkVersion 15
         targetSdkVersion 22
-        versionCode 23
-        versionName "12.5.0"
+        versionCode 24
+        versionName "12.6.0"
     }
     buildTypes {
         release {

@@ -91,6 +91,7 @@ public class ControlFragment_wg extends Fragment {
                 gameFrg.l14 = null;
                 Intent intent = new Intent(getActivity(), GameActivity_wg.class);
                 getActivity().startActivity(intent);
+               //startCountDownTimer();
             }
         });
 

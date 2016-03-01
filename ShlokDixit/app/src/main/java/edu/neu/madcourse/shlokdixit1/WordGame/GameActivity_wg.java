@@ -11,28 +11,18 @@ package edu.neu.madcourse.shlokdixit1.WordGame;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import edu.neu.madcourse.shlokdixit1.R;
-import android.widget.ToggleButton;
-import android.app.AlertDialog;
 
 public class GameActivity_wg extends Activity implements CompoundButton.OnCheckedChangeListener {
     //public static final String KEY_RESTORE = "key_restore";
@@ -64,32 +54,13 @@ public class GameActivity_wg extends Activity implements CompoundButton.OnChecke
         mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.cartoon);
         TextView myText = (TextView) findViewById(R.id.phase);
     }
-        ///////////////////
-        /*
-
-        Animation anim = new AlphaAnimation(0.0f, 1.0f);
-        anim.setDuration(50); //You can manage the blinking time with this parameter
-        anim.setStartOffset(20);
-        anim.setRepeatMode(Animation.REVERSE);
-        anim.setRepeatCount(Animation.INFINITE);
-        myText.startAnimation(anim);
-        ///////////////
-
-        boolean restore = getIntent().getBooleanExtra(KEY_RESTORE, false);
-        if (restore) {
-            String gameData = getPreferences(MODE_PRIVATE)
-                    .getString(PREF_RESTORE, null);
-            if (gameData != null) {
-                // mGameFragment.putState(gameData);
-            }
-        }}*/
-        //Log.d("UT3", "restore = " + restore);
-/////////////////////////////////////////////////////////////
 
 
-long remaining = 0;
-    long total=90000;
-        ///////////////
+
+    long remaining = 0;
+    long total = 90000;
+
+    ///////////////
     public void startCountDownTimer() {
         timer_wg = (TextView) findViewById(R.id.timer);
         countDownTimer = new CountDownTimer(total, 1000) {
@@ -97,8 +68,9 @@ long remaining = 0;
                 timer_wg.setText("Time Left:00:" + millisUntilFinished / 1000);
                 remaining = millisUntilFinished;
             }
+
             public void onFinish() {
-               // resumeCountDownTimer();
+                // resumeCountDownTimer();
                 //startCountDownTimer();
                 //Toast.makeText(getApplicationContext(), "PHASE-II STARTED", Toast.LENGTH_LONG).show();
                 //Intent intent = new Intent(GameActivity_wg.this, Phase_II_wd.class);
@@ -113,61 +85,62 @@ long remaining = 0;
         timer_wg = (TextView) findViewById(R.id.timer);
         countDownTimer = new CountDownTimer(remaining, 1000) {
             public void onTick(long millisUntilFinished) {
-                        total = millisUntilFinished;
-                        timer_wg.setText("Time Left:00:" + millisUntilFinished / 1000);
+                total = millisUntilFinished;
+                timer_wg.setText("Time Left:00:" + millisUntilFinished / 1000);
                 remaining = millisUntilFinished;
-                    }
-                    public void onFinish() {
-                      //  Toast.makeText(getApplicationContext(), "PHASE-II STARTED", Toast.LENGTH_LONG).show();
-                        //Intent intent = new Intent(GameActivity_wg.this, Phase_II_wd.class);
-                        //startActivity(intent);
-                    //    finish();
-                    }
-                }.start();
+            }
+
+            public void onFinish() {
+                //  Toast.makeText(getApplicationContext(), "PHASE-II STARTED", Toast.LENGTH_LONG).show();
+                //Intent intent = new Intent(GameActivity_wg.this, Phase_II_wd.class);
+                //startActivity(intent);
+                //    finish();
+            }
+        }.start();
 
     }
 
 //////////////////////////////////////////////////////////
 
 
-/*
-    public void restartGame() {
-        mGameFragment.restartGame();
-    }
-
-    public void reportWinner(final Tile_wg.Owner winner) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        if (mMediaPlayer != null && mMediaPlayer.isPlaying()) {
-            mMediaPlayer.stop();
-            mMediaPlayer.reset();
-            mMediaPlayer.release();
+    /*
+        public void restartGame() {
+            mGameFragment.restartGame();
         }
-        builder.setMessage(getString(R.string.declare_winner, winner));
-        builder.setCancelable(false);
-        builder.setPositiveButton(R.string.ok_label,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        finish();
-                    }
-                });
-        final Dialog dialog = builder.create();
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mMediaPlayer = MediaPlayer.create(GameActivity_wg.this,
-                        winner == Tile_wg.Owner.X ? R.raw.cartoon
-                                : winner == Tile_wg.Owner.O ? R.raw.notr_loser
-                                : R.raw.cartoon
-                );
-                mMediaPlayer.start();
-                dialog.show();
-            }
-        }, 500);
 
-        // Reset the board to the initial position
-        mGameFragment.initGame();
-    }*/
+        public void reportWinner(final Tile_wg.Owner winner) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            if (mMediaPlayer != null && mMediaPlayer.isPlaying()) {
+                mMediaPlayer.stop();
+                mMediaPlayer.reset();
+                mMediaPlayer.release();
+            }
+            builder.setMessage(getString(R.string.declare_winner, winner));
+            builder.setCancelable(false);
+            builder.setPositiveButton(R.string.ok_label,
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            finish();
+                        }
+                    });
+            final Dialog dialog = builder.create();
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mMediaPlayer = MediaPlayer.create(GameActivity_wg.this,
+                            winner == Tile_wg.Owner.X ? R.raw.cartoon
+                                    : winner == Tile_wg.Owner.O ? R.raw.notr_loser
+                                    : R.raw.cartoon
+                    );
+                    mMediaPlayer.start();
+                    dialog.show();
+                }
+            }, 500);
+
+            // Reset the board to the initial position
+            mGameFragment.initGame();
+        }*/
 /*
     public void startThinking() {
         View thinkView = findViewById(R.id.thinking);
@@ -196,40 +169,28 @@ long remaining = 0;
     }
 
 
+    public void pausegame(View view) {
 
-    public void pausegame(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-            builder.setMessage("GAME PAUSED")
-                    .setPositiveButton("UNPAUSE", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            resumeCountDownTimer();
-
-
-
-                        }
-                    })
-                    .setNegativeButton("EXIT GAME", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // User cancelled the dialog
-
-                            finish();
-
-                        }
-                    })
-            .setCancelable(false);
-
-            // Create the AlertDialog object and return it
-
+        builder.setMessage("GAME PAUSED")
+                .setPositiveButton("UNPAUSE", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        resumeCountDownTimer();
+                    }
+                })
+                .setNegativeButton("EXIT GAME", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User cancelled the dialog
+                        finish();
+                    }
+                }).setCancelable(false);
+        // Create the AlertDialog object and return it
         AlertDialog alertDialog = builder.create();
-
         alertDialog.show();
-
         countDownTimer.cancel();
         //onPause();
-        }
-
+    }
 
 
     /////////////////////////////
@@ -240,10 +201,9 @@ long remaining = 0;
         //Toast.makeText(getApplicationContext(), " GAME PAUSED", Toast.LENGTH_SHORT).show();
         //countDownTimer.cancel();
         //Button b= (Button)findViewById(R.id.small1);
-      // b.setVisibility(View.GONE);
+        //b.setVisibility(View.GONE);
 
-       }
-
+    }
 
 
     @Override
@@ -254,10 +214,9 @@ long remaining = 0;
         //countDownTimer.start();
         //startCountDownTimer();
         //countDownTimer.onFinish();
-       //resumeCountDownTimer();
-       // Button b= (Button)findViewById(R.id.small1);
-       // b.setVisibility(View.VISIBLE);
+        //resumeCountDownTimer();
+        // Button b= (Button)findViewById(R.id.small1);
+        // b.setVisibility(View.VISIBLE);
         //startCountDownTimer();
-
     }
 }

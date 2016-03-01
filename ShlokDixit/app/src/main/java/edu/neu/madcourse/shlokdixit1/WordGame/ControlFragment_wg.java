@@ -67,6 +67,8 @@ public class ControlFragment_wg extends Fragment {
             @Override
             public void onClick(View view) {
 
+                //getActivity().finish();
+
                 gameFrg.l1 = null;
                 gameFrg.l2 = null;
                 gameFrg.l02 = null;

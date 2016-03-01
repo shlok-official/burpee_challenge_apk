@@ -273,44 +273,7 @@ public class GameFragment_wg extends Fragment {
         buttonState[large][small] = state;
     }
 
-/*
-     mEntireBoard.setView(rootView);
-      for (int large = 0; large < 9; large++) {
-         View outer = rootView.findViewById(mLargeIds[large]);
-         mLargeTiles[large].setView(outer);
 
-         for (int small = 0; small < 9; small++) {
-            //ImageButton inner = (ImageButton) outer.findViewById
-            //      (mSmallIds[small]);
-           final Button inner1 = (Button) outer.findViewById(mSmallIds[small]);
-            //inner1.sette
-
-            final int fLarge = large;
-            final int fSmall = small;
-            final Tile smallTile = mSmallTiles[large][small];
-            smallTile.setView(inner1);
-            // ...
-            inner1.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View view) {
-                  smallTile.animate();
-                  // ...
-                  if (isAvailable(smallTile)) {
-                     ((GameActivity)getActivity()).startThinking();
-                     mSoundPool.play(mSoundX, mVolume, mVolume, 1, 0, 1f);
-
-                    // makeMove(fLarge, fSmall);
-                     //think();
-                     inner1.setText("A");
-                  } else {
-                     mSoundPool.play(mSoundMiss, mVolume, mVolume, 1, 0, 1f);
-                  }
-               }
-            });
-            // ...
-         }
-      }
-   }*/
 
     private void fillTiles(View rootView) {
 
@@ -557,8 +520,6 @@ public class GameFragment_wg extends Fragment {
                 l14.add(data);
             }
 
-            // masterData.addAll(Arrays.asList(lst_ab, lst_c, lst_de, lst_fgh, lst_ijkl, lst_mn, lst_op,lst_qr, lst_s,lst_tu, lst_vwxyz ));
-            //masterData.add(lst_ab);
 
 
         } catch (IOException e) {
@@ -590,15 +551,6 @@ public class GameFragment_wg extends Fragment {
         }
         return chr;
     }
-    /*
-    public void vanish(View view) {
-        Button b= (Button)findViewById(R.id.follow);
-        b.setVisibility(View.GONE);
-
-
-        // Kabloey
-    }
-*/
 
     /** Restore the state of the game from the given string. */
    /*public void putState(String gameData) {

@@ -45,6 +45,9 @@ public class GameFragment_wg extends Fragment {
     static private int mSmallIds[] = {R.id.small1, R.id.small2, R.id.small3,
             R.id.small4, R.id.small5, R.id.small6, R.id.small7, R.id.small8,
             R.id.small9,};
+
+
+
     private Handler mHandler = new Handler();
     // private Tile mEntireBoard = new Tile(this);
     private Tile mLargeTiles[] = new Tile[9];
@@ -104,11 +107,11 @@ public class GameFragment_wg extends Fragment {
         Accumulator.getInstance().setControlObj(this);
         tone = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
         // initGame();
-        mSoundPool = new SoundPool(3, AudioManager.STREAM_MUSIC, 0);
-        mSoundX = mSoundPool.load(getActivity(), R.raw.sergenious_movex, 1);
-        mSoundO = mSoundPool.load(getActivity(), R.raw.sergenious_moveo, 1);
-        mSoundMiss = mSoundPool.load(getActivity(), R.raw.erkanozan_miss, 1);
-        mSoundRewind = mSoundPool.load(getActivity(), R.raw.joanne_rewind, 1);
+       // mSoundPool = new SoundPool(3, AudioManager.STREAM_MUSIC, 0);
+       // mSoundX = mSoundPool.load(getActivity(), R.raw.sergenious_movex, 1);
+        //mSoundO = mSoundPool.load(getActivity(), R.raw.sergenious_moveo, 1);
+        //mSoundMiss = mSoundPool.load(getActivity(), R.raw.erkanozan_miss, 1);
+        //mSoundRewind = mSoundPool.load(getActivity(), R.raw.joanne_rewind, 1);
 
         mContext = getActivity().getApplicationContext();
         ArrayList<String> l1;

@@ -105,11 +105,13 @@ public class ControlFragment_wg extends Fragment {
                 for (String s : inputWord) {
                     word += s;
                 }
-                    if(word.length()>0){
-                if (word_finder(word)) {
+                    if(word.length()>0) {
+                    if (word_finder(word)) {
                     Toast.makeText(getActivity().getApplicationContext(), "Correct Word !", Toast.LENGTH_SHORT).show();
                     points = points + word.length();
+
                     gameFrg.initTileData();
+
 
                 } else
                     Toast.makeText(getActivity().getApplicationContext(), "InCorrect Word !", Toast.LENGTH_SHORT).show();

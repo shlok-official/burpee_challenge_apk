@@ -28,4 +28,5 @@ both sides in the larger game.
         to 2 minutes and in Phase-II the Time is 1 minute.
 </string>
     <string name="title_activity_dictionary_credits">dictionary_credits</string>
+    <string name="title_activity_control_fragment2">ControlFragment2</string>
 </resources>

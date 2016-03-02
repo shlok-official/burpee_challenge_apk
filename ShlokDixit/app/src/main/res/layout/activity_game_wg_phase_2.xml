@@ -29,37 +29,7 @@
       android:layout_height="match_parent"
       android:gravity="center"
       android:orientation="vertical">
-       <RelativeLayout
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content">
 
-
-           <TextView
-               android:id="@+id/phaseII"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_gravity="left"
-               android:gravity="left"
-               android:textStyle="bold"
-               android:textSize="25sp"
-               android:textColor="#FF0000"
-               android:layout_margin="10sp"
-               android:text="PHASE-II"
-
-               />
-           <TextView
-               android:id="@+id/timer3"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textSize="25sp"
-               android:textColor="#FF0000"
-               android:layout_gravity="right"
-               android:gravity="right"
-               android:layout_margin="10sp"
-               android:layout_alignRight="@+id/phaseII"/>
-
-
-       </RelativeLayout>
       <fragment
          android:id="@+id/fragment_game"
          class="edu.neu.madcourse.shlokdixit1.WordGame.GameFragment_wg"

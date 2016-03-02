@@ -32,8 +32,6 @@ public class Accumulator {
         this.controlObj = controlObj;
     }
 
-
-
     public ArrayList<String> getArl() {
         return arl;
     }

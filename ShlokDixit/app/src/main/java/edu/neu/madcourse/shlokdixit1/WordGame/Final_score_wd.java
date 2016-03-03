@@ -12,11 +12,15 @@ import edu.neu.madcourse.shlokdixit1.R;
  */
 public class Final_score_wd extends AppCompatActivity {
 
+    private int points;
+    private int bonusPoints;
+
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.final_score_wd);
+        points = Accumulator.getInstance().getPoints();
         TextView points_tv = (TextView) findViewById(R.id.score_stats);
-       // points_tv.setText("Score: " + Integer.toString(points));
+        points_tv.setText("Score: " + Integer.toString(points));
         setTitle("GAME STATISTICS");
     }
 }

@@ -151,12 +151,12 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
         // points = 0;
         points_tv = (TextView) findViewById(R.id.score_I);
         points_tv.setText("Score: " + Integer.toString(points));
-///////////////////////
+
         t = (ToggleButton) findViewById(R.id.togglebutton1);
         t.setOnCheckedChangeListener(this);
 
         mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.cartoon);
-//
+
 /////////////////////////@match the word by calling checkword()
 
         Button button = (Button) findViewById(R.id.check_wg_1);
@@ -169,7 +169,7 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
     }
 
 
-    //////checkword method
+    //////checkword()
 
     public void checkword() {
         //inputWord = DataHolder.getInstance().getArl();
@@ -211,7 +211,7 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
         }
 
 
-    }
+    }//checkword() !!! end
 
     private void updateAllTiles(char[][] words, boolean[] wordSelected, boolean[][] letterClicked) // words here refer to gameWords
     {
@@ -236,7 +236,7 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             }
         }
     }
-
+// word_finder , loading of arraylist and word search happens here
     public boolean word_finder(String key) {
 
 

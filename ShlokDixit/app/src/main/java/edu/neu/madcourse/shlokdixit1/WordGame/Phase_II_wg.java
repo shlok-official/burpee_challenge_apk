@@ -56,6 +56,7 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
     InputStream ins;
     String data;
     BufferedReader reader;
+    //CountDownTimer countDownTimer = null;
 
     static private int mLargeIds[] = {R.id.large1, R.id.large2, R.id.large3,
             R.id.large4, R.id.large5, R.id.large6, R.id.large7, R.id.large8,
@@ -69,13 +70,13 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
     ArrayList<Integer> largePos = new ArrayList<Integer>();
     ArrayList<String> inputWord = new ArrayList<>();
     boolean[][] letterClicked = new boolean[9][9];
-
+    //TextView Bonus;
     TextView points_tv;
     ToneGenerator tone;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-       // this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        // this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setTitle("PHASE-II");
         super.onCreate(savedInstanceState);
 
@@ -102,12 +103,12 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
         ////////////////////////////////////////////////////////
 
 
-        // ****fill PHASE-II WORD GAME tiles as per data received from PHASE-I
+        // @fill PHASE-II WORD GAME tiles as per data received from PHASE-I
         bonusPoints = Accumulator.getInstance().getBonusPoints();
         points = Accumulator.getInstance().getPoints();
         fillStage2Tiles(Accumulator.getInstance().getWords(), Accumulator.getInstance().getCorrectClicks(), points);
 
-        //*****play PHASE-II WORD GAME
+        //@play PHASE-II WORD GAME
         playGame();
 
         Button button = (Button) findViewById(R.id.check_wg);
@@ -117,9 +118,31 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
                 checkword();
             }
         });
-        }
 
 
+        //@takes the game to home screen
+        Button mainmenu = (Button) findViewById(R.id.button_main);
+        mainmenu.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                finish();
+            }
+        });
+//@resets the game
+        Button reboot = (Button) findViewById(R.id.restart_wg);
+        reboot.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                Set_List_To_Null();
+//                countDownTimer.cancel();
+                finish();
+                Intent intent = new Intent(Phase_II_wg.this, Phase_II_wg.class);
+                startActivity(intent);
+
+
+            }
+        });
+    }
 
 
     public void fillStage2Tiles(char[][] words, boolean[][] correctClicks, int points) {
@@ -141,17 +164,19 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
         }
 
     }
+
     long remaining = 0;
     long total = 20000;
-         TextView timer1;
+    TextView timer1;
     CountDownTimer countDownTimer = null;
+
     public void startCountDownTimer() {
         timer1 = (TextView) findViewById(R.id.timer);
-        new CountDownTimer(total, 1000) {
+        countDownTimer = new CountDownTimer(total, 1000) {
             public void onTick(long millisUntilFinished) {
                 timer1.setText("Time:00:" + millisUntilFinished / 1000);
-                if(millisUntilFinished< 10000)
-                    Blink_Timer();
+                if (millisUntilFinished < 10000) Blink_Timer();
+                remaining = millisUntilFinished;
             }
 
             public void onFinish() {
@@ -160,6 +185,7 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
             }
         }.start();
     }
+
     public void resumeCountDownTimer() {
         timer1 = (TextView) findViewById(R.id.timer);
         countDownTimer = new CountDownTimer(remaining, 1000) {
@@ -168,16 +194,18 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
                 timer1.setText("Time:00:" + millisUntilFinished / 1000);
                 remaining = millisUntilFinished;
                 if (millisUntilFinished < 10000)
-                    Blink_Timer();}
+                    Blink_Timer();
+            }
+
             public void onFinish() {
                 Set_List_To_Null();
-               startnextphase();
+                startnextphase();
             }
         }.start();
 
     }
 
-    public void Blink_Timer(){
+    public void Blink_Timer() {
         TextView myText = (TextView) findViewById(R.id.timer);
         Animation anim = new AlphaAnimation(0.0f, 1.0f);
         anim.setDuration(50); //You can manage the blinking time with this parameter
@@ -189,46 +217,42 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
 
     }
 
-    public void Set_List_To_Null(){
+    public void Set_List_To_Null() {
 
-        l1=null;
-        l2=null;
-        l02=null;
-        l3=null;
-        l4=null;
-        l5=null;
-        l6=null;
-        l7=null;
-        l8=null;
-        l9=null;
-        l10=null;
-        l101=null;
-        l11=null;
-        l12=null;
-        l13=null;
-        l14=null;
+        l1 = null;
+        l2 = null;
+        l02 = null;
+        l3 = null;
+        l4 = null;
+        l5 = null;
+        l6 = null;
+        l7 = null;
+        l8 = null;
+        l9 = null;
+        l10 = null;
+        l101 = null;
+        l11 = null;
+        l12 = null;
+        l13 = null;
+        l14 = null;
 
     }
 
 
-    public void startnextphase(){
+    public void startnextphase() {
         Toast.makeText(getApplicationContext(), "GAME OVER", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(Phase_II_wg.this, Final_score_wd.class);
         startActivity(intent);
         finish();
     }
 
-
-
-
+    ////////////////////////////////
     public void pausegame(View view) {
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
         builder.setMessage("GAME PAUSED")
                 .setPositiveButton("UNPAUSE", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                      // resumeCountDownTimer();
+                        resumeCountDownTimer();
                         GridLayout view1 = (GridLayout) findViewById(R.id.largeboard);
                         view1.setVisibility(View.VISIBLE);
                     }
@@ -244,8 +268,7 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
         alertDialog.show();
         GridLayout view1 = (GridLayout) findViewById(R.id.largeboard);
         view1.setVisibility(View.INVISIBLE);
-      //-->  countDownTimer.cancel();
-        //onPause();
+        countDownTimer.cancel();
     }
 
     @Override
@@ -262,7 +285,6 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
             finish();
         }
     }
-
 
 
     private void playGame() {
@@ -285,7 +307,7 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
                         int lrOld = largePos.get(largePos.size() - 1);
 
                         if (Word_Selection(lrOld, smOld, large, small)) {
-                            inner1.setTextColor(Color.RED);
+                            inner1.setTextColor(Color.BLACK);
                             inputWord.add(inner1.getText().toString());
                             smallPos.add(small);
                             largePos.add(large);
@@ -307,6 +329,7 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
             }
         }
     }
+
     public boolean Word_Selection(int lrOld, int smOld, int largeNew, int smallNew) {
         if (lrOld != largeNew) {
             return true;
@@ -314,7 +337,6 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
         return false;
 
     }
-
 
 
     public boolean word_finder(String key) {
@@ -571,7 +593,8 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
         } else return false;
 
     }
-    public void checkword(){
+
+    public void checkword() {
         if (inputWord != null) {
             String word = "";
             for (String s : inputWord) {
@@ -587,6 +610,7 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
                     Accumulator.getInstance().setPoints(points);
                     Accumulator.getInstance().setBonusPoints(bonusPoints);
                     points_tv.setText("Points: " + Integer.toString(points));
+                    //points_tv.setText("Points: " + Integer.toString(points));
                 } else
                     Toast.makeText(this.getApplicationContext(), "InCorrect Word !", Toast.LENGTH_SHORT).show();
             } else {

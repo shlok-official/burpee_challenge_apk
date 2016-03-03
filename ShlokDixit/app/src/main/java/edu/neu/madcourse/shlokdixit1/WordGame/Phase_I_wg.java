@@ -134,6 +134,9 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
         startCountDownTimer();
         tone = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
         //mContext = this.getApplicationContext();
+        mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.cartoon);
+        mMediaPlayer.setLooping(true);
+        mMediaPlayer.start();
         l1 = new ArrayList<String>();
         ins = getResources().openRawResource(R.raw.a_list);
         reader = new BufferedReader(new InputStreamReader(ins));
@@ -155,17 +158,19 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
         t = (ToggleButton) findViewById(R.id.togglebutton1);
         t.setOnCheckedChangeListener(this);
 
-        mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.cartoon);
+       // mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.cartoon);
 
 /////////////////////////@match the word by calling checkword()
 
-        Button button = (Button) findViewById(R.id.check_wg_1);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button checkword = (Button) findViewById(R.id.check_wg_1);
+        checkword.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
                 checkword();
             }
         });
+
+
     }
 
 
@@ -224,19 +229,20 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
                 inner1.setText(Character.toString(words[large][small]));
 
                 if (letterClicked[large][small] == true)
-                    inner1.setTextColor(Color.RED);
+                    inner1.setTextColor(Color.BLACK);
                 else
                     inner1.setTextColor(Color.WHITE);
 
                 if (wordSelected[large] == true) {
                     inner1.setEnabled(false);
-                    inner1.setBackgroundColor(Color.GREEN);
+                    inner1.setBackgroundColor(Color.CYAN);
                 }
 
             }
         }
     }
-// word_finder , loading of arraylist and word search happens here
+
+    // word_finder , loading of arraylist and word search happens here
     public boolean word_finder(String key) {
 
 
@@ -530,7 +536,7 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
                         int lrOld = largePos.get(largePos.size() - 1);
 
                         if (Word_Selection(lrOld, smOld, large, small)) {
-                            inner1.setTextColor(Color.RED);
+                            inner1.setTextColor(Color.BLACK);
                             letterClicked[large][small] = true;
                             inputWord.add(inner1.getText().toString());
                             smallPos.add(small);
@@ -1098,7 +1104,6 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
 
     ////////////////////////////////
     public void pausegame(View view) {
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("GAME PAUSED")
                 .setPositiveButton("UNPAUSE", new DialogInterface.OnClickListener() {
@@ -1115,19 +1120,12 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
                         finish();
                     }
                 }).setCancelable(false);
-
-
         // Create the AlertDialog object and return it
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
         GridLayout view1 = (GridLayout) findViewById(R.id.largeboard);
         view1.setVisibility(View.INVISIBLE);
-
-        //LinearLayout main_board= (LinearLayout) view.findViewById(R.id.vanish);// change id here
-
-        //main_board.setVisibility(View.GONE);
         countDownTimer.cancel();
-
     }
 
     @Override
@@ -1136,10 +1134,10 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
 
     }
 
-
     @Override
     public void onResume() {
         super.onResume();  // Always call the superclass method first
 
     }
+
 }

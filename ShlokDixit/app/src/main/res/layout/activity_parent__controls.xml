@@ -1,95 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/wordlist_background"
+    android:elevation="@dimen/elevation_high"
+    android:orientation="vertical"
+
+    android:paddingBottom="30sp"
+    android:paddingLeft="50sp"
+    android:paddingRight="50sp"
+    android:paddingTop="30sp"
+    tools:context="edu.neu.madcourse.shlokdixit1.WordGame.Parent_Controls">
+
+
+    <TextView
+        android:layout_width="280sp"
         android:layout_height="wrap_content"
-        android:background="@drawable/wordlist_background"
-        android:elevation="@dimen/elevation_high"
-        android:orientation="vertical"
-        android:padding="@dimen/menu_padding"
+        android:gravity="center"
+        android:text="WORD GAME"
+        android:background="#ffffff"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="#000000"
+        android:textSize="@dimen/menu_text_size" />
+
+    <Button
+        android:id="@+id/continue_button_wg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/menu_button_margin"
+        android:background="@drawable/mybutton"
+        android:padding="@dimen/menu_button_padding"
+        android:text="@string/continue_label" />
+
+    <Button
+        android:id="@+id/new_button_wg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/menu_button_margin"
+        android:background="@drawable/mybutton"
+        android:padding="@dimen/menu_button_padding"
+        android:paddingEnd="50sp"
+        android:paddingStart="50sp"
+        android:text="@string/new_game_label" />
 
 
-        tools:context="edu.neu.madcourse.shlokdixit1.WordGame.Parent_Controls">
+    <Button
+        android:id="@+id/quit_button_wg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/menu_button_margin"
+        android:background="@drawable/mybutton"
+        android:padding="@dimen/menu_button_padding"
+        android:text="QUIT" />
 
+    <Button
+        android:id="@+id/about_button_wg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/menu_button_margin"
+        android:layout_toRightOf="@+id/togglebutton"
+        android:background="@drawable/mybutton"
+        android:padding="@dimen/menu_button_padding"
+        android:text="@string/about_label"
+        />
 
+    <Button
+        android:id="@+id/ack_button_wg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/menu_button_margin"
+        android:background="@drawable/mybutton"
+        android:padding="@dimen/menu_button_padding"
+        android:text="ACKNOWLEDGEMENTS"
+         />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/menu_space"
-            android:text="WORD GAME"
-            android:textAppearance="?android:textAppearanceLarge"
-            android:textSize="@dimen/menu_text_size"
-            android:gravity="center"
-            android:layout_marginLeft="90sp"
-            android:textColor="#000000"/>
+    <ToggleButton
+        android:id="@+id/togglebutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mybutton"
+        android:elevation="@dimen/elevation_low"
+        android:padding="@dimen/menu_button_padding"
+        android:textOff="Sound Off"
+        android:textOn="Sound On " />
 
-        <Button
-            android:id="@+id/continue_button_wg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/menu_button_margin"
-            android:padding="@dimen/menu_button_padding"
-            android:text="@string/continue_label"
-            android:background="@drawable/mybutton"
-            />
-
-        <Button
-            android:id="@+id/new_button_wg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/menu_button_margin"
-            android:padding="@dimen/menu_button_padding"
-            android:text="@string/new_game_label"
-            android:background="@drawable/mybutton"
-            android:paddingEnd="50sp"
-            android:paddingStart="50sp" />
-
-
-        <Button
-            android:id="@+id/quit_button_wg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/menu_button_margin"
-            android:padding="@dimen/menu_button_padding"
-            android:text="QUIT"
-            android:background="@drawable/mybutton"/>
-        <Button
-            android:id="@+id/about_button_wg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/togglebutton"
-            android:elevation="@dimen/elevation_low"
-            android:layout_margin="@dimen/menu_button_margin"
-            android:padding="@dimen/menu_button_padding"
-            android:text="@string/about_label"
-            android:background="@drawable/mybutton"
-            android:layout_weight="0" />
-        <Button
-            android:id="@+id/ack_button_wg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/menu_button_margin"
-            android:padding="@dimen/menu_button_padding"
-            android:text="ACKNOWLEDGEMENTS"
-            android:background="@drawable/mybutton"/>
-
-        <ToggleButton
-            android:id="@+id/togglebutton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="@dimen/elevation_low"
-            android:layout_below="@+id/pause"
-            android:textOff="Sound Off"
-            android:textOn="Sound On "
-            android:background="@drawable/mybutton"
-            />
-
-    </LinearLayout>
+</LinearLayout>
 

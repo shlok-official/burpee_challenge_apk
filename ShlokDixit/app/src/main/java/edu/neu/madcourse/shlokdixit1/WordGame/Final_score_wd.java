@@ -13,6 +13,7 @@ import edu.neu.madcourse.shlokdixit1.R;
 public class Final_score_wd extends AppCompatActivity {
 
     private int points;
+    int Bonus;
     private int bonusPoints;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,6 +22,13 @@ public class Final_score_wd extends AppCompatActivity {
         points = Accumulator.getInstance().getPoints();
         TextView points_tv = (TextView) findViewById(R.id.score_stats);
         points_tv.setText("Score: " + Integer.toString(points));
+        Bonus = Accumulator.getInstance().getBonusPoints();
+
+        TextView Bonus = (TextView) findViewById(R.id.bonus);
+        Bonus.setText("Bonus Points: " + Integer.toString(bonusPoints));
+        TextView NetScore = (TextView) findViewById(R.id.bonus);
+
+        NetScore.setText("NET SCORE: " + Integer.toString(bonusPoints) + Integer.toString(points));
         setTitle("GAME STATISTICS");
     }
 }

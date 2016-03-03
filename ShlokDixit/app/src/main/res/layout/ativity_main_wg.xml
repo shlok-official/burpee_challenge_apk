@@ -14,7 +14,7 @@
    android:layout_width="match_parent"
    android:layout_height="match_parent"
    android:clipChildren="false"
-   tools:context=".WordGame.GameActivity_wg">
+   tools:context=".WordGame.Phase_I_wg">
 
    <edu.neu.madcourse.shlokdixit1.WordGame.ScrollingView_wg
       android:id="@+id/main_background"

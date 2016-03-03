@@ -11,7 +11,8 @@
    xmlns:tools="http://schemas.android.com/tools"
    android:layout_width="wrap_content"
    android:layout_height="wrap_content"
-   tools:context=".GameActivity_wg">
+   tools:context=".GameActivity_wg"
+    android:id="@+id/largeboard">
 
    <include android:id="@+id/large1" layout="@layout/small_board_wg"
       android:layout_width="wrap_content" android:layout_height="wrap_content"

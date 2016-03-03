@@ -12,7 +12,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".WordGame.GameActivity_wg">
+        tools:context=".WordGame.Phase_I_wg">
 
         <ImageView
             android:layout_width="match_parent"
@@ -27,22 +27,117 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
+            android:id="@+id/vanish"
             >
-            <fragment
-                android:id="@+id/fragment_game"
-                class="edu.neu.madcourse.shlokdixit1.WordGame.GameFragment_wg"
+            <include
+                layout="@layout/large_board_wg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:layout="@layout/fragment_game_wg" />
-            <!-- Control fragment goes here... -->
+                android:orientation="horizontal"
+                android:padding="@dimen/control_padding"
+                tools:context=".GameActivity_wg">
 
-            <fragment
-                android:id="@+id/fragment_game_controls"
-                class="edu.neu.madcourse.shlokdixit1.WordGame.ControlFragment_wg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:layout="@layout/fragment_control_wg" />
+                <Button
+                    android:id="@+id/restart_wg"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/power_restart"
+                    android:foregroundGravity="center"
+                    android:gravity="right"
+                    android:textAlignment="center"
+                    android:onClick="restart_game"
+                    android:layout_alignBottom="@+id/togglebutton1"
+                    android:layout_toRightOf="@+id/button_main_1"
+                    android:layout_toEndOf="@+id/button_main_1"
+                    android:layout_below="@+id/phase" />
 
+                <Button
+                    android:id="@+id/button_main_1"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/home1"
+                    android:gravity="right"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/phase"
+                    android:onClick="exit_1"
+                    android:layout_alignBottom="@+id/restart_wg" />
+
+                <Button
+                    android:id="@+id/pause_wg_1"
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:text="PAUSE"
+                    android:onClick="pausegame"
+                    android:layout_alignTop="@+id/togglebutton1"
+                    android:layout_toLeftOf="@+id/togglebutton1" />
+
+                <Button
+                    android:id="@+id/check_wg_1"
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/success"
+                    android:layout_toLeftOf="@+id/pause_wg_1"
+                    android:layout_toStartOf="@+id/pause_wg_1"
+                    android:layout_alignBottom="@+id/pause_wg_1"
+                    android:layout_alignTop="@+id/pause_wg_1"
+                    android:onClick="searchword"/>
+
+                <ToggleButton
+                    android:id="@+id/togglebutton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textOff="Sound Off"
+                    android:textOn="Sound On"
+                    android:layout_below="@+id/timer_1"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+                <TextView
+                    android:id="@+id/phase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:gravity="left"
+                    android:text="PHASE-I"
+                    android:textColor="#000000"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:layout_marginRight="10sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_above="@+id/check_wg_1"
+                    android:layout_alignParentTop="true" />
+
+                <TextView
+                    android:id="@+id/timer_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="#000000"
+                    android:textSize="25sp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignRight="@+id/togglebutton1"
+                    android:layout_alignEnd="@+id/togglebutton1" />
+                <TextView
+                    android:id="@+id/score_I"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textColor="#000000"
+                    android:textSize="25sp"
+                    android:layout_above="@+id/pause_wg_1"
+                    android:layout_centerHorizontal="true" />
+
+
+
+            </RelativeLayout>
         </LinearLayout>
 
         <include layout="@layout/thinking_wg" />

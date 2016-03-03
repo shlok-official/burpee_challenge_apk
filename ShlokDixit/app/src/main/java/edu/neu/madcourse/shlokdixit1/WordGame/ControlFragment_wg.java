@@ -2,9 +2,7 @@
 package edu.neu.madcourse.shlokdixit1.WordGame;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +18,7 @@ import java.util.Collections;
 
 import edu.neu.madcourse.shlokdixit1.R;
 
-public class ControlFragment_wg extends Fragment {
+public class ControlFragment_wg extends Fragment {/*
 
     ArrayList<String> inputWord;
     ArrayList<String> l1;
@@ -50,9 +48,9 @@ public class ControlFragment_wg extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_control_wg, container, false);
-        View main = rootView.findViewById(R.id.button_main);
-        View restart_wg = rootView.findViewById(R.id.restart_wg);
+        // View rootView = inflater.inflate(R.layout.fragment_control_wg, container, false);
+        //  View main = rootView.findViewById(R.id.button_main);
+        // View restart_wg = rootView.findViewById(R.id.restart_wg);
         View check = rootView.findViewById(R.id.check_wg);
         //View pause = rootView.findViewById(R.id.pause_wg);
 
@@ -85,9 +83,9 @@ public class ControlFragment_wg extends Fragment {
                 gameFrg.l12 = null;
                 gameFrg.l13 = null;
                 gameFrg.l14 = null;
-                Intent intent = new Intent(getActivity(), GameActivity_wg.class);
+                Intent intent = new Intent(getActivity(), Phase_I_wg.class);
                 getActivity().startActivity(intent);
-               //startCountDownTimer();
+                //startCountDownTimer();
             }
         });
 /////////////
@@ -101,26 +99,25 @@ public class ControlFragment_wg extends Fragment {
 
                 if (inputWord != null) {
 
-                String word = "";
-                for (String s : inputWord) {
-                    word += s;
-                }
-                    if(word.length()>0) {
-                    if (word_finder(word)) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Correct Word !", Toast.LENGTH_SHORT).show();
-                    points = points + word.length();
+                    String word = "";
+                    for (String s : inputWord) {
+                        word += s;
+                    }
+                    if (word.length() > 0) {
+                        if (word_finder(word)) {
+                            Toast.makeText(getActivity().getApplicationContext(), "Correct Word !", Toast.LENGTH_SHORT).show();
+                            points = points + word.length();
 
-                    gameFrg.initTileData();
+                            gameFrg.initTileData();
 
 
+                        } else
+                            Toast.makeText(getActivity().getApplicationContext(), "InCorrect Word !", Toast.LENGTH_SHORT).show();
+
+                    }
                 } else
-                    Toast.makeText(getActivity().getApplicationContext(), "InCorrect Word !", Toast.LENGTH_SHORT).show();
-
-            }}
-
-
-            else
-                    Toast.makeText(getActivity().getApplicationContext(), " No Word Selected ", Toast.LENGTH_SHORT).show();}
+                    Toast.makeText(getActivity().getApplicationContext(), " No Word Selected ", Toast.LENGTH_SHORT).show();
+            }
         });
 
         return rootView;
@@ -380,5 +377,4 @@ public class ControlFragment_wg extends Fragment {
         } else return false;
 
     }
-
-}
+}*/}

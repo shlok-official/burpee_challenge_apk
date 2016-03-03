@@ -29,4 +29,5 @@ both sides in the larger game.
 </string>
     <string name="title_activity_dictionary_credits">dictionary_credits</string>
     <string name="title_activity_control_fragment2">ControlFragment2</string>
+    <string name="title_activity_parent__controls">Parent_Controls</string>
 </resources>

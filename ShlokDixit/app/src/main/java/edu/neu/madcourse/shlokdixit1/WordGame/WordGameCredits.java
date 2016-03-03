@@ -12,8 +12,6 @@ public class WordGameCredits extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wordgame_credits);
         setTitle("ACKNOWLEDGEMENTS");
-        finish();
-
     }
 
 

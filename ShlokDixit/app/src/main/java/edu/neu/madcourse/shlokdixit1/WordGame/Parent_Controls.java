@@ -66,7 +66,7 @@ public class Parent_Controls extends Activity implements CompoundButton.OnChecke
         Ack_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              //  finish();
+
                 Intent intent = new Intent(Parent_Controls.this, WordGameCredits.class);
                 startActivity(intent);
             }

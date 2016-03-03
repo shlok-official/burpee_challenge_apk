@@ -204,9 +204,12 @@ public class GameFragment_wg extends Fragment {
         smallPos.add(99);
         largePos.add(99);
     }
+    //private boolean[][] visited;
 
     public boolean isAdjacent(int largeOld, int smallOld, int largeNew, int smallNew) {
         if ((largeNew == largeOld) || (largeOld == 99)) {
+
+
             switch (smallOld) {
 
                 case 0:

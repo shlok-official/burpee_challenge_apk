@@ -10,6 +10,12 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 import android.content.DialogInterface;
+
+import com.amazonaws.auth.CognitoCachingCredentialsProvider;
+import com.amazonaws.mobileconnectors.cognito.CognitoSyncManager;
+import com.amazonaws.mobileconnectors.cognito.Dataset;
+import com.amazonaws.regions.Regions;
+
 import edu.neu.madcourse.shlokdixit1.R;
 
 public class Parent_Controls extends Activity implements CompoundButton.OnCheckedChangeListener {
@@ -21,6 +27,8 @@ public class Parent_Controls extends Activity implements CompoundButton.OnChecke
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parent__controls);
+
+
         setTitle("WORD GAME");
         mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.cartoon);
         mMediaPlayer.setLooping(true);
@@ -93,7 +101,27 @@ public class Parent_Controls extends Activity implements CompoundButton.OnChecke
 
 
     }
-
+    // Initialize the Amazon Cognito credentials provider
+    CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
+            getApplicationContext(),
+            "us-east-1:014c6543-2744-4d74-9919-cedf56883cc4", // Identity Pool ID
+            Regions.US_EAST_1 // Region
+    );
+    // Initialize the Cognito Sync client
+    CognitoSyncManager syncClient = new CognitoSyncManager(
+            getApplicationContext(),
+            Regions.US_EAST_1, // Region
+            credentialsProvider);
+/*
+    // Create a record in a dataset and synchronize with the server
+    Dataset dataset = syncClient.openOrCreateDataset("myDataset");
+    dataset.put("myKey", "myValue");
+    dataset.synchronize(new DefaultSyncCallback() {
+        @Override
+        public void onSuccess(Dataset dataset, List newRecords) {
+            //Your handler code here
+        }
+    });*/
 
 
     @Override

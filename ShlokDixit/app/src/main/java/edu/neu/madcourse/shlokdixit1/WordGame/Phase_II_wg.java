@@ -166,7 +166,7 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
     }
 
     long remaining = 0;
-    long total = 20000;
+    long total = 90000;
     TextView timer1;
     CountDownTimer countDownTimer = null;
 

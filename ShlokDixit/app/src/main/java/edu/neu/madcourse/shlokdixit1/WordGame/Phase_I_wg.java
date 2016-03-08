@@ -1019,7 +1019,7 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
 
 
     long remaining = 0;
-    long total = 20000;
+    long total = 90000;
 
     public void startCountDownTimer() {
         timer_wg = (TextView) findViewById(R.id.timer_1);

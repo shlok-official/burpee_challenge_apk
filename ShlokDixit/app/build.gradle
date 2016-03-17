@@ -17,17 +17,29 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+        exclude 'META-INF/NOTICE'
+    }
 }
+
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    //compile 'com.android.support:appcompat-v7:24.0.0-alpha1'
+    //    compile 'com.google.gms.google-services'
+    compile project(path: ':backend_gcm', configuration: 'android-endpoints')
+    compile 'com.google.android.gms:play-services:8.4.0'
+    compile 'com.android.support:appcompat-v7:24.0.0-alpha1'
     compile 'com.amazonaws:aws-android-sdk-core:2.+'
     compile 'com.amazonaws:aws-android-sdk-cognito:2.+'
     compile 'com.amazonaws:aws-android-sdk-s3:2.+'
     compile 'com.amazonaws:aws-android-sdk-ddb:2.+'
     compile 'com.amazonaws:aws-android-sdk-sdb:2.+'
-    compile'com.amazonaws:aws-android-sdk-elb:2.+'
-
+    compile 'com.amazonaws:aws-android-sdk-elb:2.+'
+    compile 'com.firebase:firebase-client-android:2.5.2'
+    compile 'com.google.android.gms:play-services:8.4.0'
+    compile 'com.google.android.gms:play-services-gcm:8.4.0'
 }

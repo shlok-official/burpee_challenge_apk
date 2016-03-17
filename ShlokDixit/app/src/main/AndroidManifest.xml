@@ -1,22 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.neu.madcourse.shlokdixit1">
+    package="edu.neu.madcourse.shlokdixit1" >
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
+
+    <permission
+        android:name="com.example.gcm.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.example.gcm.permission.C2D_MESSAGE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="NUMAD16S-ShlokDixit"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat">
+        android:theme="@style/Theme.AppCompat" >
         <activity
             android:name=".FirstActivity"
-            android:label="NUMAD16S-ShlokDixit">
+            android:label="NUMAD16S-ShlokDixit" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -57,10 +69,18 @@
         <activity
             android:name=".WordGame.WordGameCredits"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".WordGame.Parent_Controls"
-            android:label="@string/title_activity_parent__controls"></activity>
+            android:label="@string/title_activity_parent__controls" />
+        <activity
+            android:name=".WordGame.New_Phase_I_Game"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WordGame.Communication"
+            android:label="@string/title_activity_communications" />
+
+
+
     </application>
 
 </manifest>

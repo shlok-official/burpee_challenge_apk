@@ -2,7 +2,9 @@ package edu.neu.madcourse.shlokdixit1.WordGame;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -11,11 +13,6 @@ import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 import android.content.DialogInterface;
 
-import com.amazonaws.auth.CognitoCachingCredentialsProvider;
-import com.amazonaws.mobileconnectors.cognito.CognitoSyncManager;
-import com.amazonaws.mobileconnectors.cognito.Dataset;
-import com.amazonaws.regions.Regions;
-
 import edu.neu.madcourse.shlokdixit1.R;
 
 public class Parent_Controls extends Activity implements CompoundButton.OnCheckedChangeListener {
@@ -23,6 +20,15 @@ public class Parent_Controls extends Activity implements CompoundButton.OnChecke
     MediaPlayer mMediaPlayer;
     ToggleButton t;
     private AlertDialog mDialog;
+    Phase_I_wg datarestore = new Phase_I_wg();
+    SharedPreferences sharedpreferences;
+    public static final String MyPREFERENCES = "MyPrefs" ;
+
+
+    //public boolean setflag;
+
+
+    //SharedPreferences sharedpreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,12 +49,24 @@ public class Parent_Controls extends Activity implements CompoundButton.OnChecke
         Button Quit_Button = (Button) findViewById(R.id.quit_button_wg);
         Button About_Button = (Button) findViewById(R.id.about_button_wg);
         Button Ack_Button = (Button) findViewById(R.id.ack_button_wg);
+        Button communication = (Button) findViewById(R.id.communications);
 
 
         Continue_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Parent_Controls.this, Phase_I_wg.class);
+                //------>>>>>>
+                //intent.putExtra(Phase_I_wg.KEY_RESTORE, true);
+               // datarestore.restoredata();
+               //datarestore.setSetflag(true);
+
+                sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.putBoolean("ContinueFlag", true);
+                editor.commit();
+
+
                 startActivity(intent);
             }
         });
@@ -99,8 +117,19 @@ public class Parent_Controls extends Activity implements CompoundButton.OnChecke
         });
 
 
+        communication.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Parent_Controls.this, Communication.class);
+                startActivity(intent);
+            }
+        });
+
+
+
 
     }
+    /*
     // Initialize the Amazon Cognito credentials provider
     CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
             getApplicationContext(),

@@ -1,0 +1,75 @@
+{
+  "project_info": {
+    "project_id": "numad16s-shlokdixit1",
+    "project_number": "877610817440",
+    "name": "NUMAD16S-ShlokDixit1"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877610817440:android:48c524e09dbf29f6",
+        "client_id": "android:edu.neu.madcourse.shlokdixit1.GCM",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "edu.neu.madcourse.shlokdixit1.GCM",
+          "certificate_hash": []
+        }
+      },
+      "oauth_client": [],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 2,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 1
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877610817440:android:5de038852dc1dabd",
+        "client_id": "android:edu.neu.madcourse.shlokdixit1.WordGame",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "edu.neu.madcourse.shlokdixit1.WordGame",
+          "certificate_hash": []
+        }
+      },
+      "oauth_client": [],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 2,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 1
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}

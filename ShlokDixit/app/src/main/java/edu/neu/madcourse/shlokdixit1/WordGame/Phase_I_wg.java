@@ -19,9 +19,9 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.Ringtone;
 import android.media.ToneGenerator;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -33,22 +33,36 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+
 import java.io.BufferedReader;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
 import edu.neu.madcourse.shlokdixit1.R;
 import edu.neu.madcourse.shlokdixit1.TicTacToe.Tile;
 
-public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChangeListener {
 
-    //private GameFragment_wg mGameFragment;
+public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChangeListener {
+    public static final String KEY_RESTORE = "key_restore";
+    public static final String PREF_RESTORE = "pref_restore";
+    public static final String MyPREFERENCES = "MyPrefs" ;
+
+
+    SharedPreferences sharedpreferences;
+    int points;
+    TextView points_tv;
     int bonusPoints;
     MediaPlayer mMediaPlayer;
     ToggleButton t;
@@ -57,8 +71,9 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
     ArrayList<String> inputWord = new ArrayList<>();
 
 
-    boolean[] wordSelected = new boolean[9]; // set true if a word is found in a 3x3 tile
-    boolean[][] letterClicked = new boolean[9][9]; // if a letter was clicked in 9x9 board
+
+    boolean[] wordSelected = new boolean[9]; // set true if a word is found in a 3x3 tile (smaill tile)
+    boolean[][] letterClicked = new boolean[9][9]; // if a letter was clicked in 9x9 board (it is used to restore the game later on)
     boolean[][] correctClicks = new boolean[9][9];
     long miliSecsLeft;
     //int large, small;
@@ -74,34 +89,14 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             R.id.small9,};
 
 
-    private Handler mHandler = new Handler();
+    //private Handler mHandler = new Handler();
     // private Tile mEntireBoard = new Tile(this);
-    private Tile mLargeTiles[] = new Tile[9];
-    private Tile mSmallTiles[][] = new Tile[9][9];
-    private Tile.Owner mPlayer = Tile.Owner.X;
-    private Set<Tile> mAvailable = new HashSet<Tile>();
-    char[][] words = new char[9][9];
+    private Tile mLargeTiles[] = new Tile[9];//no use
+    private Tile mSmallTiles[][] = new Tile[9][9];//no use
+    private Tile.Owner mPlayer = Tile.Owner.X;//no use
+    private Set<Tile> mAvailable = new HashSet<Tile>();//no use
+    char[][] words = new char[9][9];//fetch 9 letter words
     char[][] gameWords = new char[9][9];
-
-    InputStream ins;
-
-    BufferedReader reader;
-    ArrayList<String> l1;
-    ArrayList<String> l2;
-    ArrayList<String> l02;
-    ArrayList<String> l3;
-    ArrayList<String> l4;
-    ArrayList<String> l5;
-    ArrayList<String> l6;
-    ArrayList<String> l7;
-    ArrayList<String> l8;
-    ArrayList<String> l9;
-    ArrayList<String> l10;
-    ArrayList<String> l101;
-    ArrayList<String> l11;
-    ArrayList<String> l12;
-    ArrayList<String> l13;
-    ArrayList<String> l14;
     ArrayList<String> listItems;
     ArrayAdapter<String> adapter;
     ArrayList<ArrayList> masterData;
@@ -113,13 +108,35 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
     int[] selectedSmall;
     int counter = 0;
     int largeOld = 99, smallOld = 99;
+    int largeLatest, smallLatest;
+    int i;
+    FileOutputStream outputStream;
 
     Ringtone beep;
     ToneGenerator tone;
-    int points;
-    TextView points_tv;
 
 
+    InputStream ins;
+    BufferedReader reader;
+    ArrayList<String> l_a;
+    ArrayList<String> l_b;
+    ArrayList<String> l_c;
+    ArrayList<String> l_d_e;
+    ArrayList<String> l_f_g;
+    ArrayList<String> l_h_i;
+    ArrayList<String> l_j_k;
+    ArrayList<String> l_l_m;
+    ArrayList<String> l_n_o;
+    ArrayList<String> l_p_q;
+    ArrayList<String> l_r;
+    ArrayList<String> l_s;
+    ArrayList<String> l_t;
+    ArrayList<String> l_u;
+    ArrayList<String> l_v_w;
+    ArrayList<String> l_x_y_z;
+
+
+    private Firebase mRef;
     boolean[][] buttonState = new boolean[9][9];
 
     private Context mContext;
@@ -127,38 +144,96 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setTitle("PHASE-I");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_wg_phase_1);
-        startCountDownTimer();
+
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        Boolean contFlag = sharedpreferences.getBoolean("ContinueFlag", false);
+
+        if (contFlag == true) {
+
+            sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putBoolean("ContinueFlag", false);
+            editor.commit();
+            restoredata();
+            points_tv = (TextView) findViewById(R.id.score_I);
+            points_tv.setText("Score: " + Integer.toString(points));
+        }
+
+        else
+        {
+
+        }
+
+
+        //Firebase ref
+        Firebase.setAndroidContext(this);
+        //String hello= "hey how are you";
+        mRef = new Firebase("https://shining-inferno-2019.firebaseio.com/");
+        mRef.setValue(points);
+        // Sync data to firebase
+        mRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                System.out.println(snapshot.getValue());
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                System.out.println("The read failed: " + firebaseError.getMessage());
+
+            }
+        });
+        mRef.keepSynced(false);
+        //// Sync data to firebase ending
+
+        //Music begin
         tone = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
-        //mContext = this.getApplicationContext();
         mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.cartoon);
         mMediaPlayer.setLooping(true);
         mMediaPlayer.start();
-        l1 = new ArrayList<String>();
+        //Music ending
+
+        // Array list to populate words
+        l_a = new ArrayList<String>();
         ins = getResources().openRawResource(R.raw.a_list);
         reader = new BufferedReader(new InputStreamReader(ins));
         try {
             while ((data = reader.readLine()) != null) {
-                l1.add(data);
+                l_a.add(data);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        // Array list to populate words ends here
+
+
+        //methods which are starting on OnCreate()
+        startCountDownTimer();
         fillTiles();
         initTileData();
         initDataHolder();
         playGame();
-        // points = 0;
+
+      /*  //@shared preferences
+        boolean restore = getIntent().getBooleanExtra(KEY_RESTORE, false);
+        if (restore) {
+            String gameData = getPreferences(MODE_PRIVATE)
+                    .getString(PREF_RESTORE, null);
+            if (gameData != null) {
+                this.putState(gameData);
+            }
+        }*/
+        //@shared preferences ending
+
         points_tv = (TextView) findViewById(R.id.score_I);
         points_tv.setText("Score: " + Integer.toString(points));
 
         t = (ToggleButton) findViewById(R.id.togglebutton1);
         t.setOnCheckedChangeListener(this);
 
-       // mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.cartoon);
 
 /////////////////////////@match the word by calling checkword()
 
@@ -169,12 +244,112 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
                 checkword();
             }
         });
+//@takes the game to home screen
+        Button mainmenu = (Button) findViewById(R.id.button_main_1);
+        mainmenu.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                //String gameData = this.getState();
+               // getPreferences(MODE_PRIVATE).edit()
+                    //    .putString(PREF_RESTORE, gameData)
+                    //    .commit();
+                finish();
+
+            }
+        });
+        //@resets the game
+        Button reboot = (Button) findViewById(R.id.restart_wg_1);
+        reboot.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                Set_List_To_Null();
+//               countDownTimer.cancel();
+                finish();
+                Intent intent = new Intent(Phase_I_wg.this, Phase_I_wg.class);
+                startActivity(intent);
+
+
+            }
+        });
 
 
     }
+    private String file = "mydata";
+
+    public void fetchdata(){
+
+        
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putInt("points_I_wg", points);
+        editor.putInt("bonusPoints", bonusPoints);
+        editor.putInt("large", large);
+        editor.putInt("small", small);
+        editor.putInt("largeLatest", largeLatest);
+        editor.putInt("smallLatest", smallLatest);
+        //editor.putBoolean("lettersClicked", letterClicked[9][9]);
+        //editor.putBoolean("wordSelected", wordSelected[9]);
+        //editor.putBoolean("correctClicks", correctClicks[9][9]);
+        Set<String> set = new HashSet<String>();
+        set.addAll(inputWord);
+        editor.putStringSet("inputWord", set);
+
+        editor.putInt("array_size", letterClicked.length);
+        for(int i=0;i<letterClicked.length; i++)
+            for(int j=0;j<letterClicked[i].length; j++)
+            editor.putBoolean("array_" + i +"_"+ j, letterClicked[i][j]);
+
+        editor.putInt("array_size", correctClicks.length);
+        for(int i=0;i<correctClicks.length; i++)
+            for(int j=0;j<correctClicks[j].length; j++)
+            editor.putBoolean("array_" + i +"_"+ j, correctClicks[i][j]);
+
+        editor.putInt("array_size", gameWords.length);
+        for(int i=0;i<gameWords.length; i++)
+            editor.putString("array_" + i, gameWords[i].toString());
+
+        editor.putInt("array_size", wordSelected.length);
+        for(int i=0;i<wordSelected.length; i++)
+            editor.putBoolean("array_" + i, wordSelected[i]);
 
 
-    //////checkword()
+
+        editor.commit();
+        Toast.makeText(this.getApplicationContext(), " GAME STATE SAVED !", Toast.LENGTH_SHORT).show();
+
+
+        }
+
+
+    public void restoredata(){
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        points = sharedpreferences.getInt("points_I_wg", 0);
+        bonusPoints=sharedpreferences.getInt("bonusPoints", 0);
+        large=sharedpreferences.getInt("large", 0);
+        small=sharedpreferences.getInt("small", 0);
+        largeLatest=sharedpreferences.getInt("largeLatest", 0);
+        smallLatest=sharedpreferences.getInt("smallLatest", 0);
+
+        Set<String> set = sharedpreferences.getStringSet("inputWord", null);
+        //List<String> sample=new ArrayList<String>(set);
+
+      //  letterClicked=sharedpreferences.getBoolean("letterClicked",false[][]);
+       // wordSelected=sharedpreferences.getBoolean("wordSelected",true[]);
+
+
+        System.out.print("hello");
+
+/*
+        int size = gameWords.getInt("array_size", 0);
+        gameWords = new String[size];
+        for(int i=0; i<size; i++)
+            gameWords.getString("array_" + i, null);*/
+    }
+
+
+
+
+    //@ checkword()
 
     public void checkword() {
         //inputWord = DataHolder.getInstance().getArl();
@@ -188,15 +363,18 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
                 if (word_finder(word)) {
                     Toast.makeText(this.getApplicationContext(), "Correct Word !", Toast.LENGTH_SHORT).show();
                     points = points + word.length();
+
+
                     if (word.length() == 9)
                         bonusPoints = bonusPoints + 1;
-                    Accumulator.getInstance().setPoints(points);
-                    Accumulator.getInstance().setBonusPoints(bonusPoints);
+                   // Accumulator.getInstance().setPoints(points);
+                    //Accumulator.getInstance().setBonusPoints(bonusPoints);
                     points_tv.setText("Points: " + Integer.toString(points));
+                    //--->
                     for (int i = 1; i < largePos.size(); i++) {
                         correctClicks[largePos.get(i)][smallPos.get(i)] = true;
                     }
-
+                    //--->
                     wordSelected[largePos.get(1)] = true;
                     updateAllTiles(gameWords, wordSelected, letterClicked);
                     initTileData();
@@ -204,19 +382,23 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
                 } else {
                     Toast.makeText(this.getApplicationContext(), "InCorrect Word !", Toast.LENGTH_SHORT).show();
                     for (int i = 1; i < largePos.size(); i++) {
+                        //--->
                         letterClicked[largePos.get(i)][smallPos.get(i)] = false;
                     }
                     updateAllTiles(gameWords, wordSelected, letterClicked);
                     initTileData();
                 }
-            } else {
             }
+            //else {
+            //}
         } else {
             Toast.makeText(this.getApplicationContext(), "Please select a word !", Toast.LENGTH_SHORT).show();
         }
 
 
-    }//checkword() !!! end
+    }//checkword() ends here
+
+    Button inner1;
 
     private void updateAllTiles(char[][] words, boolean[] wordSelected, boolean[][] letterClicked) // words here refer to gameWords
     {
@@ -225,7 +407,7 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
 
             for (int small = 0; small < 9; small++) {
 
-                final Button inner1 = (Button) outer.findViewById(mSmallIds[small]);
+                inner1 = (Button) outer.findViewById(mSmallIds[small]);
                 inner1.setText(Character.toString(words[large][small]));
 
                 if (letterClicked[large][small] == true)
@@ -236,32 +418,34 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
                 if (wordSelected[large] == true) {
                     inner1.setEnabled(false);
                     inner1.setBackgroundColor(Color.CYAN);
+                    //savecolor = wordSelected[large]
                 }
 
             }
         }
+
     }
 
     // word_finder , loading of arraylist and word search happens here
     public boolean word_finder(String key) {
 
 
-        this.l1 = new ArrayList<String>();
-        this.l2 = new ArrayList<String>();
-        this.l02 = new ArrayList<String>();
-        this.l3 = new ArrayList<String>();
-        this.l4 = new ArrayList<String>();
-        this.l5 = new ArrayList<String>();
-        this.l6 = new ArrayList<String>();
-        this.l7 = new ArrayList<String>();
-        this.l8 = new ArrayList<String>();
-        this.l9 = new ArrayList<String>();
-        this.l10 = new ArrayList<String>();
-        this.l101 = new ArrayList<String>();
-        this.l11 = new ArrayList<String>();
-        this.l12 = new ArrayList<String>();
-        this.l13 = new ArrayList<String>();
-        this.l14 = new ArrayList<String>();
+        this.l_a = new ArrayList<String>();
+        this.l_b = new ArrayList<String>();
+        this.l_c = new ArrayList<String>();
+        this.l_d_e = new ArrayList<String>();
+        this.l_f_g = new ArrayList<String>();
+        this.l_h_i = new ArrayList<String>();
+        this.l_j_k = new ArrayList<String>();
+        this.l_l_m = new ArrayList<String>();
+        this.l_n_o = new ArrayList<String>();
+        this.l_p_q = new ArrayList<String>();
+        this.l_r = new ArrayList<String>();
+        this.l_s = new ArrayList<String>();
+        this.l_t = new ArrayList<String>();
+        this.l_u = new ArrayList<String>();
+        this.l_v_w = new ArrayList<String>();
+        this.l_x_y_z = new ArrayList<String>();
         char firstChar = key.charAt(0);
 
         if (firstChar == 'a' || firstChar == 'A') {
@@ -269,13 +453,13 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             reader = new BufferedReader(new InputStreamReader(ins));
             try {
                 while ((data = reader.readLine()) != null) {
-                    l1.add(data);
+                    l_a.add(data);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            if (Collections.binarySearch(l1, key) >= 0) {
+            if (Collections.binarySearch(l_a, key) >= 0) {
                 return true;
             } else return false;
         } else if (firstChar == 'b' || firstChar == 'B') {
@@ -283,12 +467,12 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             reader = new BufferedReader(new InputStreamReader(ins));
             try {
                 while ((data = reader.readLine()) != null) {
-                    l2.add(data);
+                    l_b.add(data);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if (Collections.binarySearch(l2, key) >= 0) {
+            if (Collections.binarySearch(l_b, key) >= 0) {
                 return true;
             } else return false;
         } else if (firstChar == 'c' || firstChar == 'C') {
@@ -296,12 +480,12 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             reader = new BufferedReader(new InputStreamReader(ins));
             try {
                 while ((data = reader.readLine()) != null) {
-                    l02.add(data);
+                    l_c.add(data);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if (Collections.binarySearch(l02, key) >= 0) {
+            if (Collections.binarySearch(l_c, key) >= 0) {
                 return true;
             } else return false;
         } else if (firstChar == 'D' || firstChar == 'd' || firstChar == 'E' || firstChar == 'e') {
@@ -309,12 +493,12 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             reader = new BufferedReader(new InputStreamReader(ins));
             try {
                 while ((data = reader.readLine()) != null) {
-                    l3.add(data);
+                    l_d_e.add(data);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if (Collections.binarySearch(l3, key) >= 0) {
+            if (Collections.binarySearch(l_d_e, key) >= 0) {
                 return true;
             } else return false;
         } else if (firstChar == 'F' || firstChar == 'f' || firstChar == 'G' || firstChar == 'g') {
@@ -322,12 +506,12 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             reader = new BufferedReader(new InputStreamReader(ins));
             try {
                 while ((data = reader.readLine()) != null) {
-                    l4.add(data);
+                    l_f_g.add(data);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if (Collections.binarySearch(l4, key) >= 0) {
+            if (Collections.binarySearch(l_f_g, key) >= 0) {
                 return true;
             } else return false;
 
@@ -336,14 +520,14 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             reader = new BufferedReader(new InputStreamReader(ins));
             try {
                 while ((data = reader.readLine()) != null) {
-                    l5.add(data);
+                    l_h_i.add(data);
 
 
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if (Collections.binarySearch(l5, key) >= 0) {
+            if (Collections.binarySearch(l_j_k, key) >= 0) {
                 return true;
             } else return false;
         } else if (firstChar == 'J' || firstChar == 'j' || firstChar == 'K' || firstChar == 'k') {
@@ -351,14 +535,14 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             reader = new BufferedReader(new InputStreamReader(ins));
             try {
                 while ((data = reader.readLine()) != null) {
-                    l6.add(data);
+                    l_j_k.add(data);
 
 
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if (Collections.binarySearch(l6, key) >= 0) {
+            if (Collections.binarySearch(l_j_k, key) >= 0) {
                 return true;
             } else return false;
         } else if (firstChar == 'L' || firstChar == 'l' || firstChar == 'm' || firstChar == 'M') {
@@ -366,14 +550,14 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             reader = new BufferedReader(new InputStreamReader(ins));
             try {
                 while ((data = reader.readLine()) != null) {
-                    l7.add(data);
+                    l_l_m.add(data);
 
 
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if (Collections.binarySearch(l7, key) >= 0) {
+            if (Collections.binarySearch(l_l_m, key) >= 0) {
                 return true;
             } else return false;
         } else if (firstChar == 'N' || firstChar == 'n' || firstChar == 'O' || firstChar == 'o') {
@@ -381,14 +565,14 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             reader = new BufferedReader(new InputStreamReader(ins));
             try {
                 while ((data = reader.readLine()) != null) {
-                    l8.add(data);
+                    l_n_o.add(data);
 
 
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if (Collections.binarySearch(l8, key) >= 0) {
+            if (Collections.binarySearch(l_n_o, key) >= 0) {
                 return true;
             } else return false;
         } else if (firstChar == 'P' || firstChar == 'p' || firstChar == 'Q' || firstChar == 'q') {
@@ -396,14 +580,14 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             reader = new BufferedReader(new InputStreamReader(ins));
             try {
                 while ((data = reader.readLine()) != null) {
-                    l9.add(data);
+                    l_p_q.add(data);
 
 
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if (Collections.binarySearch(l9, key) >= 0) {
+            if (Collections.binarySearch(l_p_q, key) >= 0) {
                 return true;
             } else return false;
         } else if (firstChar == 'R' || firstChar == 'r') {
@@ -411,14 +595,14 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             reader = new BufferedReader(new InputStreamReader(ins));
             try {
                 while ((data = reader.readLine()) != null) {
-                    l10.add(data);
+                    l_r.add(data);
 
 
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if (Collections.binarySearch(l10, key) >= 0) {
+            if (Collections.binarySearch(l_r, key) >= 0) {
                 return true;
             } else return false;
         } else if (firstChar == 'S' || firstChar == 's') {
@@ -426,14 +610,14 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             reader = new BufferedReader(new InputStreamReader(ins));
             try {
                 while ((data = reader.readLine()) != null) {
-                    l101.add(data);
+                    l_s.add(data);
 
 
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if (Collections.binarySearch(l101, key) >= 0) {
+            if (Collections.binarySearch(l_s, key) >= 0) {
                 return true;
             } else return false;
         } else if (firstChar == 'T' || firstChar == 't') {
@@ -441,14 +625,14 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             reader = new BufferedReader(new InputStreamReader(ins));
             try {
                 while ((data = reader.readLine()) != null) {
-                    l11.add(data);
+                    l_t.add(data);
 
 
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if (Collections.binarySearch(l11, key) >= 0) {
+            if (Collections.binarySearch(l_t, key) >= 0) {
                 return true;
             } else return false;
         } else if (firstChar == 'U' || firstChar == 'u') {
@@ -456,14 +640,14 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             reader = new BufferedReader(new InputStreamReader(ins));
             try {
                 while ((data = reader.readLine()) != null) {
-                    l12.add(data);
+                    l_u.add(data);
 
 
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if (Collections.binarySearch(l12, key) >= 0) {
+            if (Collections.binarySearch(l_u, key) >= 0) {
                 return true;
             } else return false;
         } else if (firstChar == 'V' || firstChar == 'v' || firstChar == 'W' || firstChar == 'w') {
@@ -471,14 +655,14 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             reader = new BufferedReader(new InputStreamReader(ins));
             try {
                 while ((data = reader.readLine()) != null) {
-                    l3.add(data);
+                    l_v_w.add(data);
 
 
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if (Collections.binarySearch(l13, key) >= 0) {
+            if (Collections.binarySearch(l_v_w, key) >= 0) {
                 return true;
             } else return false;
         } else if (firstChar == 'X' || firstChar == 'x' || firstChar == 'Y' || firstChar == 'y' || firstChar == 'Z' || firstChar == 'z') {
@@ -486,12 +670,12 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             reader = new BufferedReader(new InputStreamReader(ins));
             try {
                 while ((data = reader.readLine()) != null) {
-                    l14.add(data);
+                    l_x_y_z.add(data);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if (Collections.binarySearch(l14, key) >= 0) {
+            if (Collections.binarySearch(l_x_y_z, key) >= 0) {
                 return true;
             } else return false;
         } else return false;
@@ -512,9 +696,11 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
     public void initDataHolder() {
         Accumulator.getInstance().setWords(null);
         Accumulator.getInstance().setCorrectClicks(null);
-        Accumulator.getInstance().setPoints(0);
-        Accumulator.getInstance().setBonusPoints(0);
+       // Accumulator.getInstance().setPoints(0);
+       // Accumulator.getInstance().setBonusPoints(0);
     }
+
+    //String s1;
 
     private void playGame() {
 
@@ -522,33 +708,35 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             View outer = this.findViewById(mLargeIds[large]);
 
             for (small = 0; small < 9; small++) {
-
                 final Button inner1 = (Button) outer.findViewById(mSmallIds[small]);
-                inner1.setTag(large + ":" + small);
+
+                inner1.setTag(large + ":" + small);//not clear TA help needed
                 inner1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
-                        //***********my code
-                        int large = Integer.parseInt(view.getTag().toString().split(":")[0]);
-                        int small = Integer.parseInt(view.getTag().toString().split(":")[1]);
+                        largeLatest = Integer.parseInt(view.getTag().toString().split(":")[0]);//not clear TA help needed
+                        smallLatest = Integer.parseInt(view.getTag().toString().split(":")[1]);//not clear TA help needed
                         int smOld = smallPos.get(smallPos.size() - 1);
                         int lrOld = largePos.get(largePos.size() - 1);
 
-                        if (Word_Selection(lrOld, smOld, large, small)) {
+                        if (Word_Selection(lrOld, smOld, largeLatest, smallLatest)) {
                             inner1.setTextColor(Color.BLACK);
-                            letterClicked[large][small] = true;
+                            System.out.print("button pressed");
+                            //s1= Boolean.toString(letterClicked[largeLatest][smallLatest]);
+                            //i = Integer.parseInt(s1);
                             inputWord.add(inner1.getText().toString());
-                            smallPos.add(small);
-                            largePos.add(large);
+                            smallPos.add(smallLatest);
+                            largePos.add(largeLatest);
                             tone.startTone(ToneGenerator.TONE_PROP_BEEP);
+                            letterClicked[largeLatest][smallLatest] = true;
 
-                        } else if (smOld == small && lrOld == large) {
+                        } else if (smOld == smallLatest && lrOld == largeLatest) {
                             inputWord.remove(inputWord.size() - 1);
                             smallPos.remove(smallPos.size() - 1);
                             largePos.remove(largePos.size() - 1);
                             inner1.setTextColor(Color.WHITE);
-                            letterClicked[large][small] = false;
+                            System.out.print("button released");
+                            //  letterClicked[largeLatest][smallLatest] = false;
 
                         } else {
                             Toast.makeText(getApplicationContext(), "Not an adjacent letter", Toast.LENGTH_SHORT).show();
@@ -643,7 +831,8 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
 
     private void fillTiles() {
 
-        ArrayList<String> nine = this.getNineLengthWords(l1);
+
+        ArrayList<String> nine = this.getNineLengthWords(l_a);
         int min = 0;
         int max = 30;
         int ran = 0;
@@ -660,7 +849,6 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
         final Button inner00 = (Button) outer0.findViewById(mSmallIds[0]);
         gameWords[0][0] = words[0][0];
         inner00.setText(Character.toString(words[0][0]));
-
         final Button inner01 = (Button) outer0.findViewById(mSmallIds[1]);
         gameWords[0][1] = words[0][5];
         inner01.setText(Character.toString(words[0][5]));
@@ -929,8 +1117,8 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
         gameWords[8][8] = words[8][6];
         inner88.setText(Character.toString(words[8][6]));
 
-
     }
+
 
     public ArrayList getNineLengthWords(ArrayList ar) {
         int i = 0, j = 0;
@@ -991,34 +1179,29 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
     }
 
 
-    public String getState() {
-
-        return "dummy val";
-    }
-
     public void Set_List_To_Null() {
 
-        l1 = null;
-        l2 = null;
-        l02 = null;
-        l3 = null;
-        l4 = null;
-        l5 = null;
-        l6 = null;
-        l7 = null;
-        l8 = null;
-        l9 = null;
-        l10 = null;
-        l101 = null;
-        l11 = null;
-        l12 = null;
-        l13 = null;
-        l14 = null;
+        l_a = null;
+        l_b = null;
+        l_c = null;
+        l_d_e = null;
+        l_f_g = null;
+        l_h_i = null;
+        l_j_k = null;
+        l_l_m = null;
+        l_n_o = null;
+        l_p_q = null;
+        l_r = null;
+        l_s = null;
+        l_t = null;
+        l_u = null;
+        l_v_w = null;
+        l_x_y_z = null;
 
     }
 
 
-    long remaining = 0;
+    long remaining;
     long total = 90000;
 
     public void startCountDownTimer() {
@@ -1131,13 +1314,53 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
     @Override
     public void onPause() {
         super.onPause();
+        mMediaPlayer.stop();
+        mMediaPlayer.reset();
+        mMediaPlayer.release();
+        /*
+        String gameData = this.getState();
+        getPreferences(MODE_PRIVATE).edit()
+                .putString(PREF_RESTORE, gameData)
+                .commit();
+*/
+        fetchdata();
 
     }
 
     @Override
     public void onResume() {
         super.onResume();  // Always call the superclass method first
-
+        //restoredata();
+       //Toast.makeText(this.getApplicationContext(), " RESTORED", Toast.LENGTH_SHORT).show();
     }
+/*
+    public String getState() {
+
+
+        StringBuilder builder = new StringBuilder();
+        builder.append(points);
+        builder.append(',');
+        builder.append(bonusPoints);
+        builder.append(',');
+
+
+        return builder.toString();
+
+    }*/
+
+    /**
+     * Restore the state of the game from the given string.
+     */
+
+/*
+    public void putState(String gameData) {
+        String[] fields = gameData.split(",");
+        int index = 0;
+        points = Integer.parseInt(fields[index++]);
+        bonusPoints = Integer.parseInt(fields[index++]);
+
+
+    }*/
+
 
 }

@@ -77,8 +77,17 @@
         android:layout_margin="@dimen/menu_button_margin"
         android:background="@drawable/mybutton"
         android:padding="@dimen/menu_button_padding"
-        android:text="ACKNOWLEDGEMENTS"
-         />
+        android:text="ACKNOWLEDGEMENTS"/>
+
+    <Button
+        android:id="@+id/communications"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/menu_button_margin"
+        android:background="@drawable/mybutton"
+        android:padding="@dimen/menu_button_padding"
+        android:text="COMMUNICATIONS" />
+
 
     <ToggleButton
         android:id="@+id/togglebutton"

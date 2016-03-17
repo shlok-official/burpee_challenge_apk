@@ -23,6 +23,7 @@ import android.widget.TextView;
 
 import edu.neu.madcourse.shlokdixit1.R;
 
+
 public class GameActivity extends Activity {
    public static final String KEY_RESTORE = "key_restore";
    public static final String PREF_RESTORE = "pref_restore";
@@ -45,7 +46,7 @@ public class GameActivity extends Activity {
             mGameFragment.putState(gameData);
          }
       }
-      Log.d("UT3", "restore = " + restore);
+     // Log.d("UT3", "restore = " + restore);
 
 final TextView timer;
       ///////////////

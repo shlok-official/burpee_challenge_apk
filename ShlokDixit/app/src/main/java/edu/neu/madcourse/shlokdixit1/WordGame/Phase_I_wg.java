@@ -831,307 +831,207 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
 
     private void fillTiles() {
 
-
-        ArrayList<String> nine = this.getNineLengthWords(l_a);
-        int min = 0;
-        int max = 30;
-        int ran = 0;
-        Random rn = new Random();
-
-        for (int i = 0; i < 9; i++) {
-            ran = rn.nextInt(max - min + 1) + min;
-            words[i] = nine.get(i).toString().toCharArray();
-        }
-
-
-        //pattern 1
-        View outer0 = this.findViewById(mLargeIds[0]);
-        final Button inner00 = (Button) outer0.findViewById(mSmallIds[0]);
-        gameWords[0][0] = words[0][0];
-        inner00.setText(Character.toString(words[0][0]));
-        final Button inner01 = (Button) outer0.findViewById(mSmallIds[1]);
-        gameWords[0][1] = words[0][5];
-        inner01.setText(Character.toString(words[0][5]));
-        final Button inner02 = (Button) outer0.findViewById(mSmallIds[2]);
-        gameWords[0][2] = words[0][6];
-        inner02.setText(Character.toString(words[0][6]));
-        final Button inner03 = (Button) outer0.findViewById(mSmallIds[3]);
-        gameWords[0][3] = words[0][1];
-        inner03.setText(Character.toString(words[0][1]));
-        final Button inner04 = (Button) outer0.findViewById(mSmallIds[4]);
-        gameWords[0][4] = words[0][4];
-        inner04.setText(Character.toString(words[0][4]));
-        final Button inner05 = (Button) outer0.findViewById(mSmallIds[5]);
-        gameWords[0][5] = words[0][7];
-        inner05.setText(Character.toString(words[0][7]));
-        final Button inner06 = (Button) outer0.findViewById(mSmallIds[6]);
-        gameWords[0][6] = words[0][2];
-        inner06.setText(Character.toString(words[0][2]));
-        final Button inner07 = (Button) outer0.findViewById(mSmallIds[7]);
-        gameWords[0][7] = words[0][3];
-        inner07.setText(Character.toString(words[0][3]));
-        final Button inner08 = (Button) outer0.findViewById(mSmallIds[8]);
-        gameWords[0][8] = words[0][8];
-        inner08.setText(Character.toString(words[0][8]));
-
-        //pattern 2
-        View outer1 = this.findViewById(mLargeIds[1]);
-        final Button inner10 = (Button) outer1.findViewById(mSmallIds[0]);
-        gameWords[1][0] = words[1][8];
-        inner10.setText(Character.toString(words[1][8]));
-        final Button inner11 = (Button) outer1.findViewById(mSmallIds[1]);
-        gameWords[1][1] = words[1][5];
-        inner11.setText(Character.toString(words[1][5]));
-        final Button inner12 = (Button) outer1.findViewById(mSmallIds[2]);
-        gameWords[1][2] = words[1][4];
-        inner12.setText(Character.toString(words[1][4]));
-        final Button inner13 = (Button) outer1.findViewById(mSmallIds[3]);
-        gameWords[1][3] = words[1][7];
-        inner13.setText(Character.toString(words[1][7]));
-        final Button inner14 = (Button) outer1.findViewById(mSmallIds[4]);
-        gameWords[1][4] = words[1][6];
-        inner14.setText(Character.toString(words[1][6]));
-        final Button inner15 = (Button) outer1.findViewById(mSmallIds[5]);
-        gameWords[1][5] = words[1][3];
-        inner15.setText(Character.toString(words[1][3]));
-        final Button inner16 = (Button) outer1.findViewById(mSmallIds[6]);
-        gameWords[1][6] = words[1][0];
-        inner16.setText(Character.toString(words[1][0]));
-        final Button inner17 = (Button) outer1.findViewById(mSmallIds[7]);
-        gameWords[1][7] = words[1][1];
-        inner17.setText(Character.toString(words[1][1]));
-        final Button inner18 = (Button) outer1.findViewById(mSmallIds[8]);
-        gameWords[1][8] = words[1][2];
-        inner18.setText(Character.toString(words[1][2]));
-
-        //pattern 3
-        View outer2 = this.findViewById(mLargeIds[2]);
-        final Button inner20 = (Button) outer2.findViewById(mSmallIds[0]);
-        gameWords[2][0] = words[2][2];
-        inner20.setText(Character.toString(words[2][2]));
-        final Button inner21 = (Button) outer2.findViewById(mSmallIds[1]);
-        gameWords[2][1] = words[2][3];
-        inner21.setText(Character.toString(words[2][3]));
-        final Button inner22 = (Button) outer2.findViewById(mSmallIds[2]);
-        gameWords[2][2] = words[2][4];
-        inner22.setText(Character.toString(words[2][4]));
-        final Button inner23 = (Button) outer2.findViewById(mSmallIds[3]);
-        gameWords[2][3] = words[2][1];
-        inner23.setText(Character.toString(words[2][1]));
-        final Button inner24 = (Button) outer2.findViewById(mSmallIds[4]);
-        gameWords[2][4] = words[2][0];
-        inner24.setText(Character.toString(words[2][0]));
-        final Button inner25 = (Button) outer2.findViewById(mSmallIds[5]);
-        gameWords[2][5] = words[2][5];
-        inner25.setText(Character.toString(words[2][5]));
-        final Button inner26 = (Button) outer2.findViewById(mSmallIds[6]);
-        gameWords[2][6] = words[2][8];
-        inner26.setText(Character.toString(words[2][8]));
-        final Button inner27 = (Button) outer2.findViewById(mSmallIds[7]);
-        gameWords[2][7] = words[2][7];
-        inner27.setText(Character.toString(words[2][7]));
-        final Button inner28 = (Button) outer2.findViewById(mSmallIds[8]);
-        gameWords[2][8] = words[2][6];
-        inner28.setText(Character.toString(words[2][6]));
-
-        //pattern 3
-        View outer3 = this.findViewById(mLargeIds[3]);
-        final Button inner30 = (Button) outer3.findViewById(mSmallIds[0]);
-        gameWords[3][0] = words[3][2];
-        inner30.setText(Character.toString(words[3][2]));
-        final Button inner31 = (Button) outer3.findViewById(mSmallIds[1]);
-        gameWords[3][1] = words[3][3];
-        inner31.setText(Character.toString(words[3][3]));
-        final Button inner32 = (Button) outer3.findViewById(mSmallIds[2]);
-        gameWords[3][2] = words[3][4];
-        inner32.setText(Character.toString(words[3][4]));
-        final Button inner33 = (Button) outer3.findViewById(mSmallIds[3]);
-        gameWords[3][3] = words[3][1];
-        inner33.setText(Character.toString(words[3][1]));
-        final Button inner34 = (Button) outer3.findViewById(mSmallIds[4]);
-        gameWords[3][4] = words[3][0];
-        inner34.setText(Character.toString(words[3][0]));
-        final Button inner35 = (Button) outer3.findViewById(mSmallIds[5]);
-        gameWords[3][5] = words[3][5];
-        inner35.setText(Character.toString(words[3][5]));
-        final Button inner36 = (Button) outer3.findViewById(mSmallIds[6]);
-        gameWords[3][6] = words[3][8];
-        inner36.setText(Character.toString(words[3][8]));
-        final Button inner37 = (Button) outer3.findViewById(mSmallIds[7]);
-        gameWords[3][7] = words[3][7];
-        inner37.setText(Character.toString(words[3][7]));
-        final Button inner38 = (Button) outer3.findViewById(mSmallIds[8]);
-        gameWords[3][8] = words[3][6];
-        inner38.setText(Character.toString(words[3][6]));
-
-        //pattern 1
-        View outer4 = this.findViewById(mLargeIds[4]);
-        final Button inner40 = (Button) outer4.findViewById(mSmallIds[0]);
-        gameWords[4][0] = words[4][0];
-        inner40.setText(Character.toString(words[4][0]));
-        final Button inner41 = (Button) outer4.findViewById(mSmallIds[1]);
-        gameWords[4][1] = words[4][5];
-        inner41.setText(Character.toString(words[4][5]));
-        final Button inner42 = (Button) outer4.findViewById(mSmallIds[2]);
-        gameWords[4][2] = words[4][6];
-        inner42.setText(Character.toString(words[4][6]));
-        final Button inner43 = (Button) outer4.findViewById(mSmallIds[3]);
-        gameWords[4][3] = words[4][1];
-        inner43.setText(Character.toString(words[4][1]));
-        final Button inner44 = (Button) outer4.findViewById(mSmallIds[4]);
-        gameWords[4][4] = words[4][4];
-        inner44.setText(Character.toString(words[4][4]));
-        final Button inner45 = (Button) outer4.findViewById(mSmallIds[5]);
-        gameWords[4][5] = words[4][7];
-        inner45.setText(Character.toString(words[4][7]));
-        final Button inner46 = (Button) outer4.findViewById(mSmallIds[6]);
-        gameWords[4][6] = words[4][2];
-        inner46.setText(Character.toString(words[4][2]));
-        final Button inner47 = (Button) outer4.findViewById(mSmallIds[7]);
-        gameWords[4][7] = words[4][3];
-        inner47.setText(Character.toString(words[4][3]));
-        final Button inner48 = (Button) outer4.findViewById(mSmallIds[8]);
-        gameWords[4][8] = words[4][8];
-        inner48.setText(Character.toString(words[4][8]));
-
-        //pattern 2
-        View outer5 = this.findViewById(mLargeIds[5]);
-        final Button inner50 = (Button) outer5.findViewById(mSmallIds[0]);
-        gameWords[5][0] = words[5][8];
-        inner50.setText(Character.toString(words[5][8]));
-        final Button inner51 = (Button) outer5.findViewById(mSmallIds[1]);
-        gameWords[5][1] = words[5][5];
-        inner51.setText(Character.toString(words[5][5]));
-        final Button inner52 = (Button) outer5.findViewById(mSmallIds[2]);
-        gameWords[5][2] = words[5][4];
-        inner52.setText(Character.toString(words[5][4]));
-        final Button inner53 = (Button) outer5.findViewById(mSmallIds[3]);
-        gameWords[5][3] = words[5][7];
-        inner53.setText(Character.toString(words[5][7]));
-        final Button inner54 = (Button) outer5.findViewById(mSmallIds[4]);
-        gameWords[5][4] = words[5][6];
-        inner54.setText(Character.toString(words[5][6]));
-        final Button inner55 = (Button) outer5.findViewById(mSmallIds[5]);
-        gameWords[5][5] = words[5][3];
-        inner55.setText(Character.toString(words[5][3]));
-        final Button inner56 = (Button) outer5.findViewById(mSmallIds[6]);
-        gameWords[5][6] = words[5][0];
-        inner56.setText(Character.toString(words[5][0]));
-        final Button inner57 = (Button) outer5.findViewById(mSmallIds[7]);
-        gameWords[5][7] = words[5][1];
-        inner57.setText(Character.toString(words[5][1]));
-        final Button inner58 = (Button) outer5.findViewById(mSmallIds[8]);
-        gameWords[5][8] = words[5][2];
-        inner58.setText(Character.toString(words[5][2]));
+        View largeblock00 = this.findViewById(mLargeIds[0]);
+        final Button smallblock01 = (Button) largeblock00.findViewById(mSmallIds[0]);
+        smallblock01.setText("B");
+        final Button smallblock02 = (Button) largeblock00.findViewById(mSmallIds[1]);
+        smallblock02.setText("L");
+        final Button smallblock03 = (Button) largeblock00.findViewById(mSmallIds[2]);
+        smallblock03.setText("I");
+        final Button smallblock04 = (Button) largeblock00.findViewById(mSmallIds[3]);
+        smallblock04.setText("Z");
+        final Button smallblock05 = (Button) largeblock00.findViewById(mSmallIds[4]);
+        smallblock05.setText("Z");
+        final Button smallblock06 = (Button) largeblock00.findViewById(mSmallIds[5]);
+        smallblock06.setText("A");
+        final Button smallblock07 = (Button) largeblock00.findViewById(mSmallIds[6]);
+        smallblock07.setText("R");
+        final Button smallblock08 = (Button) largeblock00.findViewById(mSmallIds[7]);
+        smallblock08.setText("D");
+        final Button smallblock09 = (Button) largeblock00.findViewById(mSmallIds[8]);
+        smallblock09.setText("S");
 
 
-        //pattern 2
-        View outer6 = this.findViewById(mLargeIds[6]);
-        final Button inner60 = (Button) outer6.findViewById(mSmallIds[0]);
-        gameWords[6][0] = words[6][8];
-        inner60.setText(Character.toString(words[6][8]));
-        final Button inner61 = (Button) outer6.findViewById(mSmallIds[1]);
-        gameWords[6][1] = words[6][5];
-        inner61.setText(Character.toString(words[6][5]));
-        final Button inner62 = (Button) outer6.findViewById(mSmallIds[2]);
-        gameWords[6][2] = words[6][4];
-        inner62.setText(Character.toString(words[6][4]));
-        final Button inner63 = (Button) outer6.findViewById(mSmallIds[3]);
-        gameWords[6][3] = words[6][7];
-        inner63.setText(Character.toString(words[6][7]));
-        final Button inner64 = (Button) outer6.findViewById(mSmallIds[4]);
-        gameWords[6][4] = words[6][6];
-        inner64.setText(Character.toString(words[6][6]));
-        final Button inner65 = (Button) outer6.findViewById(mSmallIds[5]);
-        gameWords[6][5] = words[6][3];
-        inner65.setText(Character.toString(words[6][3]));
-        final Button inner66 = (Button) outer6.findViewById(mSmallIds[6]);
-        gameWords[6][6] = words[6][0];
-        inner66.setText(Character.toString(words[6][0]));
-        final Button inner67 = (Button) outer6.findViewById(mSmallIds[7]);
-        gameWords[6][7] = words[6][1];
-        inner67.setText(Character.toString(words[6][1]));
-        final Button inner68 = (Button) outer6.findViewById(mSmallIds[8]);
-        gameWords[6][8] = words[6][2];
-        inner68.setText(Character.toString(words[6][2]));
+        //large02
+        View largeblock01 = this.findViewById(mLargeIds[1]);
+        final Button smallblock11 = (Button) largeblock01.findViewById(mSmallIds[0]);
+        smallblock11.setText("A");
+        final Button smallblock12 = (Button) largeblock01.findViewById(mSmallIds[1]);
+        smallblock12.setText("B");
+        final Button smallblock13 = (Button) largeblock01.findViewById(mSmallIds[2]);
+        smallblock13.setText("C");
+        final Button smallblock14 = (Button) largeblock01.findViewById(mSmallIds[3]);
+        smallblock14.setText("D");
+        final Button smallblock15 = (Button) largeblock01.findViewById(mSmallIds[4]);
+        smallblock15.setText("E");
+        final Button smallblock16 = (Button) largeblock01.findViewById(mSmallIds[5]);
+        smallblock16.setText("F");
+        final Button smallblock17 = (Button) largeblock01.findViewById(mSmallIds[6]);
+        smallblock17.setText("G");
+        final Button smallblock18 = (Button) largeblock01.findViewById(mSmallIds[7]);
+        smallblock18.setText("H");
+        final Button smallblock19 = (Button) largeblock01.findViewById(mSmallIds[8]);
+        smallblock19.setText("I");
 
 
-        //pattern 1
-        View outer7 = this.findViewById(mLargeIds[7]);
-        final Button inner70 = (Button) outer7.findViewById(mSmallIds[0]);
-        gameWords[7][0] = words[7][0];
-        inner70.setText(Character.toString(words[7][0]));
-        final Button inner71 = (Button) outer7.findViewById(mSmallIds[1]);
-        gameWords[7][1] = words[7][5];
-        inner71.setText(Character.toString(words[7][5]));
-        final Button inner72 = (Button) outer7.findViewById(mSmallIds[2]);
-        gameWords[7][2] = words[7][6];
-        inner72.setText(Character.toString(words[7][6]));
-        final Button inner73 = (Button) outer7.findViewById(mSmallIds[3]);
-        gameWords[7][3] = words[7][1];
-        inner73.setText(Character.toString(words[7][1]));
-        final Button inner74 = (Button) outer7.findViewById(mSmallIds[4]);
-        gameWords[7][4] = words[7][4];
-        inner74.setText(Character.toString(words[7][4]));
-        final Button inner75 = (Button) outer7.findViewById(mSmallIds[5]);
-        gameWords[7][5] = words[7][7];
-        inner75.setText(Character.toString(words[7][7]));
-        final Button inner76 = (Button) outer7.findViewById(mSmallIds[6]);
-        gameWords[7][6] = words[7][2];
-        inner76.setText(Character.toString(words[7][2]));
-        final Button inner77 = (Button) outer7.findViewById(mSmallIds[7]);
-        gameWords[7][7] = words[7][3];
-        inner77.setText(Character.toString(words[7][3]));
-        final Button inner78 = (Button) outer7.findViewById(mSmallIds[8]);
-        gameWords[7][8] = words[7][8];
-        inner78.setText(Character.toString(words[7][8]));
+        //large03
+        View largeblock02 = this.findViewById(mLargeIds[2]);
+        final Button smallblock21 = (Button) largeblock02.findViewById(mSmallIds[0]);
+        smallblock21.setText("A");
+        final Button smallblock22 = (Button) largeblock02.findViewById(mSmallIds[1]);
+        smallblock22.setText("B");
+        final Button smallblock23 = (Button) largeblock02.findViewById(mSmallIds[2]);
+        smallblock23.setText("C");
+        final Button smallblock24 = (Button) largeblock02.findViewById(mSmallIds[3]);
+        smallblock24.setText("D");
+        final Button smallblock25 = (Button) largeblock02.findViewById(mSmallIds[4]);
+        smallblock25.setText("E");
+        final Button smallblock26 = (Button) largeblock02.findViewById(mSmallIds[5]);
+        smallblock26.setText("F");
+        final Button smallblock27 = (Button) largeblock02.findViewById(mSmallIds[6]);
+        smallblock27.setText("T");
+        final Button smallblock28 = (Button) largeblock02.findViewById(mSmallIds[7]);
+        smallblock28.setText("I");
+        final Button smallblock29 = (Button) largeblock02.findViewById(mSmallIds[8]);
+        smallblock29.setText("C");
 
 
-        //pattern 3
-        View outer8 = this.findViewById(mLargeIds[8]);
-        final Button inner80 = (Button) outer8.findViewById(mSmallIds[0]);
-        gameWords[8][0] = words[8][2];
-        inner80.setText(Character.toString(words[8][2]));
-        final Button inner81 = (Button) outer8.findViewById(mSmallIds[1]);
-        gameWords[8][1] = words[8][3];
-        inner81.setText(Character.toString(words[8][3]));
-        final Button inner82 = (Button) outer8.findViewById(mSmallIds[2]);
-        gameWords[8][2] = words[8][4];
-        inner82.setText(Character.toString(words[8][4]));
-        final Button inner83 = (Button) outer8.findViewById(mSmallIds[3]);
-        gameWords[8][3] = words[8][1];
-        inner83.setText(Character.toString(words[8][1]));
-        final Button inner84 = (Button) outer8.findViewById(mSmallIds[4]);
-        gameWords[8][4] = words[8][0];
-        inner84.setText(Character.toString(words[8][0]));
-        final Button inner85 = (Button) outer8.findViewById(mSmallIds[5]);
-        gameWords[8][5] = words[8][5];
-        inner85.setText(Character.toString(words[8][5]));
-        final Button inner86 = (Button) outer8.findViewById(mSmallIds[6]);
-        gameWords[8][6] = words[8][8];
-        inner86.setText(Character.toString(words[8][8]));
-        final Button inner87 = (Button) outer8.findViewById(mSmallIds[7]);
-        gameWords[8][7] = words[8][7];
-        inner87.setText(Character.toString(words[8][7]));
-        final Button inner88 = (Button) outer8.findViewById(mSmallIds[8]);
-        gameWords[8][8] = words[8][6];
-        inner88.setText(Character.toString(words[8][6]));
+        //large04
+        View largeblock03 = this.findViewById(mLargeIds[3]);
+        final Button smallblock31 = (Button) largeblock03.findViewById(mSmallIds[0]);
+        smallblock31.setText("A");
+        final Button smallblock32 = (Button) largeblock03.findViewById(mSmallIds[1]);
+        smallblock32.setText("B");
+        final Button smallblock33 = (Button) largeblock03.findViewById(mSmallIds[2]);
+        smallblock33.setText("C");
+        final Button smallblock34 = (Button) largeblock03.findViewById(mSmallIds[3]);
+        smallblock34.setText("D");
+        final Button smallblock35 = (Button) largeblock03.findViewById(mSmallIds[4]);
+        smallblock35.setText("E");
+        final Button smallblock36 = (Button) largeblock03.findViewById(mSmallIds[5]);
+        smallblock36.setText("F");
+        final Button smallblock37 = (Button) largeblock03.findViewById(mSmallIds[6]);
+        smallblock37.setText("G");
+        final Button smallblock38 = (Button) largeblock03.findViewById(mSmallIds[7]);
+        smallblock38.setText("H");
+        final Button smallblock39 = (Button) largeblock03.findViewById(mSmallIds[8]);
+        smallblock39.setText("I");
+
+
+        //large05
+        View largeblock04 = this.findViewById(mLargeIds[4]);
+        final Button smallblock41 = (Button) largeblock04.findViewById(mSmallIds[0]);
+        smallblock41.setText("Z");
+        final Button smallblock42 = (Button) largeblock04.findViewById(mSmallIds[1]);
+        smallblock42.setText("B");
+        final Button smallblock43 = (Button) largeblock04.findViewById(mSmallIds[2]);
+        smallblock43.setText("C");
+        final Button smallblock44 = (Button) largeblock04.findViewById(mSmallIds[3]);
+        smallblock44.setText("D");
+        final Button smallblock45 = (Button) largeblock04.findViewById(mSmallIds[4]);
+        smallblock45.setText("E");
+        final Button smallblock46 = (Button) largeblock04.findViewById(mSmallIds[5]);
+        smallblock46.setText("F");
+        final Button smallblock47 = (Button) largeblock04.findViewById(mSmallIds[6]);
+        smallblock47.setText("G");
+        final Button smallblock48 = (Button) largeblock04.findViewById(mSmallIds[7]);
+        smallblock48.setText("H");
+        final Button smallblock49 = (Button) largeblock04.findViewById(mSmallIds[8]);
+        smallblock49.setText("I");
+
+
+        //large06
+        View largeblock05 = this.findViewById(mLargeIds[5]);
+        final Button smallblock51 = (Button) largeblock05.findViewById(mSmallIds[0]);
+        smallblock51.setText("U");
+        final Button smallblock52 = (Button) largeblock05.findViewById(mSmallIds[1]);
+        smallblock52.setText("B");
+        final Button smallblock53 = (Button) largeblock05.findViewById(mSmallIds[2]);
+        smallblock53.setText("C");
+        final Button smallblock54 = (Button) largeblock05.findViewById(mSmallIds[3]);
+        smallblock54.setText("D");
+        final Button smallblock55 = (Button) largeblock05.findViewById(mSmallIds[4]);
+        smallblock55.setText("E");
+        final Button smallblock56 = (Button) largeblock05.findViewById(mSmallIds[5]);
+        smallblock56.setText("F");
+        final Button smallblock57 = (Button) largeblock05.findViewById(mSmallIds[6]);
+        smallblock57.setText("G");
+        final Button smallblock58 = (Button) largeblock05.findViewById(mSmallIds[7]);
+        smallblock58.setText("H");
+        final Button smallblock59 = (Button) largeblock05.findViewById(mSmallIds[8]);
+        smallblock59.setText("I");
+
+
+        //large07
+        View largeblock06 = this.findViewById(mLargeIds[6]);
+        final Button smallblock61 = (Button) largeblock06.findViewById(mSmallIds[0]);
+        smallblock61.setText("X");
+        final Button smallblock62 = (Button) largeblock06.findViewById(mSmallIds[1]);
+        smallblock62.setText("B");
+        final Button smallblock63 = (Button) largeblock06.findViewById(mSmallIds[2]);
+        smallblock63.setText("C");
+        final Button smallblock64 = (Button) largeblock06.findViewById(mSmallIds[3]);
+        smallblock64.setText("D");
+        final Button smallblock65 = (Button) largeblock06.findViewById(mSmallIds[4]);
+        smallblock65.setText("E");
+        final Button smallblock66 = (Button) largeblock06.findViewById(mSmallIds[5]);
+        smallblock66.setText("F");
+        final Button smallblock67 = (Button) largeblock06.findViewById(mSmallIds[6]);
+        smallblock67.setText("G");
+        final Button smallblock68 = (Button) largeblock06.findViewById(mSmallIds[7]);
+        smallblock68.setText("H");
+        final Button smallblock69 = (Button) largeblock06.findViewById(mSmallIds[8]);
+        smallblock69.setText("I");
+
+
+        //large08
+        View largeblock07 = this.findViewById(mLargeIds[7]);
+        final Button smallblock71 = (Button) largeblock07.findViewById(mSmallIds[0]);
+        smallblock71.setText("M");
+        final Button smallblock72 = (Button) largeblock07.findViewById(mSmallIds[1]);
+        smallblock72.setText("B");
+        final Button smallblock73 = (Button) largeblock07.findViewById(mSmallIds[2]);
+        smallblock73.setText("C");
+        final Button smallblock74 = (Button) largeblock07.findViewById(mSmallIds[3]);
+        smallblock74.setText("D");
+        final Button smallblock75 = (Button) largeblock07.findViewById(mSmallIds[4]);
+        smallblock75.setText("E");
+        final Button smallblock76 = (Button) largeblock07.findViewById(mSmallIds[5]);
+        smallblock76.setText("F");
+        final Button smallblock77 = (Button) largeblock07.findViewById(mSmallIds[6]);
+        smallblock77.setText("G");
+        final Button smallblock78 = (Button) largeblock07.findViewById(mSmallIds[7]);
+        smallblock78.setText("H");
+        final Button smallblock79 = (Button) largeblock07.findViewById(mSmallIds[8]);
+        smallblock79.setText("I");
+
+
+        //large09
+        View largeblock08 = this.findViewById(mLargeIds[8]);
+        final Button smallblock81 = (Button) largeblock08.findViewById(mSmallIds[0]);
+        smallblock81.setText("N");
+        final Button smallblock82 = (Button) largeblock08.findViewById(mSmallIds[1]);
+        smallblock82.setText("B");
+        final Button smallblock83 = (Button) largeblock08.findViewById(mSmallIds[2]);
+        smallblock83.setText("C");
+        final Button smallblock84 = (Button) largeblock08.findViewById(mSmallIds[3]);
+        smallblock84.setText("D");
+        final Button smallblock85 = (Button) largeblock08.findViewById(mSmallIds[4]);
+        smallblock85.setText("E");
+        final Button smallblock86 = (Button) largeblock08.findViewById(mSmallIds[5]);
+        smallblock86.setText("F");
+        final Button smallblock87 = (Button) largeblock08.findViewById(mSmallIds[6]);
+        smallblock87.setText("G");
+        final Button smallblock88 = (Button) largeblock08.findViewById(mSmallIds[7]);
+        smallblock88.setText("H");
+        final Button smallblock89 = (Button) largeblock08.findViewById(mSmallIds[8]);
+        smallblock89.setText("I");
+
+
 
     }
 
 
-    public ArrayList getNineLengthWords(ArrayList ar) {
-        int i = 0, j = 0;
-        // this.nineLenghtWords=ar;
-
-        ArrayList<String> nine = new ArrayList<String>();
-        for (j = 0; j < ar.size(); j++) {
-            if (ar.get(j).toString().length() == 9)
-                nine.add(ar.get(j).toString());
-        }
-        return nine;
-
-    }
 
 
     public void restartGame() {

@@ -55,18 +55,7 @@ public class Communication extends Activity {
                     public void onCancelled(FirebaseError firebaseError) {
                     }
                 });
-/*
-        // Add items via the Button and EditText at the bottom of the window.
-        final EditText text = (EditText) findViewById(R.id.todoText);
-        final Button button = (Button) findViewById(R.id.addButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                new Firebase("https://shining-inferno-2019.firebaseio.com/todoItems")
-                        .push()
-                        .child("text")
-                        .setValue(text.getText().toString());
-            }
-        });*/
+
     }
 
 

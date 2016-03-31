@@ -762,48 +762,6 @@ public class New_Phase_I_Game extends Activity implements CompoundButton.OnCheck
 
     }
 
-    /**
-     * Create a string containing the state of the game.
-     */
-
-
-    /*
-    public String getState() {
-        StringBuilder builder = new StringBuilder();
-        builder.append(mLastLarge);
-        builder.append(',');
-        builder.append(mLastSmall);
-        builder.append(',');
-        for (int large = 0; large < 9; large++) {
-            for (int small = 0; small < 9; small++) {
-                builder.append(mSmallTiles[large][small].getOwner().name());
-                builder.append(',');
-            }
-        }
-        return builder.toString();
-    }
-*/
-    /**
-     * Restore the state of the game from the given string.
-     */
-
-    /*
-    public void putState(String gameData) {
-        String[] fields = gameData.split(",");
-        int index = 0;
-        mLastLarge = Integer.parseInt(fields[index++]);
-        mLastSmall = Integer.parseInt(fields[index++]);
-        for (int large = 0; large < 9; large++) {
-            for (int small = 0; small < 9; small++) {
-                Tile.Owner owner = Tile.Owner.valueOf(fields[index++]);
-                mSmallTiles[large][small].setOwner(owner);
-            }
-        }
-        setAvailableFromLastMove(mLastSmall);
-        updateAllTiles();
-    }
-
-*/
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 

@@ -70,8 +70,8 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
 
 
 
-    boolean[] wordSelected = new boolean[9]; // set true if a word is found in a 3x3 tile (smaill tile)
-    boolean[][] letterClicked = new boolean[9][9]; // if a letter was clicked in 9x9 board (it is used to restore the game later on)
+    boolean[] wordSelected = new boolean[9];
+    boolean[][] letterClicked = new boolean[9][9];
     boolean[][] correctClicks = new boolean[9][9];
     long miliSecsLeft;
     //int large, small;
@@ -1215,50 +1215,15 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
         mMediaPlayer.stop();
         mMediaPlayer.reset();
         mMediaPlayer.release();
-        /*
-        String gameData = this.getState();
-        getPreferences(MODE_PRIVATE).edit()
-                .putString(PREF_RESTORE, gameData)
-                .commit();
-*/
+
         fetchdata();
 
     }
 
     @Override
     public void onResume() {
-        super.onResume();  // Always call the superclass method first
-        //restoredata();
-       //Toast.makeText(this.getApplicationContext(), " RESTORED", Toast.LENGTH_SHORT).show();
+        super.onResume();
     }
-/*
-    public String getState() {
-
-
-        StringBuilder builder = new StringBuilder();
-        builder.append(points);
-        builder.append(',');
-        builder.append(bonusPoints);
-        builder.append(',');
-
-
-        return builder.toString();
-
-    }*/
-
-    /**
-     * Restore the state of the game from the given string.
-     */
-
-/*
-    public void putState(String gameData) {
-        String[] fields = gameData.split(",");
-        int index = 0;
-        points = Integer.parseInt(fields[index++]);
-        bonusPoints = Integer.parseInt(fields[index++]);
-
-
-    }*/
 
 
 }

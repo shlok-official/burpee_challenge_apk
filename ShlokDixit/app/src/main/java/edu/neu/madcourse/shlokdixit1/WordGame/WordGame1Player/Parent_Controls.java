@@ -57,10 +57,6 @@ public class Parent_Controls extends Activity implements CompoundButton.OnChecke
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Parent_Controls.this, Phase_I_wg.class);
-                //------>>>>>>
-                //intent.putExtra(Phase_I_wg_2Player.KEY_RESTORE, true);
-               // datarestore.restoredata();
-               //datarestore.setSetflag(true);
 
                 sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedpreferences.edit();
@@ -130,29 +126,6 @@ public class Parent_Controls extends Activity implements CompoundButton.OnChecke
 
 
     }
-    /*
-    // Initialize the Amazon Cognito credentials provider
-    CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
-            getApplicationContext(),
-            "us-east-1:014c6543-2744-4d74-9919-cedf56883cc4", // Identity Pool ID
-            Regions.US_EAST_1 // Region
-    );
-    // Initialize the Cognito Sync client
-    CognitoSyncManager syncClient = new CognitoSyncManager(
-            getApplicationContext(),
-            Regions.US_EAST_1, // Region
-            credentialsProvider);
-/*
-    // Create a record in a dataset and synchronize with the server
-    Dataset dataset = syncClient.openOrCreateDataset("myDataset");
-    dataset.put("myKey", "myValue");
-    dataset.synchronize(new DefaultSyncCallback() {
-        @Override
-        public void onSuccess(Dataset dataset, List newRecords) {
-            //Your handler code here
-        }
-    });*/
-
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -181,7 +154,7 @@ public class Parent_Controls extends Activity implements CompoundButton.OnChecke
 
     @Override
     public void onResume() {
-        super.onResume();  // Always call the superclass method first
+        super.onResume();
 
     }
 }

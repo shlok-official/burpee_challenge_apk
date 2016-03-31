@@ -1,4 +1,4 @@
-package edu.neu.madcourse.shlokdixit1.WordGame;
+package edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player;
 
 import android.os.Bundle;
 import android.app.Activity;

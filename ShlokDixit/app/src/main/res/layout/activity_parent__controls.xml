@@ -13,7 +13,7 @@
     android:paddingLeft="50sp"
     android:paddingRight="50sp"
     android:paddingTop="30sp"
-    tools:context="edu.neu.madcourse.shlokdixit1.WordGame.Parent_Controls">
+    tools:context=".WordGame.WordGame1Player.Parent_Controls">
 
 
     <TextView

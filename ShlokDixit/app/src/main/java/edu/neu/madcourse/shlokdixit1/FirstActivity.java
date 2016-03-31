@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import edu.neu.madcourse.shlokdixit1.Dictionary.TestDictionary;
-import edu.neu.madcourse.shlokdixit1.WordGame.Parent_Controls;
+import edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Parent_Controls;
 import edu.neu.madcourse.shlokdixit1.TicTacToe.MainActivity;
 
 

@@ -1,4 +1,4 @@
-package edu.neu.madcourse.shlokdixit1.WordGame;
+package edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player;
 
 import android.app.Activity;
 import android.graphics.Color;

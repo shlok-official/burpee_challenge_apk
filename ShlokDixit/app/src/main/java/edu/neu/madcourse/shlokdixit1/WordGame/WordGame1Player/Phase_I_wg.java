@@ -6,7 +6,7 @@
  * We make no guarantees that this code is fit for any purpose.
  * Visit http://www.pragmaticprogrammer.com/titles/eband4 for more book information.
  ***/
-package edu.neu.madcourse.shlokdixit1.WordGame;
+package edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player;
 
 
 import android.app.Activity;
@@ -46,8 +46,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
 import java.util.Set;
 
 import edu.neu.madcourse.shlokdixit1.R;

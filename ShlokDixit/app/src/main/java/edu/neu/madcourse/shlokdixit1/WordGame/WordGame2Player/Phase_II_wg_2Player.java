@@ -1,4 +1,4 @@
-package edu.neu.madcourse.shlokdixit1.WordGame;
+package edu.neu.madcourse.shlokdixit1.WordGame.WordGame2Player;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -29,12 +29,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import edu.neu.madcourse.shlokdixit1.R;
+import edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Accumulator;
+import edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Final_score_wd;
 
 
 /**
  * Created by shlokdixit on 23/02/16.
  */
-public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
+public class Phase_II_wg_2Player extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
     MediaPlayer mMediaPlayer;
     ToggleButton t;
     ArrayList<String> l1;
@@ -136,7 +138,7 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
                 Set_List_To_Null();
 //                countDownTimer.cancel();
                 finish();
-                Intent intent = new Intent(Phase_II_wg.this, Phase_II_wg.class);
+                Intent intent = new Intent(edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Phase_II_wg.this, edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Phase_II_wg.class);
                 startActivity(intent);
 
 
@@ -241,7 +243,7 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
 
     public void startnextphase() {
         Toast.makeText(getApplicationContext(), "GAME OVER", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(Phase_II_wg.this, Final_score_wd.class);
+        Intent intent = new Intent(edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Phase_II_wg.this, Final_score_wd.class);
         startActivity(intent);
         finish();
     }

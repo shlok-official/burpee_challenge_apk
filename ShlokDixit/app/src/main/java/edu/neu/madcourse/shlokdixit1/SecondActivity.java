@@ -14,7 +14,7 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_second);
+        setContentView(R.layout.aboutMyself);
 
 
         TelephonyManager tele_Manager =(TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);

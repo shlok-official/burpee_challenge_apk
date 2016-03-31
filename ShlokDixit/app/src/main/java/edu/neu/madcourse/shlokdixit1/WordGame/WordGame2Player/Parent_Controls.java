@@ -35,7 +35,7 @@ public class Parent_Controls extends Activity implements CompoundButton.OnChecke
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_parent__controls);
+        setContentView(R.layout.wordGameHomeScreen);
 
 
         setTitle("WORD GAME");

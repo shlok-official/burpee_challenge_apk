@@ -31,4 +31,5 @@ both sides in the larger game.
     <string name="title_activity_control_fragment2">ControlFragment2</string>
     <string name="title_activity_parent__controls">Parent_Controls</string>
     <string name="title_activity_communications">communications</string>
+    <string name="title_activity_mode_selection">ModeSelection</string>
 </resources>

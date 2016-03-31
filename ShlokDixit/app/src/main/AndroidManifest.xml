@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.neu.madcourse.shlokdixit1" >
+    package="edu.neu.madcourse.shlokdixit1">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -13,7 +13,6 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
-
     <permission
         android:name="com.example.gcm.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
@@ -25,10 +24,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="NUMAD16S-ShlokDixit"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat" >
+        android:theme="@style/Theme.AppCompat">
         <activity
             android:name=".FirstActivity"
-            android:label="NUMAD16S-ShlokDixit" >
+            android:label="NUMAD16S-ShlokDixit">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -74,7 +73,6 @@
             android:name=".WordGame.WordGame2Player.Phase_II_wg_2Player"
             android:label="@string/title_activity_dictionary_credits"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".WordGame.WordGameCredits"
             android:screenOrientation="portrait" />
@@ -87,6 +85,9 @@
         <activity
             android:name=".WordGame.WordGame1Player.Communication"
             android:label="@string/title_activity_communications" />
+        <activity
+            android:name=".WordGame.ModeSelection"
+            android:label="@string/title_activity_mode_selection"></activity>
     </application>
 
 </manifest>

@@ -15,6 +15,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.hardware.SensorManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.Ringtone;
@@ -22,6 +23,7 @@ import android.media.ToneGenerator;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Vibrator;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -137,6 +139,9 @@ public class Phase_I_wg_2Player extends Activity implements CompoundButton.OnChe
 
     private Firebase mRef;
     boolean[][] buttonState = new boolean[9][9];
+    private SensorManager mSensorManager;
+
+    private ShakeEventListener mSensorListener;
 
     private Context mContext;
 ////////////@Declaration-end
@@ -264,10 +269,23 @@ public class Phase_I_wg_2Player extends Activity implements CompoundButton.OnChe
                 Set_List_To_Null();
 //               countDownTimer.cancel();
                 finish();
-                Intent intent = new Intent(edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Phase_I_wg.this, edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Phase_I_wg.class);
+                Intent intent = new Intent(Phase_I_wg_2Player.this, Phase_I_wg_2Player.class);
                 startActivity(intent);
 
 
+            }
+        });
+        final Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mSensorListener = new ShakeEventListener();
+
+        mSensorListener.setOnShakeListener(new ShakeEventListener.OnShakeListener() {
+
+            public void onShake() {
+                pausegame(null);
+
+                v.vibrate(500);
+                Toast.makeText(Phase_I_wg_2Player.this, "GAME PAUSED", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -1158,7 +1176,7 @@ public class Phase_I_wg_2Player extends Activity implements CompoundButton.OnChe
     public void startnextphase() {
 
         Toast.makeText(getApplicationContext(), "PHASE-II STARTED", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Phase_I_wg.this, Phase_II_wg_2Player.class);
+        Intent intent = new Intent(Phase_I_wg_2Player.this, Phase_II_wg_2Player.class);
         startActivity(intent);
         finish();
     }

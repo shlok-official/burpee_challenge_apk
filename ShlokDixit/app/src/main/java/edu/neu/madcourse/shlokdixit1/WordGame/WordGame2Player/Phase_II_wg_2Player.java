@@ -1,14 +1,17 @@
 package edu.neu.madcourse.shlokdixit1.WordGame.WordGame2Player;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.hardware.SensorManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Vibrator;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -75,6 +78,9 @@ public class Phase_II_wg_2Player extends AppCompatActivity implements CompoundBu
     //TextView Bonus;
     TextView points_tv;
     ToneGenerator tone;
+    private SensorManager mSensorManager;
+
+    private ShakeEventListener mSensorListener;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -138,10 +144,23 @@ public class Phase_II_wg_2Player extends AppCompatActivity implements CompoundBu
                 Set_List_To_Null();
 //                countDownTimer.cancel();
                 finish();
-                Intent intent = new Intent(edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Phase_II_wg.this, edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Phase_II_wg.class);
+                Intent intent = new Intent(Phase_II_wg_2Player.this, Phase_II_wg_2Player.class);
                 startActivity(intent);
 
 
+            }
+        });
+        final Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mSensorListener = new ShakeEventListener();
+
+        mSensorListener.setOnShakeListener(new ShakeEventListener.OnShakeListener() {
+
+            public void onShake() {
+                pausegame(null);
+
+                v.vibrate(500);
+                Toast.makeText(Phase_II_wg_2Player.this, "GAME PAUSED", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -243,7 +262,7 @@ public class Phase_II_wg_2Player extends AppCompatActivity implements CompoundBu
 
     public void startnextphase() {
         Toast.makeText(getApplicationContext(), "GAME OVER", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Phase_II_wg.this, Final_score_wd.class);
+        Intent intent = new Intent(Phase_II_wg_2Player.this, Final_score_wd.class);
         startActivity(intent);
         finish();
     }

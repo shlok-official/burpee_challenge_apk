@@ -1,4 +1,4 @@
-package edu.neu.madcourse.shlokdixit1.WordGame.WordGame2Player;
+package edu.neu.madcourse.shlokdixit1.WordGame.TwoPlayerWordGame;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -32,8 +32,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import edu.neu.madcourse.shlokdixit1.R;
-import edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Accumulator;
-import edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Final_score_wd;
+import edu.neu.madcourse.shlokdixit1.WordGame.SinglePlayerWordGame.Accumulator;
+import edu.neu.madcourse.shlokdixit1.WordGame.SinglePlayerWordGame.Final_score_wd;
 
 
 /**
@@ -89,6 +89,7 @@ public class Phase_II_wg_2Player extends AppCompatActivity implements CompoundBu
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_game_wg_phase_2);
+        setTitle("Two Player Word Game");
         t = (ToggleButton) findViewById(R.id.togglebutton1);
         t.setOnCheckedChangeListener(this);
         startCountDownTimer();

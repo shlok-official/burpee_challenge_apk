@@ -1,4 +1,4 @@
-package edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player;
+package edu.neu.madcourse.shlokdixit1.WordGame.SinglePlayerWordGame;
 
 /**
  * Created by shlokdixit on 24/02/16.

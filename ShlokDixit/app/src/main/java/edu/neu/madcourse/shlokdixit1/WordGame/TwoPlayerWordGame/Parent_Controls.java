@@ -1,4 +1,4 @@
-package edu.neu.madcourse.shlokdixit1.WordGame.WordGame2Player;
+package edu.neu.madcourse.shlokdixit1.WordGame.TwoPlayerWordGame;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -15,8 +15,8 @@ import android.content.DialogInterface;
 
 import edu.neu.madcourse.shlokdixit1.R;
 import edu.neu.madcourse.shlokdixit1.WordGame.*;
-import edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Communication;
-import edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Phase_I_wg;
+import edu.neu.madcourse.shlokdixit1.WordGame.SinglePlayerWordGame.Communication;
+import edu.neu.madcourse.shlokdixit1.WordGame.SinglePlayerWordGame.Phase_I_wg;
 
 public class Parent_Controls extends Activity implements CompoundButton.OnCheckedChangeListener {
 
@@ -58,7 +58,7 @@ public class Parent_Controls extends Activity implements CompoundButton.OnChecke
         Continue_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Parent_Controls.this, Phase_I_wg.class);
+                Intent intent = new Intent(edu.neu.madcourse.shlokdixit1.WordGame.SinglePlayerWordGame.Parent_Controls.this, Phase_I_wg.class);
                 //------>>>>>>
                 //intent.putExtra(Phase_I_wg_2Player.KEY_RESTORE, true);
                // datarestore.restoredata();
@@ -78,7 +78,7 @@ public class Parent_Controls extends Activity implements CompoundButton.OnChecke
         New_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Parent_Controls.this, Phase_I_wg.class);
+                Intent intent = new Intent(edu.neu.madcourse.shlokdixit1.WordGame.SinglePlayerWordGame.Parent_Controls.this, Phase_I_wg.class);
                 startActivity(intent);
             }
         });
@@ -96,7 +96,7 @@ public class Parent_Controls extends Activity implements CompoundButton.OnChecke
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Parent_Controls.this, WordGameCredits.class);
+                Intent intent = new Intent(edu.neu.madcourse.shlokdixit1.WordGame.SinglePlayerWordGame.Parent_Controls.this, WordGameCredits.class);
                 startActivity(intent);
             }
         });
@@ -104,7 +104,7 @@ public class Parent_Controls extends Activity implements CompoundButton.OnChecke
         About_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Parent_Controls.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(edu.neu.madcourse.shlokdixit1.WordGame.SinglePlayerWordGame.Parent_Controls.this);
                 builder.setMessage(R.string.about_text_wg);
                 builder.setCancelable(false);
                 builder.setPositiveButton(R.string.ok_label,
@@ -123,7 +123,7 @@ public class Parent_Controls extends Activity implements CompoundButton.OnChecke
         communication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Parent_Controls.this, Communication.class);
+                Intent intent = new Intent(edu.neu.madcourse.shlokdixit1.WordGame.SinglePlayerWordGame.Parent_Controls.this, Communication.class);
                 startActivity(intent);
             }
         });

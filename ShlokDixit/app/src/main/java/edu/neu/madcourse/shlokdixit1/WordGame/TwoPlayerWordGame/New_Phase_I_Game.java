@@ -1,4 +1,4 @@
-package edu.neu.madcourse.shlokdixit1.WordGame.WordGame2Player;
+package edu.neu.madcourse.shlokdixit1.WordGame.TwoPlayerWordGame;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -23,7 +23,7 @@ import java.util.Collections;
 
 import edu.neu.madcourse.shlokdixit1.R;
 import edu.neu.madcourse.shlokdixit1.TicTacToe.Tile;
-import edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Accumulator;
+import edu.neu.madcourse.shlokdixit1.WordGame.SinglePlayerWordGame.Accumulator;
 
 /**
  * Created by shlokdixit on 08/03/16.

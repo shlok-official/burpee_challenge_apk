@@ -6,7 +6,7 @@
  * We make no guarantees that this code is fit for any purpose.
  * Visit http://www.pragmaticprogrammer.com/titles/eband4 for more book information.
  ***/
-package edu.neu.madcourse.shlokdixit1.WordGame.WordGame2Player;
+package edu.neu.madcourse.shlokdixit1.WordGame.SinglePlayerWordGame;
 
 
 import android.app.Activity;
@@ -15,7 +15,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.hardware.SensorManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.Ringtone;
@@ -23,7 +22,6 @@ import android.media.ToneGenerator;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Vibrator;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -52,10 +50,9 @@ import java.util.Set;
 
 import edu.neu.madcourse.shlokdixit1.R;
 import edu.neu.madcourse.shlokdixit1.TicTacToe.Tile;
-import edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Accumulator;
 
 
-public class Phase_I_wg_2Player extends Activity implements CompoundButton.OnCheckedChangeListener {
+public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChangeListener {
     public static final String KEY_RESTORE = "key_restore";
     public static final String PREF_RESTORE = "pref_restore";
     public static final String MyPREFERENCES = "MyPrefs" ;
@@ -73,8 +70,8 @@ public class Phase_I_wg_2Player extends Activity implements CompoundButton.OnChe
 
 
 
-    boolean[] wordSelected = new boolean[9]; // set true if a word is found in a 3x3 tile (smaill tile)
-    boolean[][] letterClicked = new boolean[9][9]; // if a letter was clicked in 9x9 board (it is used to restore the game later on)
+    boolean[] wordSelected = new boolean[9];
+    boolean[][] letterClicked = new boolean[9][9];
     boolean[][] correctClicks = new boolean[9][9];
     long miliSecsLeft;
     //int large, small;
@@ -139,9 +136,6 @@ public class Phase_I_wg_2Player extends Activity implements CompoundButton.OnChe
 
     private Firebase mRef;
     boolean[][] buttonState = new boolean[9][9];
-    private SensorManager mSensorManager;
-
-    private ShakeEventListener mSensorListener;
 
     private Context mContext;
 ////////////@Declaration-end
@@ -269,23 +263,10 @@ public class Phase_I_wg_2Player extends Activity implements CompoundButton.OnChe
                 Set_List_To_Null();
 //               countDownTimer.cancel();
                 finish();
-                Intent intent = new Intent(Phase_I_wg_2Player.this, Phase_I_wg_2Player.class);
+                Intent intent = new Intent(Phase_I_wg.this, Phase_I_wg.class);
                 startActivity(intent);
 
 
-            }
-        });
-        final Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mSensorListener = new ShakeEventListener();
-
-        mSensorListener.setOnShakeListener(new ShakeEventListener.OnShakeListener() {
-
-            public void onShake() {
-                pausegame(null);
-
-                v.vibrate(500);
-                Toast.makeText(Phase_I_wg_2Player.this, "GAME PAUSED", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -1176,7 +1157,7 @@ public class Phase_I_wg_2Player extends Activity implements CompoundButton.OnChe
     public void startnextphase() {
 
         Toast.makeText(getApplicationContext(), "PHASE-II STARTED", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(Phase_I_wg_2Player.this, Phase_II_wg_2Player.class);
+        Intent intent = new Intent(Phase_I_wg.this, Phase_II_wg.class);
         startActivity(intent);
         finish();
     }
@@ -1234,50 +1215,15 @@ public class Phase_I_wg_2Player extends Activity implements CompoundButton.OnChe
         mMediaPlayer.stop();
         mMediaPlayer.reset();
         mMediaPlayer.release();
-        /*
-        String gameData = this.getState();
-        getPreferences(MODE_PRIVATE).edit()
-                .putString(PREF_RESTORE, gameData)
-                .commit();
-*/
+
         fetchdata();
 
     }
 
     @Override
     public void onResume() {
-        super.onResume();  // Always call the superclass method first
-        //restoredata();
-       //Toast.makeText(this.getApplicationContext(), " RESTORED", Toast.LENGTH_SHORT).show();
+        super.onResume();
     }
-/*
-    public String getState() {
-
-
-        StringBuilder builder = new StringBuilder();
-        builder.append(points);
-        builder.append(',');
-        builder.append(bonusPoints);
-        builder.append(',');
-
-
-        return builder.toString();
-
-    }*/
-
-    /**
-     * Restore the state of the game from the given string.
-     */
-
-/*
-    public void putState(String gameData) {
-        String[] fields = gameData.split(",");
-        int index = 0;
-        points = Integer.parseInt(fields[index++]);
-        bonusPoints = Integer.parseInt(fields[index++]);
-
-
-    }*/
 
 
 }

@@ -43,7 +43,7 @@
             android:screenOrientation="portrait" />
         >
         <activity
-            android:name=".WordGame.WordGame1Player.Phase_I_wg"
+            android:name=".WordGame.SinglePlayerWordGame.Phase_I_wg"
             android:label="@string/app_name"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
@@ -54,11 +54,11 @@
             android:name=".Dictionary.TestDictionary"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".WordGame.WordGame1Player.Phase_II_wg"
+            android:name=".WordGame.SinglePlayerWordGame.Phase_II_wg"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".WordGame.WordGame1Player.Final_score_wd"
+            android:name=".WordGame.SinglePlayerWordGame.Final_score_wd"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait" />
         <activity
@@ -66,24 +66,24 @@
             android:label="@string/title_activity_dictionary_credits"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".WordGame.WordGame2Player.Phase_I_wg_2Player"
+            android:name=".WordGame.TwoPlayerWordGame.Phase_I_wg_2Player"
             android:label="@string/title_activity_dictionary_credits"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".WordGame.WordGame2Player.Phase_II_wg_2Player"
+            android:name=".WordGame.TwoPlayerWordGame.Phase_II_wg_2Player"
             android:label="@string/title_activity_dictionary_credits"
             android:screenOrientation="portrait" />
         <activity
             android:name=".WordGame.WordGameCredits"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".WordGame.WordGame1Player.Parent_Controls"
+            android:name=".WordGame.SinglePlayerWordGame.Parent_Controls"
             android:label="@string/title_activity_parent__controls" />
         <activity
-            android:name=".WordGame.WordGame1Player.New_Phase_I_Game"
+            android:name=".WordGame.SinglePlayerWordGame.New_Phase_I_Game"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".WordGame.WordGame1Player.Communication"
+            android:name=".WordGame.SinglePlayerWordGame.Communication"
             android:label="@string/title_activity_communications" />
         <activity
             android:name=".WordGame.ModeSelection"

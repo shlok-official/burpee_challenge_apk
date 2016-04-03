@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 import edu.neu.madcourse.shlokdixit1.R;
-import edu.neu.madcourse.shlokdixit1.WordGame.WordGame1Player.Phase_I_wg;
-import edu.neu.madcourse.shlokdixit1.WordGame.WordGame2Player.Phase_I_wg_2Player;
+import edu.neu.madcourse.shlokdixit1.WordGame.SinglePlayerWordGame.Phase_I_wg;
+import edu.neu.madcourse.shlokdixit1.WordGame.TwoPlayerWordGame.Phase_I_wg_2Player;
 
 public class ModeSelection extends Activity {
 

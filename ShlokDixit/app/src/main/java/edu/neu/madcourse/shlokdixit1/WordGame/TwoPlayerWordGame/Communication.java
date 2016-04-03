@@ -1,17 +1,14 @@
-package edu.neu.madcourse.shlokdixit1.WordGame.WordGame2Player;
+package edu.neu.madcourse.shlokdixit1.WordGame.TwoPlayerWordGame;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
-import com.firebase.client.core.view.View;
 
 import edu.neu.madcourse.shlokdixit1.R;
 

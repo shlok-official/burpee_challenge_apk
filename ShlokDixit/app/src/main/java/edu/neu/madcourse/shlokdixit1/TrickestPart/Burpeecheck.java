@@ -8,7 +8,7 @@ import android.hardware.SensorManager;
 /**
  * Created by shlokdixit on 01/04/16.
  */
-public class ShakeEventListener implements SensorEventListener {
+public class Burpeecheck implements SensorEventListener {
 
     /** Minimum movement force to consider. */
     private static final int MIN_FORCE = 1000;

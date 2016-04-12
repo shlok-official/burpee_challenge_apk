@@ -7,7 +7,6 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import edu.neu.madcourse.shlokdixit1.R;
 
@@ -15,7 +14,7 @@ public class TrickestPart extends Activity {
 
     private SensorManager mSensorManager;
 
-    private ShakeEventListener mSensorListener;
+    private Burpeecheck mSensorListener;
     int count;
     int num;
 
@@ -27,8 +26,8 @@ public class TrickestPart extends Activity {
         setContentView(R.layout.activity_trickest_part);
         final Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mSensorListener = new ShakeEventListener();
-        mSensorListener.setOnShakeListener(new ShakeEventListener.OnShakeListener() {
+        mSensorListener = new Burpeecheck();
+        mSensorListener.setOnShakeListener(new Burpeecheck.OnShakeListener() {
 
             public void onShake()                  {
                 count ++;

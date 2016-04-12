@@ -34,7 +34,7 @@ public class TrickestPart extends Activity {
                 count = count+1;
                 TextView Burpee=(TextView)findViewById(R.id.Burpee);
                 Burpee.setText(String.valueOf(count));
-                Toast.makeText(TrickestPart.this, "Shake!", Toast.LENGTH_SHORT).show();
+
             }
         });
     }

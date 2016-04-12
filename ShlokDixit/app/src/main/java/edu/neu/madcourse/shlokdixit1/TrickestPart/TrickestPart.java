@@ -17,6 +17,7 @@ public class TrickestPart extends Activity {
 
     private ShakeEventListener mSensorListener;
     int count;
+    int num;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +31,13 @@ public class TrickestPart extends Activity {
         mSensorListener.setOnShakeListener(new ShakeEventListener.OnShakeListener() {
 
             public void onShake()                  {
-                v.vibrate(500);
-                count = count+1;
-                TextView Burpee=(TextView)findViewById(R.id.Burpee);
-                Burpee.setText(String.valueOf(count));
-
+                count ++;
+                if(count == 10) {
+                    num++;
+                    TextView Burpee = (TextView) findViewById(R.id.Burpee);
+                    Burpee.setText(String.valueOf(num));
+                    count = 0;
+                }
             }
         });
     }

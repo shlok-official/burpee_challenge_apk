@@ -34,6 +34,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".FinalProject.finalproject"
+            android:label="NUMAD16S-BurpeeChallenge"
+            android:icon="@drawable/burpee_icon"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".SecondActivity"
             android:screenOrientation="portrait" />

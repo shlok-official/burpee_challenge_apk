@@ -1,0 +1,61 @@
+{
+  "project_info": {
+    "project_id": "shlokdixit-78fa7",
+    "project_number": "6783188883",
+    "name": "ShlokDixit"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6783188883:android:4bf3e58a23252fe1",
+        "client_id": "android:edu.neu.madcourse.shlokdixit1",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "edu.neu.madcourse.shlokdixit1",
+          "certificate_hash": []
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6783188883-um8pk06e3hk0u4fe53koq21pe4da8irp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.neu.madcourse.shlokdixit1",
+            "certificate_hash": "90315E604735E73144FD96C7D7135AA37E07CAA9"
+          }
+        },
+        {
+          "client_id": "6783188883-dcl4uoglu0u4hurteihuka86c8fi1vpo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 2,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6783188883-dcl4uoglu0u4hurteihuka86c8fi1vpo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}

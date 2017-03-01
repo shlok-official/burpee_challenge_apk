@@ -29,4 +29,4 @@ Upon installing the app creates two icons on phone.
 
 * Integration with Facebook and Google+.
 
-**Authors**: > Shlok Dixit/Mayank Ranjan Dayal
+**Authors**: > Shlok Dixit/Mayank Ranjan Dayal[https://github.com/mayankrd] (Mayank Ranjan Dayal)

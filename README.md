@@ -1,6 +1,7 @@
 ## Installation and Editing instructions
 
 ***
+Hi Kyle please install both the APK's and use the GREEN icon of BURPEE CHALLENGE
 
 This complete Android Studio project makes up an Android mobile application which contains multiple projects intergrated as one app. This one app contains the `Burpee Challenge app` and `the Scraggle game.`
 

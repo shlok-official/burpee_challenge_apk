@@ -10,7 +10,7 @@ public class WordGameCredits extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.wordgameCredits);
+        setContentView(R.layout.wordgamecredits);
         setTitle("ACKNOWLEDGEMENTS");
     }
 

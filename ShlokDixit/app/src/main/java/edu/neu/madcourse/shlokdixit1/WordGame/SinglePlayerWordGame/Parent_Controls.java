@@ -16,7 +16,7 @@ import android.content.DialogInterface;
 import edu.neu.madcourse.shlokdixit1.R;
 import edu.neu.madcourse.shlokdixit1.WordGame.WordGameCredits;
 
-public class Parent_Controls extends Activity implements CompoundButton.OnCheckedChangeListener {
+public  class Parent_Controls extends Activity implements CompoundButton.OnCheckedChangeListener {
 
     MediaPlayer mMediaPlayer;
     ToggleButton t;
@@ -33,7 +33,7 @@ public class Parent_Controls extends Activity implements CompoundButton.OnChecke
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.wordGameHomeScreen);
+        setContentView(R.layout.wordgamehomescreen);
 
 
         setTitle("WORD GAME");

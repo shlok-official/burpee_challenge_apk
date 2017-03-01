@@ -1,4 +1,9 @@
 package edu.neu.madcourse.shlokdixit1.communications;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+
+
+
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -17,6 +22,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import edu.neu.madcourse.shlokdixit1.R;
+import edu.neu.madcourse.shlokdixit1.communications.CommunicationConstants;
+import edu.neu.madcourse.shlokdixit1.communications.GcmNotification;
+import edu.neu.madcourse.shlokdixit1.communications.RemoteClient;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -72,9 +81,9 @@ public class CommunicationMain extends Activity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.communication_main);
-        mDisplay = (TextView) findViewById(R.id.communication_display);
-        mMessage = (EditText) findViewById(R.id.communication_edit_message);
+//        setContentView(R.layout.communication_main);
+//        mDisplay = (TextView) findViewById(R.id.communication_display);
+//        mMessage = (EditText) findViewById(R.id.communication_edit_message);
         gcm = GoogleCloudMessaging.getInstance(this);
         context = getApplicationContext();
         /////
@@ -256,8 +265,9 @@ public class CommunicationMain extends Activity implements OnClickListener {
         return true;
     }
 
+
     @Override
-    public void onClick(final View view) {
+    public void onClick(final View view) {/*
         if (view == findViewById(R.id.communication_send)) {
             String message = ((EditText) findViewById(R.id.communication_edit_message))
                     .getText().toString();
@@ -278,7 +288,7 @@ public class CommunicationMain extends Activity implements OnClickListener {
                     registerInBackground();
                 }
             }
-        }
+        }*/
 
     }
 
@@ -302,8 +312,8 @@ public class CommunicationMain extends Activity implements OnClickListener {
             protected void onPostExecute(String msg) {
                 removeRegistrationId(getApplicationContext());
                 Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
-                ((TextView) findViewById(R.id.communication_display))
-                        .setText(regid);
+                //((TextView) findViewById(R.id.communication_display))
+                   //     .setText(regid);
             }
         }.execute();
     }
@@ -337,21 +347,21 @@ public class CommunicationMain extends Activity implements OnClickListener {
                 String msg = "";
                 List<String> regIds = new ArrayList<String>();
                 String reg_device = "APA91bFdfuk83H44rQvKtpZoSnbNjS1Es4jUUzFtsBl2Ks3N7x7wSD7q53ozwpmnAVLK2EZGufbw_86j4hOat_esS4ccVVUs02DSSS_CQOZy6PQypJsqP5eBc_JF13yyq-b10aPBF6x0joQkRHNh9KL5-xR5huPAiQ";
-                int nIcon = R.drawable.ic_stat_cloud;
+                //int nIcon = R.drawable.ic_stat_cloud;
                 int nType = CommunicationConstants.SIMPLE_NOTIFICATION;
                 Map<String, String> msgParams;
                 msgParams = new HashMap<String, String>();
                 msgParams.put("data.alertText", "Notification");
                 msgParams.put("data.titleText", "Notification Title");
                 msgParams.put("data.contentText", message);
-                msgParams.put("data.nIcon", String.valueOf(nIcon));
+                //msgParams.put("data.nIcon", String.valueOf(nIcon));
                 msgParams.put("data.nType", String.valueOf(nType));
                 setSendMessageValues(message);
                 GcmNotification gcmNotification = new GcmNotification();
                 regIds.clear();
                 regIds.add(reg_device);
                 gcmNotification.sendNotification(msgParams, regIds,
-                        edu.neu.madcourse.gcmsampledemo.CommunicationMain.this);
+                        edu.neu.madcourse.shlokdixit1.communications.CommunicationMain.this);
                 msg = "sending information...";
                 return msg;
             }
@@ -362,4 +372,6 @@ public class CommunicationMain extends Activity implements OnClickListener {
             }
         }.execute(null, null, null);
     }
+
+
 }

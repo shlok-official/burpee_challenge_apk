@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import edu.neu.madcourse.shlokdixit1.R;
+
 public class GcmIntentService extends IntentService {
 	public static final int NOTIFICATION_ID = 1;
 	private NotificationManager mNotificationManager;
@@ -43,7 +45,7 @@ public class GcmIntentService extends IntentService {
 				.getSystemService(Context.NOTIFICATION_SERVICE);
 		Intent notificationIntent;
 		notificationIntent = new Intent(this,
-				edu.neu.madcourse.gcmsampledemo.CommunicationMain.class);
+				edu.neu.madcourse.shlokdixit1.communications.CommunicationMain.class);
 		notificationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		notificationIntent.putExtra("show_response", "show_response");
 		PendingIntent intent = PendingIntent.getActivity(this, 0, new Intent(

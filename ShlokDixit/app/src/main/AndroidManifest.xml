@@ -35,8 +35,8 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".FinalProject.finalproject"
+        <activitys
+            android:name=".FinalProject.BurpeeScreenZero"
             android:label="NUMAD16S-BurpeeChallenge"
             android:icon="@drawable/burpee_icon"
             android:screenOrientation="portrait">
@@ -45,7 +45,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activitys>
         <activity
             android:name=".SecondActivity"
             android:screenOrientation="portrait" />
@@ -99,16 +99,12 @@
             android:label="@string/title_activity_communications" />
         <activity
             android:name=".TrickestPart.TrickestPart"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="com.shlok.tp" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+            android:screenOrientation="portrait"
+            android:label="TrickestPart"/>
         <activity
             android:name=".WordGame.ModeSelection"
-            android:label="@string/title_activity_mode_selection"></activity>
+            android:label="@string/title_activity_mode_selection">
+        </activity>
     </application>
 
 </manifest>

@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import edu.neu.madcourse.shlokdixit1.R;
 
+/*
+
 public class finalproject extends Activity {
 
     @Override
@@ -15,3 +17,4 @@ public class finalproject extends Activity {
     }
 
 }
+*/

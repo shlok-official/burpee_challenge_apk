@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import edu.neu.madcourse.shlokdixit1.Dictionary.TestDictionary;
+import edu.neu.madcourse.shlokdixit1.TrickestPart.TrickestPart;
 import edu.neu.madcourse.shlokdixit1.WordGame.SinglePlayerWordGame.Parent_Controls;
 import edu.neu.madcourse.shlokdixit1.TicTacToe.MainActivity;
 
@@ -66,6 +67,13 @@ public class FirstActivity extends AppCompatActivity {
     public void wordgame(View view) {
 
         Intent intent = new Intent(this, Parent_Controls.class);
+        startActivity(intent);
+
+
+    }
+    public void communication(View view) {
+
+        Intent intent = new Intent(this, TrickestPart.class);
         startActivity(intent);
 
 

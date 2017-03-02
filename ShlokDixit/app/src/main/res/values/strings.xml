@@ -32,4 +32,15 @@ both sides in the larger game.
     <string name="title_activity_parent__controls">Parent_Controls</string>
     <string name="title_activity_communications">communications</string>
     <string name="title_activity_mode_selection">ModeSelection</string>
+
+    <string name="title_activity_burpee_screen_1">Burpee_screen_1</string>
+    <string name="title_activity_burpee_screnn_2">Burpee_screnn_2</string>
+    <string name="title_activity_burpee_summary_screen">Burpee_summary_screen</string>
+    <string name="title_activity_burpee_main">BurpeeMainActivity</string>
+    <string name="title_activity_burpee_ack">BurpeeAck</string>
+    <string name="title_activity_trickiest_part">Trickiest Part</string>
+    <string name="title_activity_burpee_count">BurpeeCount</string>
+    <string name="facebook_app_id">1522549164720204</string>
+
+    <string name="burpee_app_name">BurpeeChallenge</string>
 </resources>

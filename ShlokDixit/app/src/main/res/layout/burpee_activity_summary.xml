@@ -76,16 +76,6 @@
         android:layout_centerHorizontal="true"
         style="@style/TextViewStyle_Burpee"/>
 
-    <ImageButton
-        android:layout_width="300sp"
-        android:layout_height="40sp"
-        android:src="@drawable/fb_challenge"
-        android:clickable="true"
-        android:onClick="share2fb"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/imageButton2" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,5 +86,15 @@
         android:layout_marginTop="46dp"
         android:onClick="retryGame"
         style="@style/ButtonStyle_Burpee"/>
+
+    <ImageButton
+        android:layout_width="300sp"
+        android:layout_height="40sp"
+        android:src="@drawable/fb_challenge"
+        android:clickable="true"
+        android:onClick="share2fb"
+        android:id="@+id/imageButton2"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

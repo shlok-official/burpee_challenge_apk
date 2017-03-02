@@ -38,19 +38,10 @@ public class BurpeeSummary extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         super.onCreate(savedInstanceState);
-
-        //AppEventsLogger.activateApp(this);
-        // accessToken = AccessToken.getCurrentAccessToken();
         setContentView(R.layout.burpee_activity_summary);
 
         manageBurpeeCounts();
-
-        //ShareButton shareButton = (ShareButton)findViewById(R.id.fb_share_button);
-        //shareButton.setShareContent(content);
-        //shareDialog = new ShareDialog(this);
         callbackManager = CallbackManager.Factory.create();
-        // shareDialog.show(this, content);
-        //MessageDialog.show(this, content);*/
 
     }
 

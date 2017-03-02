@@ -71,11 +71,11 @@ public class FirstActivity extends AppCompatActivity {
 
 
     }
-    public void communication(View view) {
-
-        Intent intent = new Intent(this, TrickestPart.class);
-        startActivity(intent);
-
-
-    }
+//    public void communication(View view) {
+//
+//        Intent intent = new Intent(this, TrickestPart.class);
+//        startActivity(intent);
+//
+//
+//    }
 }

@@ -63,20 +63,19 @@
         android:layout_margin="20sp"
         />
     <Button
-        android:id="@+id/trickestpart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/mybutton"
-        android:padding="@dimen/menu_button_padding"
-        android:onClick="communication"
-        android:text="TRICKEST PART"
-        android:layout_below="@+id/WordGame"
-        android:layout_marginTop="@dimen/menu_button_margin"
-        android:layout_marginBottom="@dimen/menu_button_margin"
-        android:layout_alignRight="@+id/WordGame"
-        android:layout_alignEnd="@+id/WordGame"
-        android:layout_alignLeft="@+id/WordGame"
-        android:layout_alignStart="@+id/WordGame" />
+    android:id="@+id/trickestpart"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/mybutton"
+    android:padding="@dimen/menu_button_padding"
+    android:text="TRICKEST PART"
+    android:layout_below="@+id/WordGame"
+    android:layout_marginTop="@dimen/menu_button_margin"
+    android:layout_marginBottom="@dimen/menu_button_margin"
+    android:layout_alignRight="@+id/WordGame"
+    android:layout_alignEnd="@+id/WordGame"
+    android:layout_alignLeft="@+id/WordGame"
+    android:layout_alignStart="@+id/WordGame" />
 
     <Button
         android:id="@+id/exit_button"

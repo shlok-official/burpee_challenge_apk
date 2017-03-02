@@ -1,8 +1,8 @@
 ## Installation and Editing instructions
 
 ***
-`Hi Kyle,`
-`please install both the APK's and use the **GREEN** icon of "NUMAD-BURPEE CHALLENGE". My main app had 5 seperate exciting apps. Burpee challenge which was our final assignment was to be opened by clicking the separate icon(GREEN COLOR) which is installed outside of the main app.Please see "IMAGES.pdf" for more detail`
+`Hi Kyle and Phil,`
+`**LATEST UPDATE** as on March 2 1:42 AM : just the single APK file works. I request you to download and check it out. Apologies for inconvenience. I created a  separate APK-removed the second APK dependency- fixed some bugs `
 
 This complete Android Studio project makes up an Android mobile application which contains multiple projects intergrated as one app. This one app contains the `Burpee Challenge app` and `the Scraggle game.`
 

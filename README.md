@@ -1,8 +1,6 @@
 ## Installation and Editing instructions
 
 ***
-`Hi Kyle and Phil,`
-`**LATEST UPDATE** as on March 2 1:42 AM : just the single APK file works. I request you to download and check it out. Apologies for inconvenience. I created a  separate APK-removed the second APK dependency- fixed some bugs `
 
 This complete Android Studio project makes up an Android mobile application which contains multiple projects intergrated as one app. This one app contains the `Burpee Challenge app` and `the Scraggle game.`
 
@@ -29,4 +27,4 @@ Upon installing the app creates two icons on phone.
 
 * Integration with Facebook and Google+.
 
-**Authors**: > Shlok Dixit/Mayank Ranjan Dayal[https://github.com/mayankrd] (Mayank Ranjan Dayal)
+**Authors**: > Shlok Dixit/Mayank Ranjan Dayal

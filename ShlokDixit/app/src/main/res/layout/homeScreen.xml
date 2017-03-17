@@ -51,37 +51,37 @@
         android:background="@drawable/mybutton"
         android:layout_margin="20sp"
         />
-    <Button
-        android:id="@+id/WordGame"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Dictionary"
-        android:onClick="wordgame"
-        android:text="WORD GAME"
-        style="?android:attr/borderlessButtonStyle"
-        android:background="@drawable/mybutton"
-        android:layout_margin="20sp"
-        />
-    <Button
-    android:id="@+id/trickestpart"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/mybutton"
-    android:padding="@dimen/menu_button_padding"
-    android:text="TRICKEST PART"
-    android:layout_below="@+id/WordGame"
-    android:layout_marginTop="@dimen/menu_button_margin"
-    android:layout_marginBottom="@dimen/menu_button_margin"
-    android:layout_alignRight="@+id/WordGame"
-    android:layout_alignEnd="@+id/WordGame"
-    android:layout_alignLeft="@+id/WordGame"
-    android:layout_alignStart="@+id/WordGame" />
+    <!--<Button-->
+        <!--android:id="@+id/WordGame"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/Dictionary"-->
+        <!--android:onClick="wordgame"-->
+        <!--android:text="WORD GAME"-->
+        <!--style="?android:attr/borderlessButtonStyle"-->
+        <!--android:background="@drawable/mybutton"-->
+        <!--android:layout_margin="20sp"-->
+        <!--/>-->
+    <!--<Button-->
+    <!--android:id="@+id/trickestpart"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@drawable/mybutton"-->
+    <!--android:padding="@dimen/menu_button_padding"-->
+    <!--android:text="TRICKEST PART"-->
+    <!--android:layout_below="@+id/WordGame"-->
+    <!--android:layout_marginTop="@dimen/menu_button_margin"-->
+    <!--android:layout_marginBottom="@dimen/menu_button_margin"-->
+    <!--android:layout_alignRight="@+id/WordGame"-->
+    <!--android:layout_alignEnd="@+id/WordGame"-->
+    <!--android:layout_alignLeft="@+id/WordGame"-->
+    <!--android:layout_alignStart="@+id/WordGame" />-->
 
     <Button
         android:id="@+id/exit_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/trickestpart"
+        android:layout_below="@+id/Dictionary"
         android:onClick="exit"
         android:text="QUIT"
         style="?android:attr/borderlessButtonStyle"

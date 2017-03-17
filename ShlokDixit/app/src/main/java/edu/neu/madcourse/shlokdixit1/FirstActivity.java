@@ -32,15 +32,15 @@ public class FirstActivity extends AppCompatActivity {
         });
 
 
-        Button Gen_error = (Button) findViewById(R.id.Gen_Err);
-        Gen_error.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                int a= 1/0;
-
-            }
-        });
+//        Button Gen_error = (Button) findViewById(R.id.Gen_Err);
+//        Gen_error.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                int a= 1/0;
+//
+//            }
+//        });
 
     }
     public void ABOUT(View view) {
@@ -64,13 +64,13 @@ public class FirstActivity extends AppCompatActivity {
 
 
     }
-    public void wordgame(View view) {
-
-        Intent intent = new Intent(this, Parent_Controls.class);
-        startActivity(intent);
-
-
-    }
+//    public void wordgame(View view) {
+//
+//        Intent intent = new Intent(this, Parent_Controls.class);
+//        startActivity(intent);
+//
+//
+//    }
 //    public void communication(View view) {
 //
 //        Intent intent = new Intent(this, TrickestPart.class);

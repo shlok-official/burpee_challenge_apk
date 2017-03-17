@@ -596,7 +596,6 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
                     Accumulator.getInstance().setPoints(points);
                     Accumulator.getInstance().setBonusPoints(bonusPoints);
                     points_tv.setText("Points: " + Integer.toString(points));
-                    //points_tv.setText("Points: " + Integer.toString(points));
                 } else
                     Toast.makeText(this.getApplicationContext(), "InCorrect Word !", Toast.LENGTH_SHORT).show();
             } else {

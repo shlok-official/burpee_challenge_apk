@@ -37,7 +37,7 @@
 
         <activity
             android:name=".FinalProject.BurpeeScreenZero"
-            android:label="NUMAD16S-BurpeeChallenge"
+            android:label="BurpeeChallenge"
             android:icon="@drawable/burpee_icon"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -68,6 +68,9 @@
         <activity
             android:name=".WordGame.SinglePlayerWordGame.Phase_II_wg"
             android:launchMode="singleInstance"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TicTacToe.Phase_II_UTTT"
             android:screenOrientation="portrait" />
         <activity
             android:name=".WordGame.SinglePlayerWordGame.Final_score_wd"

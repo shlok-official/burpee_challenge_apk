@@ -46,10 +46,7 @@ public class GameActivity extends Activity {
             mGameFragment.putState(gameData);
          }
       }
-     // Log.d("UT3", "restore = " + restore);
-
 final TextView timer;
-      ///////////////
       timer=(TextView) findViewById(R.id.timer2);
       new CountDownTimer(10000, 1000) {
 
@@ -62,27 +59,11 @@ final TextView timer;
 
             Intent intent = new Intent(GameActivity.this, Phase_II_UTTT.class);
             startActivity(intent);
-           // timer.setText("Phase-II Started");
-
 
          }
 
       }.start();
 
-      //////////////////////////////////////
-      /*
-      final int interval = 10000; // 1 Second
-      Handler handler = new Handler();
-      Runnable runnable = new Runnable(){
-         public void run() {
-            Toast.makeText(GameActivity.this, "C'Mom no hands!", Toast.LENGTH_SHORT).show();
-            finish();
-         }
-      };
-
-      handler.postAtTime(runnable, System.currentTimeMillis()+interval);
-      handler.postDelayed(runnable, interval);
-      //////////////////////////////////////////////////////*/
    }
 
    public void restartGame() {

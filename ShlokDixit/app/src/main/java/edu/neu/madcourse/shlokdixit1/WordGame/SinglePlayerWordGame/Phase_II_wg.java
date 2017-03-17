@@ -75,8 +75,6 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
     ToneGenerator tone;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        // this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setTitle("PHASE-II");
         super.onCreate(savedInstanceState);
 
@@ -91,17 +89,6 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
         smallPos.add(99);
         largePos.add(99);
         tone = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
-        ////////////////////////////////////////////////////////
-        //TextView myText = (TextView) findViewById(R.id.phase);
-/*
-        Animation anim = new AlphaAnimation(0.0f, 1.0f);
-        anim.setDuration(50); //You can manage the blinking time with this parameter
-        anim.setStartOffset(20);
-        anim.setRepeatMode(Animation.REVERSE);
-        anim.setRepeatCount(Animation.INFINITE);
-        myText.startAnimation(anim);*/
-        ////////////////////////////////////////////////////////
-
 
         // @fill PHASE-II WORD GAME tiles as per data received from PHASE-I
         bonusPoints = Accumulator.getInstance().getBonusPoints();
@@ -246,7 +233,6 @@ public class Phase_II_wg extends AppCompatActivity implements CompoundButton.OnC
         finish();
     }
 
-    ////////////////////////////////
     public void pausegame(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("GAME PAUSED")

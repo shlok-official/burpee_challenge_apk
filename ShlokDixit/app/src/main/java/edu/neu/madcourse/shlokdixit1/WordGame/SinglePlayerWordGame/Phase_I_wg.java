@@ -74,10 +74,10 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
     boolean[][] letterClicked = new boolean[9][9];
     boolean[][] correctClicks = new boolean[9][9];
     long miliSecsLeft;
-    //int large, small;
+
     ArrayList<Integer> smallPos = new ArrayList<Integer>();
     ArrayList<Integer> largePos = new ArrayList<Integer>();
-    ////////////@Declaration-starting
+
 
     static private int mLargeIds[] = {R.id.large1, R.id.large2, R.id.large3,
             R.id.large4, R.id.large5, R.id.large6, R.id.large7, R.id.large8,
@@ -87,8 +87,7 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
             R.id.small9,};
 
 
-    //private Handler mHandler = new Handler();
-    // private Tile mEntireBoard = new Tile(this);
+
     private Tile mLargeTiles[] = new Tile[9];//no use
     private Tile mSmallTiles[][] = new Tile[9][9];//no use
     private Tile.Owner mPlayer = Tile.Owner.X;//no use
@@ -215,16 +214,6 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
         initDataHolder();
         playGame();
 
-      /*  //@shared preferences
-        boolean restore = getIntent().getBooleanExtra(KEY_RESTORE, false);
-        if (restore) {
-            String gameData = getPreferences(MODE_PRIVATE)
-                    .getString(PREF_RESTORE, null);
-            if (gameData != null) {
-                this.putState(gameData);
-            }
-        }*/
-        //@shared preferences ending
 
         points_tv = (TextView) findViewById(R.id.score_I);
         points_tv.setText("Score: " + Integer.toString(points));
@@ -233,7 +222,7 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
         t.setOnCheckedChangeListener(this);
 
 
-/////////////////////////@match the word by calling checkword()
+///@match the word by calling checkword()
 
         Button checkword = (Button) findViewById(R.id.check_wg_1);
         checkword.setOnClickListener(new View.OnClickListener() {
@@ -246,11 +235,6 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
         Button mainmenu = (Button) findViewById(R.id.button_main_1);
         mainmenu.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Perform action on click
-                //String gameData = this.getState();
-               // getPreferences(MODE_PRIVATE).edit()
-                    //    .putString(PREF_RESTORE, gameData)
-                    //    .commit();
                 finish();
 
             }
@@ -285,9 +269,6 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
         editor.putInt("small", small);
         editor.putInt("largeLatest", largeLatest);
         editor.putInt("smallLatest", smallLatest);
-        //editor.putBoolean("lettersClicked", letterClicked[9][9]);
-        //editor.putBoolean("wordSelected", wordSelected[9]);
-        //editor.putBoolean("correctClicks", correctClicks[9][9]);
         Set<String> set = new HashSet<String>();
         set.addAll(inputWord);
         editor.putStringSet("inputWord", set);
@@ -329,23 +310,7 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
         smallLatest=sharedpreferences.getInt("smallLatest", 0);
 
         Set<String> set = sharedpreferences.getStringSet("inputWord", null);
-        //List<String> sample=new ArrayList<String>(set);
-
-      //  letterClicked=sharedpreferences.getBoolean("letterClicked",false[][]);
-       // wordSelected=sharedpreferences.getBoolean("wordSelected",true[]);
-
-
-        System.out.print("hello");
-
-/*
-        int size = gameWords.getInt("array_size", 0);
-        gameWords = new String[size];
-        for(int i=0; i<size; i++)
-            gameWords.getString("array_" + i, null);*/
     }
-
-
-
 
     //@ checkword()
 
@@ -365,8 +330,6 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
 
                     if (word.length() == 9)
                         bonusPoints = bonusPoints + 1;
-                   // Accumulator.getInstance().setPoints(points);
-                    //Accumulator.getInstance().setBonusPoints(bonusPoints);
                     points_tv.setText("Points: " + Integer.toString(points));
                     //--->
                     for (int i = 1; i < largePos.size(); i++) {
@@ -1162,7 +1125,6 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
         finish();
     }
 
-    /////////////////////
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
@@ -1183,7 +1145,6 @@ public class Phase_I_wg extends Activity implements CompoundButton.OnCheckedChan
         finish();
     }
 
-    ////////////////////////////////
     public void pausegame(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("GAME PAUSED")

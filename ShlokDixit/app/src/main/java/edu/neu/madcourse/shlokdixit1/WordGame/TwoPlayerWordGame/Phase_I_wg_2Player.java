@@ -240,7 +240,7 @@ public class Phase_I_wg_2Player extends Activity implements CompoundButton.OnChe
         t.setOnCheckedChangeListener(this);
 
 
-/////////////////////////@match the word by calling checkword()
+//@match the word by calling checkword()
 
         Button checkword = (Button) findViewById(R.id.check_wg_1);
         checkword.setOnClickListener(new View.OnClickListener() {
@@ -253,11 +253,6 @@ public class Phase_I_wg_2Player extends Activity implements CompoundButton.OnChe
         Button mainmenu = (Button) findViewById(R.id.button_main_1);
         mainmenu.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Perform action on click
-                //String gameData = this.getState();
-               // getPreferences(MODE_PRIVATE).edit()
-                    //    .putString(PREF_RESTORE, gameData)
-                    //    .commit();
                 finish();
 
             }
@@ -305,9 +300,6 @@ public class Phase_I_wg_2Player extends Activity implements CompoundButton.OnChe
         editor.putInt("small", small);
         editor.putInt("largeLatest", largeLatest);
         editor.putInt("smallLatest", smallLatest);
-        //editor.putBoolean("lettersClicked", letterClicked[9][9]);
-        //editor.putBoolean("wordSelected", wordSelected[9]);
-        //editor.putBoolean("correctClicks", correctClicks[9][9]);
         Set<String> set = new HashSet<String>();
         set.addAll(inputWord);
         editor.putStringSet("inputWord", set);
@@ -349,19 +341,6 @@ public class Phase_I_wg_2Player extends Activity implements CompoundButton.OnChe
         smallLatest=sharedpreferences.getInt("smallLatest", 0);
 
         Set<String> set = sharedpreferences.getStringSet("inputWord", null);
-        //List<String> sample=new ArrayList<String>(set);
-
-      //  letterClicked=sharedpreferences.getBoolean("letterClicked",false[][]);
-       // wordSelected=sharedpreferences.getBoolean("wordSelected",true[]);
-
-
-        System.out.print("hello");
-
-/*
-        int size = gameWords.getInt("array_size", 0);
-        gameWords = new String[size];
-        for(int i=0; i<size; i++)
-            gameWords.getString("array_" + i, null);*/
     }
 
 
@@ -370,7 +349,6 @@ public class Phase_I_wg_2Player extends Activity implements CompoundButton.OnChe
     //@ checkword()
 
     public void checkword() {
-        //inputWord = DataHolder.getInstance().getArl();
         if (inputWord != null) {
             String word = "";
             for (String s : inputWord) {
@@ -385,8 +363,6 @@ public class Phase_I_wg_2Player extends Activity implements CompoundButton.OnChe
 
                     if (word.length() == 9)
                         bonusPoints = bonusPoints + 1;
-                   // Accumulator.getInstance().setPoints(points);
-                    //Accumulator.getInstance().setBonusPoints(bonusPoints);
                     points_tv.setText("Points: " + Integer.toString(points));
                     //--->
                     for (int i = 1; i < largePos.size(); i++) {
